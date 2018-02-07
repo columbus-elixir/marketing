@@ -15,7 +15,14 @@ config :cbus_elixir, CbusElixirWeb.Endpoint,
   secret_key_base: "Elk89hIEey2E+LQSx/QKHfty6RE/mLggKUNyCJDzz8No5/rjIAJyW3h8TDnXg+Fa",
   render_errors: [view: CbusElixirWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: CbusElixir.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+           adapter: Phoenix.PubSub.PG2],
+  live_reload: [
+      patterns: [
+        ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+        ~r{web/views/.*(ex)$},
+        ~r{web/templates/.*(eex|haml)$}
+      ]
+    ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -25,3 +32,6 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :phoenix, :template_engines,
+  haml: PhoenixHaml.Engine
