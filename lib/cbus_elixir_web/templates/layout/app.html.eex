@@ -7,20 +7,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello CbusElixir!</title>
+    <title>Hello Columbus Elixir!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
-      <header class="header">
+      <%# <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
           </ul>
         </nav>
         <span class="logo"></span>
-      </header>
+      </header> %>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
