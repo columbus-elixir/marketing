@@ -15,14 +15,7 @@ config :cbus_elixir, CbusElixirWeb.Endpoint,
   secret_key_base: "Elk89hIEey2E+LQSx/QKHfty6RE/mLggKUNyCJDzz8No5/rjIAJyW3h8TDnXg+Fa",
   render_errors: [view: CbusElixirWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: CbusElixir.PubSub,
-           adapter: Phoenix.PubSub.PG2],
-  live_reload: [
-      patterns: [
-        ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-        ~r{web/views/.*(ex)$},
-        ~r{web/templates/.*(eex|haml)$}
-      ]
-    ]
+           adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

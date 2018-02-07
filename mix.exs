@@ -41,8 +41,7 @@ defmodule CbusElixir.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:materialize_sass, "~> 0.1.3"},
-      {:phoenix_haml, "~> 0.2"}
+      {:materialize_sass, "~> 0.1.3"}
     ]
   end
 
