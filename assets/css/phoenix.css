@@ -26,9 +26,9 @@ body, form, ul, table {
 }
 
 /* Customize container */
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .container {
-    max-width: 19200px;
+    max-width: 100%;
   }
 }
 

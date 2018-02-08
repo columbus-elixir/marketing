@@ -1,7 +1,7 @@
 /* This file is for your main application css. */
 
-#wrapper {
-    
+.container {
+    padding: 0;
 }
 .header {
     text-align: center;
@@ -29,11 +29,4 @@
     background: purple;
     color: white;
 }
-.left {
-    background: lightblue;
-    min-height: 200px;
-}
-.right {
-    background: lightgreen;
-    min-height: 200px;
-}
+

@@ -35,6 +35,27 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Where we meet</h3>
+          <address>
+            1234 Main St<br>
+            Columbus, OH 43202<br>
+          </address>
+        </div>
+        <div class="col-md-4">
+          <h3>Past Meetups</h3>
+          <ul>
+            <li>Blah</li>
+            <li>Blah</li>
+            <li>Blah</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <img src="https://www.fillmurray.com/400/360">
+        </div>
+      </div>
+
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
