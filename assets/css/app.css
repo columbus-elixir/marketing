@@ -1,2 +1,39 @@
 /* This file is for your main application css. */
 
+#wrapper {
+    
+}
+.header {
+    text-align: center;
+    padding: 0 40px 15px;
+    font-size: 1.3em;
+}
+.logo {
+    margin: 0 auto 20px;
+
+}
+#links{
+    list-style: none;
+    padding: 0 20px;
+}
+#links li {
+    display: inline-block;
+}
+#links li a {
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+}
+#links li a:hover {
+    background: purple;
+    color: white;
+}
+.left {
+    background: lightblue;
+    min-height: 200px;
+}
+.right {
+    background: lightgreen;
+    min-height: 200px;
+}

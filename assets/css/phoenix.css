@@ -17,18 +17,6 @@ body, form, ul, table {
 /* Phoenix flash messages */
 .alert:empty { display: none; }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-.logo {
-  width: 519px;
-  height: 71px;
-  display: inline-block;
-  margin-bottom: 1em;
-  background-image: url("/images/phoenix.png");
-  background-size: 519px 71px;
-}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -40,7 +28,19 @@ body, form, ul, table {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 19200px;
+  }
+}
+
+@media (max-width: 650px) {
+  .logo {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 375px) {
+  .logo {
+    max-width: 250px;
   }
 }
 .container-narrow > hr {
