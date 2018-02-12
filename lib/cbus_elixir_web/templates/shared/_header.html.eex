@@ -1,5 +1,5 @@
 <header class="header">
-    <img class="logo" src="/images/cbus_elixir_logo_new.png">
+    <img class="logo" src="/images/cbus_elixir_logo_new.png" alt="logo">
     <ul id="links">
     <li>
         <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
