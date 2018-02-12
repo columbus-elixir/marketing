@@ -3,7 +3,8 @@
 ## Agile Board
 
 [Mondays Board](https://matched-pattern-team.monday.com/boards/76071390/pulses/76689815)
-To start your Phoenix server:
+
+## Getting Server Started:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
