@@ -36,3 +36,21 @@ body {
     color: white;
 }
 
+.sponsors {
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+    min-height: 300px;
+    text-align: center;
+}
+.sponsors .column {
+    border: 1px solid #CCC;
+}
+.sponsors img {
+    max-width: 250px;
+    margin: 0 auto;
+    margin: 5px;
+    display: inline-block;
+}
+
