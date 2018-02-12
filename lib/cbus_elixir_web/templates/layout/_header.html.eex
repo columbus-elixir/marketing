@@ -1,0 +1,14 @@
+<header class="header">
+    <img class="logo" src="/images/cbus_elixir_logo_new.png">
+    <ul id="links">
+    <li>
+        <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
+    </li>
+    <li>
+        <a href="https://twitter.com/columbuselixir" target="_blank">Github</a>
+    </li>
+    <li>
+        <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
+    </li>
+    </ul>
+</header>

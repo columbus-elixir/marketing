@@ -14,20 +14,7 @@
 
   <body>
      <div class="container">
-      <header class="header">
-          <img class="logo" src="/images/cbus_elixir_logo_new.png">
-          <ul id="links">
-            <li>
-              <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/columbuselixir" target="_blank">Github</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
-            </li>
-          </ul>
-      </header>
+      <%= render "_header.html", assigns %>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
@@ -36,26 +23,7 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-      <div class="row">
-        <div class="column column-33">
-          <h3>Where we meet</h3>
-          <address>
-            1234 Main St<br>
-            Columbus, OH 43202<br>
-          </address>
-        </div>
-        <div class="column column-33">
-          <h3>Past Meetups</h3>
-          <ul>
-            <li>Blah</li>
-            <li>Blah</li>
-            <li>Blah</li>
-          </ul>
-        </div>
-        <div class="column column-33">
-          <img src="https://www.fillmurray.com/400/360">
-        </div>
-      </div>
+      <%= render "_footer.html", assigns %>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
