@@ -1,8 +1,5 @@
 ![Columbus Elixir Logo](/assets/static/images/cbus_elixir_logo_new.png)
 
-## Agile Board
-
-[Mondays Board](https://matched-pattern-team.monday.com/boards/76071390/pulses/76689815)
 
 ## Getting Server Started:
 
