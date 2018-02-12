@@ -18,3 +18,28 @@
         <img src="https://www.fillmurray.com/400/360">
     </div>
 </div>
+<h2>Sponsors</h2>
+<div class="row">
+        
+        <div class="sponsors">
+            <a href="https://matchedpattern.com/" target="_blank">
+                <img src="/images/MPLogo.png" alt="MP Logo">
+            </a>
+            <a href="https://matchedpattern.com/" target="_blank">
+                <img src="/images/MPLogo.png" alt="MP Logo">
+            </a>
+            <a href="https://matchedpattern.com/" target="_blank">
+                <img src="/images/MPLogo.png" alt="MP Logo">
+            </a>
+            <a href="https://matchedpattern.com/" target="_blank">
+                <img src="/images/MPLogo.png" alt="MP Logo">
+            </a>
+            <a href="https://matchedpattern.com/" target="_blank">
+                <img src="/images/MPLogo.png" alt="MP Logo">
+            </a>
+            <a href="https://matchedpattern.com/" target="_blank">
+                <img src="/images/MPLogo.png" alt="MP Logo">
+            </a>
+        </div>
+
+</div>
