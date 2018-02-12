@@ -1,5 +1,10 @@
 /* This file is for your main application css. */
-
+html {
+    background: rgba(102,51,123,.8);
+}
+body {
+    color: white;
+}
 .container {
     padding: 0;
 }
@@ -20,6 +25,7 @@
     display: inline-block;
 }
 #links li a {
+    color: white;
     padding: 10px;
     font-weight: bold;
     border-radius: 10px;

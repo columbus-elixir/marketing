@@ -15,7 +15,7 @@
   <body>
      <div class="container">
       <header class="header">
-          <img class="logo" src="/images/cbus_elixir_logo.png">
+          <img class="logo" src="/images/cbus_elixir_logo_new.png">
           <ul id="links">
             <li>
               <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
