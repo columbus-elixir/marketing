@@ -1,7 +1,5 @@
 ![Columbus Elixir Logo](/assets/static/images/cbus_elixir_logo_new.png)
 
-# CbusElixir
-
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
