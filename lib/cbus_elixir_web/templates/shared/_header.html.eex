@@ -1,14 +1,23 @@
-<header class="header">
-    <img class="logo" src="/images/cbus_elixir_logo_new.png" alt="logo">
-    <ul id="links">
-    <li>
-        <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
-    </li>
-    <li>
-        <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
-    </li>
-    <li>
-        <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
-    </li>
-    </ul>
-</header>
+<div class="row">
+    <div class="column">
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+        <img src="/images/elixir-logo.png">
+        <h1 class="title">Columbus Elixir</h1>
+
+        <header class="header">
+            <ul id="links">
+                <li>
+                    <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
+                </li>
+                <li>
+                    <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
+                </li>
+            </ul>
+        </header>
+    </div>
+</div>

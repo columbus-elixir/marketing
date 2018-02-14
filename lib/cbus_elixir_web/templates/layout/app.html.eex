@@ -7,25 +7,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Columbus Elixir</title>
+    <title>Hello Columbus Elixir!</title>
+    <link rel="stylesheet" href="https://use.typekit.net/qih7nqz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-     <div class="container">
-      <%= render CbusElixirWeb.SharedView, "_header.html", assigns %>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <main role="main">
+    <main role="main">
+      <div class="container">
+        <%= render CbusElixirWeb.SharedView, "_header.html", assigns %>
         <%= render @view_module, @view_template, assigns %>
-      </main>
-
-      <%= render CbusElixirWeb.SharedView, "_footer.html", assigns %>
-
-    </div> <!-- /container -->
+        <%= render CbusElixirWeb.SharedView, "_footer.html", assigns %>
+      </div>
+    </main>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
