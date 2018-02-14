@@ -57,5 +57,6 @@ body {
     margin: 0 auto;
     margin: 5px;
     display: inline-block;
+    vertical-align: middle;
 }
 
