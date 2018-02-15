@@ -2,22 +2,20 @@
     <div class="column">
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-        <img src="/images/elixir-logo.png">
-        <h1 class="title">Columbus Elixir</h1>
-
         <header class="header">
-            <ul id="links">
-                <li>
-                    <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
-                </li>
-                <li>
-                    <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
-                </li>
-            </ul>
+            <img class="logo" src="/images/elixir-logo.png">
+            <h1 class="title">Columbus Elixir</h1>
         </header>
+    </div>
+</div>
+<div class="row nav">
+    <div class="column">
+        <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
+    </div>
+    <div class="column">
+        <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
+    </div>
+    <div class="column">
+        <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
     </div>
 </div>
