@@ -1,0 +1,207 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$black: #323232;
+$blue: #4C8293;
+$gray: #D7D7D7;
+$green: #62B168;
+$off-white: #FAF9F7;
+$orange: #E6A564;
+$purple: #9C30F5;
+$red: #E1705E;
+$white: #fff;
+$spacing-quarter: 0.25em;
+$spacing-half: 0.5em;
+$spacing: 1em;
+$spacing-double: 2em;
+$spacing-thrice: 3em;
+$spacing-quad: 4em;
+$spacing-sixth: 6em;
+$spacing-octo: 8em;
+body {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.5em;
+    color: $black;
+    background: $white url('/images/pw_maze_white.png');
+}
+
+.header {
+    margin: $spacing-sixth 0;
+    text-align: center;
+    img.logo {
+        width: 80%;
+    }
+    .column {
+        margin: 0;
+    }
+}
+
+.contact {
+    p {
+        margin: 0;
+        padding: 0;
+        &.local {
+            margin-top: $spacing-quad;
+        }
+        &.phone {
+            margin-top: $spacing-quad;
+            font-size: 1.2em;
+        }
+    }
+    ul.virtual {
+        text-align: center;
+        margin-top: $spacing-quad;
+        li {
+            display: inline-block;
+            margin-right: $spacing;
+        }
+    }
+    svg {
+        color: $black;
+    }
+}
+
+.lemmy {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    h2 {
+        margin-top: $spacing-half;
+    }
+    img {
+        width: 60%;
+    }
+}
+
+.recommendation {
+    margin-bottom: $spacing-quad;
+    padding: $spacing-quad;
+    background: $white;
+    border-top: 3px solid lighten($purple, 30%);
+    border-bottom: 3px solid lighten($purple, 30%);
+    border-radius: 4px;
+    width: 47%;
+    margin-right: $spacing-double;
+    h4,
+    h5 {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        font-style: italic;
+    }
+    .name {
+        text-align: right;
+        margin-top: $spacing-double;
+    }
+}
+
+.nav {
+    border-bottom: 2px solid $purple;
+    text-align: center;
+    a>svg {
+        margin-right: $spacing-half;
+    }
+    .column {
+        padding: $spacing-half $spacing;
+        &.active {
+            background: $purple;
+            color: $white;
+            a {
+                color: $white;
+            }
+        }
+    }
+}
+
+.content {
+    padding: $spacing-double;
+    padding-top: $spacing-sixth;
+    background: $off-white;
+}
+
+.employees {
+    .row {
+        margin-bottom: $spacing-double;
+        padding-bottom: $spacing-double;
+        border-bottom: 1px solid lighten($purple, 30%);
+    }
+    .header {
+        margin: 0;
+        text-align: left;
+        h2,
+        h4,
+        .social {
+            display: inline-block;
+            margin-right: $spacing-quarter;
+        }
+    }
+    img {
+        border-radius: 20px;
+        border-bottom: 10px solid lighten($purple, 20%);
+    }
+    h2,
+    h4 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+h1.title {
+    font-size: 3em;
+    margin-bottom: $spacing-double;
+    line-height: 1em;
+    text-align: center;
+}
+
+.technology {
+    margin-bottom: $spacing-quad;
+    padding-bottom: $spacing;
+    .name {
+        border-bottom: 1px solid lighten($purple, 30%);
+        margin-bottom: $spacing;
+    }
+}
+
+.blurb {
+    h1 {
+        line-height: 1em;
+    }
+    margin-bottom: $spacing-thrice;
+    border-bottom: 1px solid lighten($purple, 30%);
+}
+
+.shark-tank {
+    background: $purple;
+    text-align: center;
+    padding: $spacing-half;
+    margin-bottom: $spacing-half;
+    border-bottom: 3px solid lighten($purple, 20%);
+    a {
+        color: $white;
+        font-size: 0.9em;
+    }
+}
+
+.headlines {
+    margin-bottom: $spacing;
+    text-align: right;
+    h1 {
+        margin-bottom: 0;
+    }
+}
