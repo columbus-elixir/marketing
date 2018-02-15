@@ -62,8 +62,8 @@ body {
 .sidebar {
     text-align: center;
 
-    .row {
-        margin: $spacing-quad 0;
+    .location, .sponsors {
+        margin-bottom: $spacing-quad;
     }
 
     .sponsors {
