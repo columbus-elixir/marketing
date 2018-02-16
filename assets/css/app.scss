@@ -33,20 +33,44 @@ $spacing-sixth: 6em;
 $spacing-octo: 8em;
 body {
     font-size: 16px;
-    font-weight: 200;
     line-height: 1.5em;
     color: $black;
     background: $white url('/images/pw_maze_white.png');
 }
 
 .header {
-    margin: $spacing-sixth 0;
     text-align: center;
     img.logo {
         width: 80%;
     }
     .column {
         margin: 0;
+    }
+
+    img.logo {
+        width: 200px;
+    }
+}
+
+.nav {
+    margin-bottom: $spacing-double;
+    .column {
+        text-align: center;
+    }
+}
+
+.sidebar {
+    text-align: center;
+
+    .location, .sponsors {
+        margin-bottom: $spacing-quad;
+    }
+
+    .sponsors {
+        img {
+            width: 50%;
+            margin-bottom: $spacing-double;
+        }
     }
 }
 
@@ -125,6 +149,17 @@ body {
             a {
                 color: $white;
             }
+        }
+    }
+}
+
+ul.speakers {
+    li {
+        list-style: none;
+
+        a {
+            vertical-align: top;
+            display: inline-block;
         }
     }
 }

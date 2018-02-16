@@ -5,10 +5,46 @@
 
         <h2 class="title">What we're about</h2>
         <p>Iceland gentrify woke snackwave photo booth selfies seitan enamel pin. Pitchfork street art vegan, offal skateboard keffiyeh la croix tousled before they sold out DIY fashion axe. Neutra kombucha pok pok, church-key knausgaard portland helvetica cloud bread affogato kitsch typewriter authentic shoreditch unicorn edison bulb. Master cleanse chia snackwave, tbh affogato succulents wayfarers raw denim lumbersexual authentic hexagon distillery tumblr thundercats twee. VHS you probably haven't heard of them four loko chia hexagon, vaporware prism authentic coloring book offal before they sold out everyday carry celiac fashion axe. Cliche art party quinoa everyday carry, forage scenester master cleanse pabst brooklyn subway tile tofu try-hard hot chicken leggings viral.</p>
+
+        <h2 class="title">This Month's Speakers</h2>
+        <ul class="speakers">
+            <%= for x <- 0..2 do %>
+                <li>
+                    <a href="#">
+                        <img src='<%= gravatar_url("matt@matchedpattern.com") %>' />
+                        <div class="name">Someone</div>
+                        <div class="talk-name">Talk Name</div>
+                    </a>
+                </li>
+            <% end %>
+        </ul>
     </div>
 
-    <div class="column column-33">
-        <h3>Blah blah blah</h3>
-        <p>More blah blah blah</p>
+    <div class="column column-33 sidebar">
+        <div class="location">
+            <h2 class="title">Location</h2>
+            <address>
+                Rev1 Ventures<br/>
+                1275 Kinnear Rd<br/>
+                Columbus, OH 43212
+            </address>
+            <strong>First Tuesday of Every Month</strong>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.461617726791!2d-83.04376564836026!3d39.998135288812556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88388e60aa34a2c1%3A0x54d9b2e161956e89!2s1257+Kinnear+Rd%2C+Columbus%2C+OH+43212!5e0!3m2!1sen!2sus!4v1518707186183" width="300" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div class="sponsors">
+            <h2 class="title">Sponsors</h2>
+            <div class="sponsors">
+                <a href="https://matchedpattern.com/" target="_blank">
+                    <img src="/images/MPLogo.png" alt="MP Logo">
+                </a>
+                <a href="http://www.scriptdrop.co/" target="_blank">
+                    <img src="/images/scriptdrop_logo.png" alt="ScriptDrop Logo">
+                </a>
+                <a href="http://www.scriptdrop.co/" target="_blank">
+                    <img src="/images/rev1ventures.png" alt="Rev1 Ventures Logo">
+                </a>
+            </div>
+        </div>
     </div>
 </div>
