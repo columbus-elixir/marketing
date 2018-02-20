@@ -10,12 +10,15 @@
 </div>
 <div class="row nav">
     <div class="column">
+        <i class="fab fa-twitter"></i>
         <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
     </div>
     <div class="column">
+        <i class="fab fa-github"></i>
         <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
     </div>
     <div class="column">
+        <i class="fab fa-linkedin-in"></i>
         <a href="https://twitter.com/columbuselixir" target="_blank">Linkedin</a>
     </div>
 </div>
