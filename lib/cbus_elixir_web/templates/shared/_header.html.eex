@@ -3,22 +3,26 @@
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
         <header class="header">
-            <img class="logo" src="/images/elixir-logo.png">
+            <img class="logo" src="/images/elixir-logo.png" alt="Elixir logo">
             <h1 class="title">Columbus Elixir</h1>
         </header>
     </div>
 </div>
 <div class="row nav">
     <div class="column">
-        <i class="fab fa-twitter"></i>
+        <i class="fab fa-patreon" alt="Patreon logo"></i>
+        <a href="https://www.patreon.com/user?u=9874095" target="_blank">Patreon</a>
+    </div>
+    <div class="column">
+        <i class="fab fa-twitter" alt="Twitter logo"></i>
         <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
     </div>
     <div class="column">
-        <i class="fab fa-github"></i>
+        <i class="fab fa-github" alt="Github logo"></i>
         <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
     </div>
-    <div class="column">
-        <i class="fab fa-meetup"></i>
+    <div class="column" alt="Meetup logo">
+      <i class="fab fa-meetup"></i>
         <a href="https://www.meetup.com/meetup-group-dXjIQyMO/events/zkfzjpyxfbjb/" target="_blank">Meetup</a>
     </div>
 </div>
