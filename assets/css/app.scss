@@ -156,10 +156,25 @@ body {
 ul.speakers {
     li {
         list-style: none;
+        margin-bottom: $spacing-double;
 
-        a {
-            vertical-align: top;
+        img {
+            border-radius: 10em;
+        }
+
+        .details {
             display: inline-block;
+            vertical-align: top;
+            padding-left: $spacing-half;
+
+            .name {
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+
+            .talk-name {
+                font-style: italic;
+            }
         }
     }
 }

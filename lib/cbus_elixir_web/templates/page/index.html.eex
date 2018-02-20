@@ -12,8 +12,10 @@
                 <li>
                     <a href="#">
                         <img src='<%= gravatar_url("matt@matchedpattern.com") %>' />
-                        <div class="name">Someone</div>
-                        <div class="talk-name">Talk Name</div>
+                        <div class="details">
+                          <div class="name">Someone</div>
+                          <div class="talk-name">Talk Name</div>
+                        </div>
                     </a>
                 </li>
             <% end %>
