@@ -4,11 +4,11 @@
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
         <header class="header">
             <img class="logo" src="/images/elixir-logo.png">
-            <h1 class="title">Columbus Elixir</h1>
+            <h1 class="title myriad">Columbus Elixir</h1>
         </header>
     </div>
 </div>
-<div class="row nav">
+<div class="row nav myriad">
     <div class="column">
         <i class="fab fa-patreon"></i>
         <a href="https://www.patreon.com/user?u=9874095" target="_blank">Patreon</a>
