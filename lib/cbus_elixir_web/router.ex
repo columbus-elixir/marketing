@@ -19,8 +19,8 @@ defmodule CbusElixirWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", CbusElixirWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CbusElixirWeb do
+    pipe_through :api
+    resources "/speakers", SpeakerController, except: [:new, :edit]
+  end
 end

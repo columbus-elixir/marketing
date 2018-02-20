@@ -7,18 +7,19 @@
         <p>Iceland gentrify woke snackwave photo booth selfies seitan enamel pin. Pitchfork street art vegan, offal skateboard keffiyeh la croix tousled before they sold out DIY fashion axe. Neutra kombucha pok pok, church-key knausgaard portland helvetica cloud bread affogato kitsch typewriter authentic shoreditch unicorn edison bulb. Master cleanse chia snackwave, tbh affogato succulents wayfarers raw denim lumbersexual authentic hexagon distillery tumblr thundercats twee. VHS you probably haven't heard of them four loko chia hexagon, vaporware prism authentic coloring book offal before they sold out everyday carry celiac fashion axe. Cliche art party quinoa everyday carry, forage scenester master cleanse pabst brooklyn subway tile tofu try-hard hot chicken leggings viral.</p>
 
         <h2 class="title myriad">This Month's Speakers</h2>
-        <ul class="list">
-            <%= for x <- 0..2 do %>
+        <ul class="speakers">
+            <%= Enum.map(@speakers, fn(speaker) -> %>
                 <li>
                     <a href="#">
-                        <img class="avatar" src='<%= gravatar_url("matt@matchedpattern.com") %>', alt="Speaker Image" />
+                        <img src='<%= gravatar_url(speaker.email) %>', alt="Speaker Image" />
+
                         <div class="details">
-                          <div class="name">Someone</div>
-                          <div class="talk-name">Talk Name</div>
+                          <div class="name"><%= speaker.name %></div>
+                          <div class="talk-name"><%= speaker.title %></div>
                         </div>
                     </a>
                 </li>
-            <% end %>
+            <% end) %>
         </ul>
     </div>
 
