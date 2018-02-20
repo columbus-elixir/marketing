@@ -46,7 +46,6 @@ body {
     .column {
         margin: 0;
     }
-
     img.logo {
         width: 200px;
     }
@@ -61,11 +60,10 @@ body {
 
 .sidebar {
     text-align: center;
-
-    .location, .sponsors {
+    .location,
+    .sponsors {
         margin-bottom: $spacing-quad;
     }
-
     .sponsors {
         img {
             width: 50%;
@@ -229,11 +227,11 @@ h1.title {
 }
 
 .blurb {
+    margin-bottom: $spacing-thrice;
+    border-bottom: 1px solid lighten($purple, 30%);
     h1 {
         line-height: 1em;
     }
-    margin-bottom: $spacing-thrice;
-    border-bottom: 1px solid lighten($purple, 30%);
 }
 
 .shark-tank {
