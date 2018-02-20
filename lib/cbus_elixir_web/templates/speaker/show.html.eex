@@ -1,0 +1,33 @@
+<h2>Show Speaker</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @speaker.name %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @speaker.url %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @speaker.title %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @speaker.email %>
+  </li>
+
+  <li>
+    <strong>Meeting:</strong>
+    <%= @speaker.meeting_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: speaker_path(@conn, :edit, @speaker) %></span>
+<span><%= link "Back", to: speaker_path(@conn, :index) %></span>
