@@ -11,7 +11,7 @@
             <%= for x <- 0..2 do %>
                 <li>
                     <a href="#">
-                        <img src='<%= gravatar_url("matt@matchedpattern.com") %>' />
+                        <img src='<%= gravatar_url("matt@matchedpattern.com") %>', alt="Speaker Image" />
                         <div class="details">
                           <div class="name">Someone</div>
                           <div class="talk-name">Talk Name</div>
