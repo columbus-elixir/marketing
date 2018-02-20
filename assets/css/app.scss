@@ -69,11 +69,12 @@ body {
 .nav {
     border-bottom: 2px solid $purple;
     text-align: center;
+    margin-bottom: 0;
     svg+a {
         margin-left: $spacing-half;
     }
     .column {
-        padding: $spacing-half $spacing;
+        padding: $spacing 0;
         &.active {
             background: $purple;
             color: $white;
@@ -106,15 +107,19 @@ ul.speakers {
     }
 }
 
+.main-content {
+    background: $off-white;
+    padding: $spacing;
+    padding-top: $spacing-double;
+}
+
 .content {
     padding: $spacing-double;
     padding-top: $spacing-sixth;
-    background: $off-white;
 }
 
 h1.title {
     font-size: 3em;
     line-height: 1em;
-    margin-bottom: 1.5em;
     text-align: center;
 }
