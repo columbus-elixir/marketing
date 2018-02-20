@@ -1,108 +1,11 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "config";
+@import "components";
 
-$black: #323232;
-$off-white: #FAF9F7;
-$purple: #9C30F5;
-$white: #fff;
-$spacing-quarter: 0.25em;
-$spacing-half: 0.5em;
-$spacing: 1em;
-$spacing-double: 2em;
-$spacing-thrice: 3em;
-$spacing-quad: 4em;
-$spacing-sixth: 6em;
-$spacing-octo: 8em;
 body {
     font-size: 16px;
     line-height: 1.5em;
     color: $black;
     background: $white url('/images/pw_maze_white.png');
-}
-
-.header {
-    text-align: center;
-    .column {
-        margin: 0;
-    }
-    img.logo {
-        width: 200px;
-    }
-}
-
-.nav {
-    text-transform: uppercase;
-    font-size: 1.2em;
-    margin-bottom: $spacing;
-    .column {
-        text-align: center;
-    }
-}
-
-.sidebar {
-    text-align: center;
-    .location,
-    .sponsors {
-        margin-bottom: $spacing-quad;
-        img {
-            max-width: 280px;
-            margin-bottom: $spacing-double;
-        }
-    }
-}
-
-.nav {
-    border-bottom: 2px solid $purple;
-    text-align: center;
-    margin-bottom: 0;
-    svg+a {
-        margin-left: $spacing-half;
-    }
-    .column {
-        padding: $spacing 0;
-        &.active {
-            background: $purple;
-            color: $white;
-            a {
-                color: $white;
-            }
-        }
-    }
-}
-
-ul.speakers {
-    li {
-        list-style: none;
-        margin-bottom: $spacing-double;
-        img {
-            border-radius: 10em;
-        }
-        .details {
-            display: inline-block;
-            vertical-align: top;
-            padding-left: $spacing-half;
-            .name {
-                font-weight: bold;
-                font-size: 1.1em;
-            }
-            .talk-name {
-                font-style: italic;
-            }
-        }
-    }
 }
 
 .main-content {
@@ -114,6 +17,7 @@ ul.speakers {
 .content {
     padding: $spacing-double;
     padding-top: $spacing-sixth;
+    background: $white url("/images/pw_maze_white.png");
 }
 
 h1.title {

@@ -12,6 +12,7 @@
                 <li>
                     <a href="#">
                         <img src='<%= gravatar_url(speaker.email) %>', alt="Speaker Image" />
+
                         <div class="details">
                           <div class="name"><%= speaker.name %></div>
                           <div class="talk-name"><%= speaker.title %></div>

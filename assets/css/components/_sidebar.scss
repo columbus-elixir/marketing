@@ -1,0 +1,14 @@
+.sidebar {
+    text-align: center;
+
+    .location, .sponsors {
+        margin-bottom: $spacing-quad;
+    }
+
+    .sponsors {
+        img {
+            width: 50%;
+            margin-bottom: $spacing-double;
+        }
+    }
+}
