@@ -57,10 +57,8 @@ body {
     .location,
     .sponsors {
         margin-bottom: $spacing-quad;
-    }
-    .sponsors {
         img {
-            width: 50%;
+            max-width: 280px;
             margin-bottom: $spacing-double;
         }
     }

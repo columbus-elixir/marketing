@@ -8,17 +8,17 @@
 
         <h2 class="title myriad">This Month's Speakers</h2>
         <ul class="speakers">
-            <%= for x <- 0..2 do %>
+            <%= Enum.map(@speakers, fn(speaker) -> %>
                 <li>
                     <a href="#">
-                        <img src='<%= gravatar_url("matt@matchedpattern.com") %>', alt="Speaker Image" />
+                        <img src='<%= gravatar_url(speaker.email) %>', alt="Speaker Image" />
                         <div class="details">
-                          <div class="name">Someone</div>
-                          <div class="talk-name">Talk Name</div>
+                          <div class="name"><%= speaker.name %></div>
+                          <div class="talk-name"><%= speaker.title %></div>
                         </div>
                     </a>
                 </li>
-            <% end %>
+            <% end) %>
         </ul>
     </div>
 
