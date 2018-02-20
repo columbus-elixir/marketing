@@ -46,7 +46,6 @@ body {
     .column {
         margin: 0;
     }
-
     img.logo {
         width: 200px;
     }
@@ -61,11 +60,10 @@ body {
 
 .sidebar {
     text-align: center;
-
-    .location, .sponsors {
+    .location,
+    .sponsors {
         margin-bottom: $spacing-quad;
     }
-
     .sponsors {
         img {
             width: 50%;
@@ -156,10 +154,25 @@ body {
 ul.speakers {
     li {
         list-style: none;
+        margin-bottom: $spacing-double;
 
-        a {
-            vertical-align: top;
+        img {
+            border-radius: 10em;
+        }
+
+        .details {
             display: inline-block;
+            vertical-align: top;
+            padding-left: $spacing-half;
+
+            .name {
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+
+            .talk-name {
+                font-style: italic;
+            }
         }
     }
 }
@@ -214,11 +227,11 @@ h1.title {
 }
 
 .blurb {
+    margin-bottom: $spacing-thrice;
+    border-bottom: 1px solid lighten($purple, 30%);
     h1 {
         line-height: 1em;
     }
-    margin-bottom: $spacing-thrice;
-    border-bottom: 1px solid lighten($purple, 30%);
 }
 
 .shark-tank {
