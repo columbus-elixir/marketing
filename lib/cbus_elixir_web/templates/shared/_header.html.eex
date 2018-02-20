@@ -10,6 +10,10 @@
 </div>
 <div class="row nav">
     <div class="column">
+        <i class="fab fa-patreon"></i>
+        <a href="https://www.patreon.com/user?u=9874095" target="_blank">Patreon</a>
+    </div>
+    <div class="column">
         <i class="fab fa-twitter"></i>
         <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
     </div>
