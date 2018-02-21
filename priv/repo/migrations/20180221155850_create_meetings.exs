@@ -24,4 +24,8 @@ defmodule CbusElixir.Repo.Migrations.CreateMeetings do
     end
   end
 
+  50.times do
+    next_meeting()
+  end
+
 end
