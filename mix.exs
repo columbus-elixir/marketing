@@ -20,7 +20,7 @@ defmodule CbusElixir.Mixfile do
   def application do
     [
       mod: {CbusElixir.Application, []},
-      extra_applications: [:logger, :runtime_tools, :timex]
+      extra_applications: [:logger, :runtime_tools, :timex, :ueberauth_github]
     ]
   end
 
@@ -41,7 +41,9 @@ defmodule CbusElixir.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:ueberauth, "~> 0.4"},
+      {:ueberauth_github, "~> 0.7"}
     ]
   end
 

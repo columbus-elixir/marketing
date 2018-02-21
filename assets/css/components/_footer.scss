@@ -1,0 +1,17 @@
+.footer {
+  background: $purple;
+  padding: $spacing;
+  color: $white;
+  font-size: 0.8em;
+  display: inline-block;
+  vertical-align: middle;
+
+  .column {
+    text-align: center;
+  }
+
+  button {
+    background: $off-white;
+    color: $purple;
+  }
+}

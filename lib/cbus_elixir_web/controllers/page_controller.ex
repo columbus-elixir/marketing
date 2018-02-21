@@ -6,6 +6,7 @@ defmodule CbusElixirWeb.PageController do
 
   def index(conn, _params) do
     speakers = Repo.all(Speaker)
-    render conn, "index.html", speakers: speakers
+    name = get_session(conn, :current_username)
+    render(conn, "index.html", current_username: name, speakers: speakers)
   end
 end

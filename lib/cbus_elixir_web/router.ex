@@ -20,6 +20,15 @@ defmodule CbusElixirWeb.Router do
     resources "/speakers", SpeakerController
   end
 
+  scope "/auth", CbusElixirWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+    post "/:provider/callback", AuthController, :callback
+    delete "/logout", AuthController, :delete
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", CbusElixirWeb do
   #   pipe_through :api

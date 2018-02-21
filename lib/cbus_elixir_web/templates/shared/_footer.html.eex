@@ -1,0 +1,15 @@
+<div class="row footer">
+  <div class="column">
+    <%= if @current_username do %>
+        Welcome <%= @current_username %>
+        <%= button "Manage Speakers", to: auth_path(@conn, :delete), method: :delete %>
+        <%= button "Logout", to: auth_path(@conn, :delete), method: :delete %>
+    <% else %>
+        <%= button "Login", to: auth_path(@conn, :request, :github), method: :get %>
+    <% end %>
+  </div>
+
+  <div class="column">
+    &copy; 2018 Columbus Elixir.
+  </div>
+</div>
