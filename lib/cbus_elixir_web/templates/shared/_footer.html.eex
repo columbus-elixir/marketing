@@ -2,7 +2,7 @@
   <div class="column">
     <%= if @current_username do %>
         Welcome <%= @current_username %>
-        <%= button "Manage Speakers", to: auth_path(@conn, :delete), method: :delete %>
+        <%= button "Manage Speakers", to: speaker_path(@conn, :index), method: :get %>
         <%= button "Logout", to: auth_path(@conn, :delete), method: :delete %>
     <% else %>
         <%= button "Login", to: auth_path(@conn, :request, :github), method: :get %>
