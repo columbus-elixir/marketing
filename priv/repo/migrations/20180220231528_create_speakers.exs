@@ -7,7 +7,6 @@ defmodule CbusElixir.Repo.Migrations.CreateSpeakers do
       add :url, :string
       add :title, :string
       add :email, :string
-      add :meeting_id, :integer
 
       timestamps()
     end
