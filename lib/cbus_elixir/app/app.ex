@@ -52,12 +52,11 @@ defmodule CbusElixir.App do
   def create_speaker(attrs \\ %{}) do
     %Speaker{}
     |> Speaker.changeset(attrs)
-
     |> Repo.insert()
   end
 
   @doc """
-  
+
   Updates a speaker.
 
   ## Examples
@@ -72,7 +71,6 @@ defmodule CbusElixir.App do
   def update_speaker(%Speaker{} = speaker, attrs) do
     speaker
     |> Speaker.changeset(attrs)
-
     |> Repo.update()
   end
 
