@@ -10,6 +10,7 @@ defmodule CbusElixir.App.Speaker do
     field :name, :string
     field :title, :string
     field :url, :string
+    has_many :speakers, CbusElixir.App.Speaker
 
     timestamps()
   end
