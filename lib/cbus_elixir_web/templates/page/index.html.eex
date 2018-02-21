@@ -1,11 +1,16 @@
 <div class="row main-content">
     <div class="column column-67">
         <h2 class="title myriad">What is Columbus Elixir</h2>
-        <p>Lorem ipsum dolor amet humblebrag neutra glossier, pug literally lyft actually. Selfies raclette slow-carb, meditation stumptown chicharrones viral mustache tilde. Retro palo santo single-origin coffee you probably haven't heard of them tacos bushwick tousled squid crucifix williamsburg cronut tumblr post-ironic organic. Vegan seitan raw denim intelligentsia next level tilde kinfolk copper mug. Typewriter readymade hexagon gastropub selfies mlkshk iceland jean shorts tumblr. Fashion axe shoreditch chartreuse, squid pabst etsy jean shorts pour-over meggings direct trade bitters locavore tote bag skateboard raclette. Knausgaard etsy master cleanse wolf williamsburg meditation.</p>
-
+        <p>We are teachers and students, enthusiasts and professionals, working to bring Elixir and its ecosystem to Columbus, Ohio</p>
+        
         <h2 class="title myriad">What we're about</h2>
-        <p>Iceland gentrify woke snackwave photo booth selfies seitan enamel pin. Pitchfork street art vegan, offal skateboard keffiyeh la croix tousled before they sold out DIY fashion axe. Neutra kombucha pok pok, church-key knausgaard portland helvetica cloud bread affogato kitsch typewriter authentic shoreditch unicorn edison bulb. Master cleanse chia snackwave, tbh affogato succulents wayfarers raw denim lumbersexual authentic hexagon distillery tumblr thundercats twee. VHS you probably haven't heard of them four loko chia hexagon, vaporware prism authentic coloring book offal before they sold out everyday carry celiac fashion axe. Cliche art party quinoa everyday carry, forage scenester master cleanse pabst brooklyn subway tile tofu try-hard hot chicken leggings viral.</p>
+        <ul>
+            <li>Hosting lectures on functional programming concepts</li>
+            <li>Creating new <a href="https://github.com/columbus-elixir">open-source software</a> built on Elixir</li>
+            <li>Providing an excellent place for anyone (novice or expert) to start learning about Elixir</li>
+        </ul>
 
+        
         <h2 class="title myriad">This Month's Speakers</h2>
         <ul class="list">
             <%= Enum.map(@speakers, fn(s) -> %>
