@@ -10,7 +10,7 @@ defmodule CbusElixir.App.Speaker do
     field :name, :string
     field :title, :string
     field :url, :string
-    belongs_to :meetings, CbusElixir.App.Meeting
+    belongs_to :meeting, CbusElixir.App.Meeting
 
     timestamps()
   end
