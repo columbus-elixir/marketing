@@ -24,8 +24,10 @@ defmodule CbusElixir.Repo.Migrations.CreateMeetings do
     end
   end
 
-  50.times do
-    next_meeting()
-  end
+  start = Timex.now
+  Enum.with_index(0..100, fn(i) ->
+    date = Timex.shift(start, months: i)
+    Reop.insert(Meeting, %{date: next_meeting(date)})
+  end)
 
 end
