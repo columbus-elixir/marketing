@@ -2,7 +2,6 @@ defmodule CbusElixir.App.Speaker do
   use Ecto.Schema
   import Ecto.Changeset
   alias CbusElixir.App.Speaker
-  alias CbusElixir.App.Meeting
 
 
   schema "speakers" do
@@ -11,7 +10,6 @@ defmodule CbusElixir.App.Speaker do
     field :name, :string
     field :title, :string
     field :url, :string
-    many_to_many :meetings, Meeting, join_through: "meeting_speakers"
 
     timestamps()
   end
