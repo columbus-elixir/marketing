@@ -7,5 +7,4 @@ defmodule CbusElixir.Repo.Migrations.CreateMeetings do
       timestamps()
     end
   end
-
 end
