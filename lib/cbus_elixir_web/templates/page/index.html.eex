@@ -31,7 +31,7 @@
         <div class="next-meeting">
             <h2 class="title myriad">Next Meeting</h2>
             <p>
-                <%= next_meeting() %> at 6pm<br />
+                BLAH BLAH at 6pm<br />
                 First Tuesday of Every Month
             </p>
         </div>

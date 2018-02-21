@@ -3,6 +3,7 @@ defmodule CbusElixir.AppTest do
 
   alias CbusElixir.App
 
+
   describe "speakers" do
     alias CbusElixir.App.Speaker
 
@@ -68,6 +69,7 @@ defmodule CbusElixir.AppTest do
     test "change_speaker/1 returns a speaker changeset" do
       speaker = speaker_fixture()
       assert %Ecto.Changeset{} = App.change_speaker(speaker)
+
     end
   end
 end
