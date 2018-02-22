@@ -1,4 +1,6 @@
 defmodule CbusElixirWeb.SpeakerController do
+  import Ecto.Query
+  
   use CbusElixirWeb, :controller
 
   alias CbusElixir.App
@@ -10,8 +12,13 @@ defmodule CbusElixirWeb.SpeakerController do
   end
 
   def new(conn, _params) do
+    today = Timex.today()
+    meets = CbusElixir.Repo.all(from m in "meetings", 
+      where: m.date > type(^today, Ecto.Date),
+      select: {m.id, m.date})
+    meetings = for {k, v} <- meets, do: {Timex.to_date(v) |> Date.to_string, k}
     changeset = App.change_speaker(%Speaker{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, meetings: meetings)
   end
 
   def create(conn, %{"speaker" => speaker_params}) do

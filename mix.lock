@@ -33,6 +33,7 @@
   "sass": {:hex, :sass, "1.0.17", "fd33b3548e93208946ada76af09cd3c1293490c7defb040b72173e4de52084cf", [:make, :mix], [{:elixir_make, "~> 0.3.0", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.1", "28a4d65b7f59893bc2c7de786dec1e1555bd742d336043fe644ae956c3497fbe", [:make, :rebar], [], "hexpm"},
   "timex": {:hex, :timex, "3.1.25", "6002dae5432f749d1c93e2cd103eb73cecb53e50d2c885349e8e4146fc96bd44", [:mix], [{:combine, "~> 0.10", [hex: :combine, repo: "hexpm", optional: false]}, {:gettext, "~> 0.10", [hex: :gettext, repo: "hexpm", optional: false]}, {:tzdata, "~> 0.1.8 or ~> 0.5", [hex: :tzdata, repo: "hexpm", optional: false]}], "hexpm"},
+  "timex_ecto": {:hex, :timex_ecto, "3.2.1", "461140751026e1ca03298fab628f78ab189e78784175f5e301eefa034ee530aa", [:mix], [{:ecto, "~> 2.2", [hex: :ecto, repo: "hexpm", optional: false]}, {:timex, "~> 3.1", [hex: :timex, repo: "hexpm", optional: false]}], "hexpm"},
   "tzdata": {:hex, :tzdata, "0.5.16", "13424d3afc76c68ff607f2df966c0ab4f3258859bbe3c979c9ed1606135e7352", [:mix], [{:hackney, "~> 1.0", [hex: :hackney, repo: "hexpm", optional: false]}], "hexpm"},
   "unicode_util_compat": {:hex, :unicode_util_compat, "0.3.1", "a1f612a7b512638634a603c8f401892afbf99b8ce93a45041f8aaca99cadb85e", [:rebar3], [], "hexpm"},
 }
