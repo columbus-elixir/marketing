@@ -13,7 +13,7 @@
         
         <h2 class="title myriad">This Month's Speakers</h2>
         <ul class="list">
-            <%= Enum.map(meeting_speakers.speakers, fn(s) -> %>
+            <%= Enum.map(meeting_speakers().speakers, fn(s) -> %>
                 <li>
                     <a href="<%= s.url %>">
                         <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
