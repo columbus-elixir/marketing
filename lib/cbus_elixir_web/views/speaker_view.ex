@@ -9,6 +9,7 @@ defmodule CbusElixirWeb.SpeakerView do
       limit: 5,
       select: {m.id, m.date})
     meetings = for {k, v} <- meets, do: {Timex.to_date(v) |> Date.to_string, k}
+    meetings
   end
 
 end

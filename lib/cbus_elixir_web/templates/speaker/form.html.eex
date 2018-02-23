@@ -31,7 +31,7 @@
 
   <div class="form-group">
     <%= label f, :meeting_id, class: "control-label" %>
-    <%= select f, :meeting_id, get_meetings, class: "form-control" %>
+    <%= select f, :meeting_id, get_meetings(), class: "form-control" %>
     <%= error_tag f, :meeting_id %>
   </div>
 

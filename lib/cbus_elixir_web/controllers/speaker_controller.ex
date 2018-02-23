@@ -1,5 +1,4 @@
 defmodule CbusElixirWeb.SpeakerController do
-  import Ecto.Query
   
   use CbusElixirWeb, :controller
 
@@ -12,9 +11,7 @@ defmodule CbusElixirWeb.SpeakerController do
   end
 
   def new(conn, _params) do
-    # meetings = get_meetings()
     changeset = App.change_speaker(%Speaker{})
-    # render(conn, "new.html", changeset: changeset, meetings: meetings)
     render(conn, "new.html", changeset: changeset)
   end
 
