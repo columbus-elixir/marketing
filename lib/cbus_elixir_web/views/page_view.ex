@@ -19,7 +19,7 @@ defmodule CbusElixirWeb.PageView do
     "https://www.gravatar.com/avatar/#{hash}"
   end
 
-  def get_next_meeting() do
+  def next_meeting() do
     today = Timex.today()
     meeting = Repo.one!(from m in Meeting,
       where: m.date > type(^today, Ecto.Date),
@@ -29,7 +29,7 @@ defmodule CbusElixirWeb.PageView do
     meeting
   end
 
-  def get_meeting_speakers() do
+  def meeting_speakers() do
     today = Timex.today()
     meeting = Repo.one!(from m in Meeting,
       where: m.date > type(^today, Ecto.Date),
@@ -39,7 +39,7 @@ defmodule CbusElixirWeb.PageView do
     meeting
   end
 
-  def formated_date(date) do
+  def formatted_date(date) do
     Timex.to_date(date) |> Date.to_string
   end
 
