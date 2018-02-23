@@ -31,9 +31,7 @@
         <div class="next-meeting">
             <h2 class="title myriad">Next Meeting</h2>
             <p>
-                <%= Enum.map(@date, fn(m) -> %>
-                    <%= m.date %> at 6pm<br />
-                <% end) %>
+                <%= @date %> at 6pm<br />
                 First Tuesday of Every Month
             </p>
         </div>

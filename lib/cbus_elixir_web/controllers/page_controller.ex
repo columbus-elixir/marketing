@@ -8,19 +8,15 @@ defmodule CbusElixirWeb.PageController do
 
   def index(conn, _params) do
     today = Timex.today()
-    meeting = Repo.all(from m in Meeting, 
+    meeting = Repo.one!(from m in Meeting,
       where: m.date > type(^today, Ecto.Date),
-      limit: 1,
-      select: m.date)
-      
-    speakers = Repo.all(from s in Speaker,
-      join: m in Meeting, 
-      where: m.id == s.meeting_id and
-        m.date > type(^today, Ecto.Date),
-      select: {s.name, s.title, s.email, s.url})
-
-    # speakers = Repo.all(Speaker)
-    render conn, "index.html", speakers: speakers, meeting: meeting
+      order_by: [asc: m.date],
+      preload: [:speakers],
+      limit: 1)
+    
+    date = Timex.to_date(meeting.date) |> Date.to_string
+    
+    render conn, "index.html", speakers: meeting.speakers, date: date
   end
 
 end
