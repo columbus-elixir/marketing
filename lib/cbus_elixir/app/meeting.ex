@@ -6,6 +6,7 @@ defmodule CbusElixir.App.Meeting do
 
   schema "meetings" do
     field :date, :utc_datetime
+    has_many :speakers, CbusElixir.App.Speaker
 
     timestamps()
   end
