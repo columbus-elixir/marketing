@@ -3,7 +3,6 @@ defmodule CbusElixirWeb.PageController do
   use CbusElixirWeb, :controller
 
   alias CbusElixir.Repo
-  alias CbusElixir.App.Speaker
   alias CbusElixir.App.Meeting
 
   def index(conn, _params) do
