@@ -3,7 +3,7 @@
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
         <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
         <header class="header">
-            <img class="logo" src="/images/elixir-logo.png" alt="Elixir logo">
+            <a href="/"><img class="logo" src="/images/elixir-logo.png" alt="Elixir logo"></a>
             <h1 class="title">Columbus Elixir</h1>
         </header>
     </div>
