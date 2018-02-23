@@ -12,9 +12,10 @@ defmodule CbusElixirWeb.SpeakerController do
   end
 
   def new(conn, _params) do
-    meetings = get_meetings()
+    # meetings = get_meetings()
     changeset = App.change_speaker(%Speaker{})
-    render(conn, "new.html", changeset: changeset, meetings: meetings)
+    # render(conn, "new.html", changeset: changeset, meetings: meetings)
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"speaker" => speaker_params}) do
@@ -61,12 +62,12 @@ defmodule CbusElixirWeb.SpeakerController do
     |> redirect(to: speaker_path(conn, :index))
   end
 
-  def get_meetings do
-    today = Timex.today()
-    meets = CbusElixir.Repo.all(from m in "meetings", 
-      where: m.date > type(^today, Ecto.Date),
-      limit: 5,
-      select: {m.id, m.date})
-    meetings = for {k, v} <- meets, do: {Timex.to_date(v) |> Date.to_string, k}
-  end
+  # def get_meetings do
+  #   today = Timex.today()
+  #   meets = CbusElixir.Repo.all(from m in "meetings", 
+  #     where: m.date > type(^today, Ecto.Date),
+  #     limit: 5,
+  #     select: {m.id, m.date})
+  #   meetings = for {k, v} <- meets, do: {Timex.to_date(v) |> Date.to_string, k}
+  # end
 end

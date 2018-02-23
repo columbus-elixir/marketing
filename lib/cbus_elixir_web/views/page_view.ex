@@ -18,4 +18,5 @@ defmodule CbusElixirWeb.PageView do
   defp md5_hash(email) do
     :crypto.hash(:md5, email)
   end
+
 end
