@@ -6,10 +6,10 @@ defmodule CbusElixir.App.Speaker do
 
   schema "speakers" do
     field :email, :string
-    field :meeting_id, :integer
     field :name, :string
     field :title, :string
     field :url, :string
+    belongs_to :meeting, CbusElixir.App.Meeting
 
     timestamps()
   end

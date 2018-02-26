@@ -1,4 +1,5 @@
 defmodule CbusElixirWeb.SpeakerController do
+  
   use CbusElixirWeb, :controller
 
   alias CbusElixir.App
@@ -57,4 +58,5 @@ defmodule CbusElixirWeb.SpeakerController do
     |> put_flash(:info, "Speaker deleted successfully.")
     |> redirect(to: speaker_path(conn, :index))
   end
+  
 end

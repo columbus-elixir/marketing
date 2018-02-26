@@ -9,4 +9,5 @@ defmodule CbusElixirWeb.PageController do
     name = get_session(conn, :current_username)
     render(conn, "index.html", current_username: name, speakers: speakers)
   end
+
 end

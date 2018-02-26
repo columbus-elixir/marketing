@@ -35,15 +35,16 @@ defmodule CbusElixir.Mixfile do
     [
       {:phoenix, "~> 1.3.0"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
-      {:postgrex, ">= 0.0.0"},
+      {:phoenix_ecto, "~> 3.3"},
+      {:postgrex, "~> 0.13.5"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:timex, "~> 3.1"},
       {:ueberauth, "~> 0.4"},
-      {:ueberauth_github, "~> 0.7"}
+      {:ueberauth_github, "~> 0.7"},
+      {:timex, "~> 3.2"},
+      {:timex_ecto, "~> 3.2"}
     ]
   end
 
@@ -57,7 +58,7 @@ defmodule CbusElixir.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      "test": ["ecto.create --quiet", "ecto.migrate", "run priv/repo/seeds.exs", "test"]
     ]
   end
 end

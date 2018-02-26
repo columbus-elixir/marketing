@@ -1,7 +1,11 @@
 require IEx
 
 defmodule CbusElixirWeb.PageView do
+  import Ecto.Query, only: [from: 2]
   use CbusElixirWeb, :view
+
+  alias CbusElixir.Repo
+  alias CbusElixir.App.Meeting
 
   def gravatar_url(email) do
     hash =
@@ -15,21 +19,32 @@ defmodule CbusElixirWeb.PageView do
     "https://www.gravatar.com/avatar/#{hash}"
   end
 
-  def next_meeting(date \\ nil)
-  def next_meeting(date) when is_nil(date), do: next_meeting(Timex.now("America/Chicago"))
-  def next_meeting(date) do
-    # First Tuesday of each month
-    start = Timex.beginning_of_month(date)
-    days = Enum.find(0..6, fn d -> Timex.shift(start, days: d) |> Date.day_of_week() == 2 end)
-    meeting_date = Timex.shift(start, days: days)
+  def next_meeting() do
+    today = Timex.today()
+    meeting = Repo.one!(from m in Meeting,
+      where: m.date > type(^today, Ecto.Date),
+      order_by: [asc: m.date],
+      limit: 1,
+      select: m.date)
+    meeting
+  end
 
-    case Timex.after?(date, meeting_date) do
-      false -> Timex.format!(meeting_date, "{YYYY}-{0M}-{0D}")
-      true -> next_meeting(Timex.shift(meeting_date, months: 1))
-    end
+  def meeting_speakers() do
+    today = Timex.today()
+    meeting = Repo.one!(from m in Meeting,
+      where: m.date > type(^today, Ecto.Date),
+      order_by: [asc: m.date],
+      preload: [:speakers],
+      limit: 1)
+    meeting
+  end
+
+  def formatted_date(date) do
+    Timex.to_date(date) |> Date.to_string
   end
 
   defp md5_hash(email) do
     :crypto.hash(:md5, email)
   end
+
 end

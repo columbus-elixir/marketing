@@ -56,6 +56,7 @@ defmodule CbusElixir.App do
   end
 
   @doc """
+
   Updates a speaker.
 
   ## Examples
@@ -74,6 +75,7 @@ defmodule CbusElixir.App do
   end
 
   @doc """
+
   Deletes a Speaker.
 
   ## Examples
