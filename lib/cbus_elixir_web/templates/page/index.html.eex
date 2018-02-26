@@ -13,7 +13,7 @@
         
         <h2 class="title myriad">This Month's Speakers</h2>
         <ul class="list">
-            <%= Enum.map(meeting_speakers().speakers, fn(s) -> %>
+            <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
                 <li>
                     <a href="<%= s.url %>">
                         <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
@@ -31,7 +31,7 @@
         <div class="next-meeting">
             <h2 class="title myriad">Next Meeting</h2>
             <p>
-                <%= formatted_date(next_meeting()) %> at 6pm<br />
+                <%= formatted_date(@next_meeting.date) %> at 6pm<br />
                 First Tuesday of Every Month
             </p>
         </div>
