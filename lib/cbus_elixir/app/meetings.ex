@@ -3,9 +3,9 @@ defmodule CbusElixir.App.Meetings do
   Domain operations for meetings.
   """
 
-  import Ecto.Query, warn: false
-  alias CbusElixir.Repo
+  import Ecto.Query
 
+  alias CbusElixir.Repo
   alias CbusElixir.App.Meeting
 
   @doc """
@@ -25,7 +25,7 @@ defmodule CbusElixir.App.Meetings do
     Meeting
     |> Meeting.happening_after(date)
     |> first
-    |> Repo.one
+    |> Repo.one!
     |> Repo.preload(:speakers)
   end
 end
