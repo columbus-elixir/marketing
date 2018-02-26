@@ -41,6 +41,7 @@ defmodule CbusElixir.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:timex, "~> 3.2"},
       {:timex_ecto, "~> 3.2"}
     ]
