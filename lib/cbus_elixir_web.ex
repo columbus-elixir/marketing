@@ -40,6 +40,7 @@ defmodule CbusElixirWeb do
       import CbusElixirWeb.Router.Helpers
       import CbusElixirWeb.ErrorHelpers
       import CbusElixirWeb.Gettext
+      import CbusElixirWeb.FormattingHelpers
     end
   end
 
