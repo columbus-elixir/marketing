@@ -12,19 +12,23 @@
 
         
         <h2 class="title myriad">This Month's Speakers</h2>
-        <ul class="list">
-            <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
-                <li>
-                    <a href="<%= s.url %>">
-                        <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
-                        <div class="details">
-                            <div class="name"><%= s.name %></div>
-                            <div class="talk-name"><%= s.title %></div>
-                        </div>
-                    </a>
-                </li>
-            <% end) %>
-        </ul>
+        <%= if Enum.empty?(@next_meeting.speakers) do %>
+            <p>Our next speakers TBA</p>
+        <%= else %>
+            <ul class="list">
+                <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
+                    <li>
+                        <a href="<%= s.url %>">
+                            <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
+                            <div class="details">
+                                <div class="name"><%= s.name %></div>
+                                <div class="talk-name"><%= s.title %></div>
+                            </div>
+                        </a>
+                    </li>
+                <% end) %>
+            </ul>
+        <% end %>
     </div>
 
     <div class="column column-33 sidebar">
