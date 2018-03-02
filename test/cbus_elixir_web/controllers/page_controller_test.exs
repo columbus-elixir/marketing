@@ -12,10 +12,5 @@ defmodule CbusElixirWeb.PageControllerTest do
     conn = get conn, "/?date=#{date}"
     assert html_response(conn, 200) =~ "2018-04-03"
   end
-
-  test "Invalid Date Query String", %{conn: conn} do
-    date = "20180325"
-    conn = get conn, "/?date=#{date}"
-    assert html_response(conn, 200) =~ "2018-03-06"
-  end
+  
 end
