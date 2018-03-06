@@ -13,7 +13,7 @@ defmodule CbusElixir.App.Meeting do
 
   def happening_after(query, date) do
     query
-    |> where([m], m.date > type(^date, Ecto.Date))
+    |> where([m], m.date >= type(^date, Ecto.Date))
     |> order_by(asc: :date)
   end
 
