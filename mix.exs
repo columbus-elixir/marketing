@@ -20,7 +20,7 @@ defmodule CbusElixir.Mixfile do
   def application do
     [
       mod: {CbusElixir.Application, []},
-      extra_applications: [:logger, :runtime_tools, :timex]
+      extra_applications: [:logger, :runtime_tools, :timex, :faker]
     ]
   end
 
@@ -43,7 +43,8 @@ defmodule CbusElixir.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:timex, "~> 3.2"},
-      {:timex_ecto, "~> 3.2"}
+      {:timex_ecto, "~> 3.2"},
+      {:faker, "~> 0.9"}
     ]
   end
 
