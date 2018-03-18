@@ -34,7 +34,9 @@ defmodule Seeder do
       case Repo.insert(changeset) do
         {:ok, meeting } ->
           IO.puts("Meeting was added")
-          add_speaker(meeting)
+          (1..3) |> Enum.each(fn(x) ->
+            add_speaker(meeting) 
+          end)
         {:error, _reason} ->
           IO.puts("Meeting was not added")
       end
@@ -46,7 +48,7 @@ defmodule Seeder do
       |> Speaker.changeset(%{email: Faker.Internet.email, name: Faker.Name.name, title: Faker.Name.title, url: Faker.Internet.url})
 
       case Repo.insert(changeset) do
-        {:ok, speaker } ->
+        {:ok, _speaker } ->
           IO.inspect("Speaker was added")
         {:error, _reason} ->
           IO.puts("Speaker was not added")
