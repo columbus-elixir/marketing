@@ -19,7 +19,7 @@ defmodule Seeder do
   def run_seeds do
     start = Timex.beginning_of_month(Timex.now)
 
-    Enum.each(0..10, fn(x) ->
+    Enum.each(0..100, fn(x) ->
       date = Timex.shift(start, months: x)
       days = Enum.find(0..6, fn d -> Timex.shift(date, days: d) |> Date.day_of_week() == 2 end)
       meeting_date = Timex.shift(date, days: days)
