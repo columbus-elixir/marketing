@@ -25,3 +25,12 @@ Enum.each(0..100, fn(x) ->
   |> Meeting.changeset(%{date: meeting_date})
   |> Repo.insert!
 end)
+
+users = [
+  %{email: "jane.doe@example.com", password: "password"},
+  %{email: "john.smith@example.org", password: "password"}
+]
+
+for user <- users do
+  {:ok, _} = CbusElixir.Accounts.create_user(user)
+end

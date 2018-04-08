@@ -25,4 +25,14 @@
       <i class="fab fa-meetup"></i>
         <a href="https://www.meetup.com/meetup-group-dXjIQyMO" target="_blank">Meetup</a>
     </div>
+
+    <div class="column" alt="Meetup logo">
+      <i class="fas fa-sign-in-alt"></i>
+        <%= link "Sign In", to: session_path(@conn, :new) %>
+    </div>
+    <div class="column" alt="Meetup logo">
+      <i class="fas fa-user-plus"></i>
+        <%= link "Sign Up", to: user_path(@conn, :new) %>
+    </div>
+
 </div>

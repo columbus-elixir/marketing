@@ -17,6 +17,11 @@ config :cbus_elixir, CbusElixirWeb.Endpoint,
   pubsub: [name: CbusElixir.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Phauxth authentication configuration
+config :phauxth,
+  token_salt: "Pqm+Acms",
+  endpoint: CbusElixirWeb.Endpoint
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
