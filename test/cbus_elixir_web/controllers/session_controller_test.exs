@@ -6,6 +6,8 @@ defmodule CbusElixirWeb.SessionControllerTest do
 
   @create_attrs %{email: "robin@example.com", password: "reallyHard2gue$$"}
   @invalid_attrs %{email: "robin@example.com", password: "cannotGue$$it"}
+  @rem_attrs %{email: "robin@example.com", password: "reallyHard2gue$$", remember_me: "true"}
+  @no_rem_attrs Map.merge(@rem_attrs, %{remember_me: "false"})
 
   setup %{conn: conn} do
     conn = conn |> bypass_through(CbusElixirWeb.Router, [:browser]) |> get("/")
@@ -49,5 +51,12 @@ defmodule CbusElixirWeb.SessionControllerTest do
     assert redirected_to(conn) == session_path(conn, :new)
     conn = post(conn, session_path(conn, :create), session: @create_attrs)
     assert redirected_to(conn) == user_path(conn, :show, user)
+  end
+
+  test "remember me cookie is added / not added", %{conn: conn} do
+    rem_conn = post(conn, session_path(conn, :create), session: @rem_attrs)
+    assert rem_conn.resp_cookies["remember_me"]
+    no_rem_conn = post(conn, session_path(conn, :create), session: @no_rem_attrs)
+    refute no_rem_conn.resp_cookies["remember_me"]
   end
 end

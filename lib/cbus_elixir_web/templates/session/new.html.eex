@@ -9,15 +9,20 @@
   <% end %>
 
   <div class="form-group">
+    <%= error_tag f, :email %>
     <%= label f, :email, class: "control-label" %>
     <%= text_input f, :email, class: "form-control" %>
-    <%= error_tag f, :email %>
   </div>
 
   <div class="form-group">
+    <%= error_tag f, :password %>
     <%= label f, :password, class: "control-label" %>
     <%= password_input f, :password, class: "form-control" %>
-    <%= error_tag f, :password %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :remember_me, class: "control-label" %>
+    <%= checkbox f, :remember_me %>
   </div>
 
   <div class="form-group">

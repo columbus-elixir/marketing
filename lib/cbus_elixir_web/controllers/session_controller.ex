@@ -21,7 +21,8 @@ defmodule CbusElixirWeb.SessionController do
         Accounts.add_session(user, session_id, System.system_time(:second))
 
         Login.add_session(conn, session_id, user.id)
-        |> login_success(user_path(conn, :index))
+        |> add_remember_me(user.id, params)
+        |> login_success(page_path(conn, :index))
 
       {:error, message} ->
         error(conn, message, session_path(conn, :new))
@@ -33,6 +34,15 @@ defmodule CbusElixirWeb.SessionController do
     Accounts.delete_session(user, session_id)
 
     delete_session(conn, :phauxth_session_id)
+    |> Phauxth.Remember.delete_rem_cookie()
     |> success("You have been logged out", page_path(conn, :index))
   end
+
+  # This function adds a remember_me cookie to the conn.
+  # See the documentation for Phauxth.Remember for more details.
+  defp add_remember_me(conn, user_id, %{"remember_me" => "true"}) do
+    Phauxth.Remember.add_rem_cookie(conn, user_id)
+  end
+
+  defp add_remember_me(conn, _, _), do: conn
 end

@@ -25,14 +25,24 @@
       <i class="fab fa-meetup"></i>
         <a href="https://www.meetup.com/meetup-group-dXjIQyMO" target="_blank">Meetup</a>
     </div>
-
-    <div class="column" alt="Meetup logo">
+  <%= if is_nil(@current_user) do %>
+    <div class="column">
       <i class="fas fa-sign-in-alt"></i>
         <%= link "Sign In", to: session_path(@conn, :new) %>
     </div>
-    <div class="column" alt="Meetup logo">
+    <div class="column">
       <i class="fas fa-user-plus"></i>
         <%= link "Sign Up", to: user_path(@conn, :new) %>
     </div>
+    <% else %>
+    <div class="column">
+      <i class="fas fa-user"></i>
+        <%= link "Your Profile", to: user_path(@conn, :show, @current_user.id) %>
+    </div>
+    <div class="column">
+      <i class="fas fa-sign-out-alt"></i>
+        <%= link "Sign Out", to: session_path(@conn, :delete, @current_user.id), method: :delete %>
+    </div>
+    <% end %>
 
 </div>

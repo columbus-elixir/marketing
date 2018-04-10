@@ -22,6 +22,11 @@ config :phauxth,
   token_salt: "Pqm+Acms",
   endpoint: CbusElixirWeb.Endpoint
 
+# Phauxth authentication configuration
+config :phauxth,
+  token_salt: "++9h/iJL",
+  endpoint: CbusElixirWeb.Endpoint
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

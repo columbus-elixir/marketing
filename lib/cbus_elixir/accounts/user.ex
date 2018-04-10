@@ -4,6 +4,7 @@ defmodule CbusElixir.Accounts.User do
   alias CbusElixir.Accounts.User
 
   schema "users" do
+
     field :first_name, :string
     field :last_name, :string
     field :email, :string
@@ -17,7 +18,7 @@ defmodule CbusElixir.Accounts.User do
   def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:first_name, :last_name, :email])
-    |> validate_required([:first_name, :last_name, :email])
+    |> validate_required([:email])
     |> unique_email
   end
 

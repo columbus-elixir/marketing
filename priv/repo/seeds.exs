@@ -27,8 +27,7 @@ Enum.each(0..100, fn(x) ->
 end)
 
 users = [
-  %{email: "jane.doe@example.com", password: "password"},
-  %{email: "john.smith@example.org", password: "password"}
+  %{first_name: "Matthew", last_name: "Johnson", email: "john.doe@example.com", password: "password"},
 ]
 
 for user <- users do
