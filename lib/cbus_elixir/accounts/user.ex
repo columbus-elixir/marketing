@@ -11,6 +11,7 @@ defmodule CbusElixir.Accounts.User do
     field :password, :string, virtual: true
     field :password_hash, :string
     field :sessions, {:map, :integer}, default: %{}
+    field :is_admin, :boolean, default: false
 
     timestamps()
   end

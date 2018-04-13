@@ -45,7 +45,8 @@ defmodule CbusElixir.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:timex, "~> 3.2"},
-      {:timex_ecto, "~> 3.2"}
+      {:timex_ecto, "~> 3.2"},
+      {:canary, "~> 1.1.1"}
     ]
   end
 

@@ -9,6 +9,7 @@ defmodule CbusElixirWeb.UserController do
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show]
   plug :id_check when action in [:edit, :update, :delete]
+  plug :is_admin? when action in [:index]
 
   def index(conn, _) do
     users = Accounts.list_users()
@@ -28,7 +29,7 @@ defmodule CbusElixirWeb.UserController do
         Accounts.add_session(user, session_id, System.system_time(:second))
         Login.add_session(conn, session_id, user.id)
         |> login_success(page_path(conn, :index))
-        
+
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

@@ -4,9 +4,9 @@ defmodule CbusElixir.AccountsTest do
   alias CbusElixir.Accounts
   alias CbusElixir.Accounts.User
 
-  @create_attrs %{email: "fred@example.com", password: "reallyHard2gue$$"}
+  @create_attrs %{first_name: "Fred", last_name: "Hartsock", mail: "fred@example.com", password: "reallyHard2gue$$"}
   @update_attrs %{email: "frederick@example.com"}
-  @invalid_attrs %{email: "", password: ""}
+  @invalid_attrs %{first_name: "", last_name: "", email: "", password: ""}
 
   def fixture(:user, attrs \\ @create_attrs) do
     {:ok, user} = Accounts.create_user(attrs)
@@ -26,6 +26,7 @@ defmodule CbusElixir.AccountsTest do
   test "create_user/1 with valid data creates a user" do
     assert {:ok, %User{} = user} = Accounts.create_user(@create_attrs)
     assert user.email == "fred@example.com"
+    assert false, user.is_admin
   end
 
   test "create_user/1 with invalid data returns error changeset" do
