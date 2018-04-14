@@ -9,7 +9,7 @@ defmodule CbusElixirWeb.UserController do
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show]
   plug :id_check when action in [:edit, :update, :delete]
-  plug :is_admin? when action in [:index]
+  plug :is_admin? when action in [:index, :admin]
 
   def index(conn, _) do
     users = Accounts.list_users()
@@ -61,5 +61,9 @@ defmodule CbusElixirWeb.UserController do
 
     delete_session(conn, :phauxth_session_id)
     |> success("User deleted successfully", session_path(conn, :new))
+  end
+
+  def admin(conn, _) do
+    render(conn, "admin.html")
   end
 end

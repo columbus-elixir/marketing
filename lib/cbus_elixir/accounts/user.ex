@@ -11,21 +11,21 @@ defmodule CbusElixir.Accounts.User do
     field :password, :string, virtual: true
     field :password_hash, :string
     field :sessions, {:map, :integer}, default: %{}
-    field :is_admin, :boolean, default: false
+    field :is_admin, :boolean
 
     timestamps()
   end
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :email])
-    |> validate_required([:email])
+    |> cast(attrs, [:first_name, :last_name, :email, :is_admin])
+    |> validate_required([:first_name, :last_name, :email])
     |> unique_email
   end
 
   def create_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :email, :password])
+    |> cast(attrs, [:first_name, :last_name, :email, :password, :is_admin])
     |> validate_required([:first_name, :last_name, :email, :password])
     |> unique_email
     |> validate_password(:password)

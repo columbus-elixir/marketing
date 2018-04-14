@@ -28,6 +28,7 @@ end)
 
 users = [
   %{first_name: "Matthew", last_name: "Johnson", email: "john.doe@example.com", password: "password"},
+  %{first_name: "Admin", last_name: "McAdminson", email: "imaadmin@exampe.com", password: "adminpassword", is_admin: true}
 ]
 
 for user <- users do
