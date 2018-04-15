@@ -13,6 +13,7 @@ defmodule CbusElixir.Accounts.User do
     field :sessions, {:map, :integer}, default: %{}
     field :is_admin, :boolean
 
+
     timestamps()
   end
 

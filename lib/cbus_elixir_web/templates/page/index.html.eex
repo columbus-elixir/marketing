@@ -29,6 +29,12 @@
                 <% end) %>
             </ul>
         <% end %>
+        <p>Want to be a speaker?</p>
+        <%= if @current_user |> is_nil() do %>
+          <p><%= link "Sign Up", to: user_path(@conn, :new) %> and schedule a talk!</p>
+        <% else %>
+          <%= link "Schedule a talk", to: "#" %>
+        <% end %>
     </div>
 
     <div class="column column-33 sidebar">

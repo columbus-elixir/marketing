@@ -1,3 +1,29 @@
 <div class="main-content">
-<h2>Speaking Requests</h2>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Admin</th>
+      </tr>
+      <tr>
+          <td>user1.first_name</td>
+          <td>user1.last_name</td>
+          <td>user1.email</td>
+          <td>user1.is_admin</td>
+      </tr>
+      <tr>
+          <td>user2.first_name</td>
+          <td>user2.last_name</td>
+          <td>user2.email</td>
+          <td>user2.is_admin</td>
+      </tr>
+      <tr>
+          <td>user3.first_name</td>
+          <td>user3.last_name</td>
+          <td>user3.email</td>
+          <td>user3.is_admin</td>
+      </tr>
+    </table>
+    <a href="#">Update</a>
 </div>
