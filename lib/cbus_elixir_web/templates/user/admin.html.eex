@@ -32,7 +32,7 @@
         <% end %>
     </table>
   </div>
-  <div id="speakingRequestTab">
+  <div id="speakingRequestTab" hidden>
     <p>Coming Soon!</p>
   </div>
 </div>
