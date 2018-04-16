@@ -6,7 +6,7 @@
   </nav>
 </div>
 <div id="userManagementTab">
-  <h3>Total Users on Columbus Elixir: <%= Enum.count(@users) %></h3>
+  <h3>Total Users on Columbus Elixir: <%= @page.total_entries %></h3>
     <table id="adminTable">
       <tr>
         <th>First Name</th>
@@ -31,6 +31,7 @@
         </tr>
         <% end %>
     </table>
+    <%= pagination_links @page, next: "Next", previous: "Prev" %>
   </div>
   <div id="speakingRequestTab" hidden>
     <p>Coming Soon!</p>

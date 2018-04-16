@@ -38,3 +38,6 @@ import_config "#{Mix.env}.exs"
 
 config :phoenix, :template_engines,
   haml: PhoenixHaml.Engine
+
+config :scrivener_html,
+  routes_helper: CbusElixirWeb.Router.Helpers

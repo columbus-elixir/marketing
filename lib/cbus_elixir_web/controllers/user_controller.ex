@@ -12,7 +12,7 @@ defmodule CbusElixirWeb.UserController do
   plug :is_admin? when action in [:index, :admin]
 
   def index(conn, _) do
-    users = Accounts.list_users()
+    users = Accounts.list_users
     render(conn, "index.html", users: users)
   end
 
@@ -63,8 +63,8 @@ defmodule CbusElixirWeb.UserController do
     |> success("User deleted successfully", session_path(conn, :new))
   end
 
-  def admin(conn, _) do
-    users = Accounts.list_users()
-    render(conn, "admin.html", users: users)
+  def admin(conn, params) do
+    page = Accounts.list_users_paged(params)
+    render(conn, "admin.html", users: page.entries, page: page)
   end
 end

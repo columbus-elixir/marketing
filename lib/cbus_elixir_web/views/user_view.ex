@@ -1,5 +1,6 @@
 defmodule CbusElixirWeb.UserView do
   use CbusElixirWeb, :view
+  import Scrivener.HTML
   alias CbusElixirWeb.UserView
 
 

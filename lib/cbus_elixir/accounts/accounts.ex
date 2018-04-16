@@ -10,6 +10,11 @@ defmodule CbusElixir.Accounts do
     Repo.all(User)
   end
 
+  def list_users_paged(params) do
+    User
+      |> Repo.paginate(params)
+  end
+
   def get(id), do: Repo.get(User, id)
 
   def get_by(%{"email" => email}) do
