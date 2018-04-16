@@ -2,6 +2,7 @@ defmodule CbusElixirWeb.UserView do
   use CbusElixirWeb, :view
   alias CbusElixirWeb.UserView
 
+
   def render("index.json", %{users: users}) do
     %{data: render_many(users, UserView, "user.json")}
   end
