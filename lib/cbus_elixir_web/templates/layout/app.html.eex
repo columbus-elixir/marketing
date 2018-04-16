@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <main role="main">
       <div class="container">
         <%= render CbusElixirWeb.SharedView, "_header.html", assigns %>
@@ -22,6 +23,6 @@
       </div>
     </main>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
   </body>
 </html>

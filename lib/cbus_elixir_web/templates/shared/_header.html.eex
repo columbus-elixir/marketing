@@ -42,7 +42,7 @@
     <%= if @current_user.is_admin do %>
     <div class="column">
       <i class="fas fa-gavel"></i>
-        <%= link "Admin", to: user_user_path(@conn, :admin, @current_user.id) %>
+        <%= link "Admin", to: user_admin_path(@conn, :admin, @current_user.id) %>
     </div>
     <% end %>
     <div class="column">

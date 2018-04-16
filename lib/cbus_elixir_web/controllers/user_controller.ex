@@ -64,6 +64,7 @@ defmodule CbusElixirWeb.UserController do
   end
 
   def admin(conn, _) do
-    render(conn, "admin.html")
+    users = Accounts.list_users()
+    render(conn, "admin.html", users: users)
   end
 end
