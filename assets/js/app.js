@@ -19,6 +19,15 @@ import "jquery"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-function test(){
-  console.log("Testing");
-}
+
+$(document).ready(function(){
+  $("#speakingRequestTab").hide();
+  $("#userManagementButton").click(function(){
+    $("#userManagementTab").show();
+    $("#speakingRequestTab").hide();
+  })
+  $("#speakingRequestButton").click(function(){
+    $("#speakingRequestTab").show();
+    $("#userManagementTab").hide();
+  })
+})

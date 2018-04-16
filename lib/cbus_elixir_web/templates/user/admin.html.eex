@@ -1,13 +1,13 @@
 <div class="main-content">
 <div class="tab">
   <nav role="navigation">
-    <button onclick="test()">User Management</button>
-    <button>Speaking Requests</button>
+    <button id="userManagementButton">User Management</button>
+    <button id="speakingRequestButton">Speaking Requests</button>
   </nav>
 </div>
 <div id="userManagementTab">
   <h3>Total Users on Columbus Elixir: <%= Enum.count(@users) %></h3>
-    <table>
+    <table id="adminTable">
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
