@@ -48,7 +48,11 @@ defmodule CbusElixir.Mixfile do
       {:timex_ecto, "~> 3.2"},
       {:canary, "~> 1.1.1"},
       {:scrivener_ecto, "~> 1.0"},
-      {:scrivener_html, "~> 1.1"}
+      {:scrivener_html, "~> 1.1"},
+      {:mailgun, "~> 0.1.2"},
+
+      #conflicts with mailgun so forcing override infavor of recent
+      {:poison, "~> 3.1.0", override: true}
     ]
   end
 
