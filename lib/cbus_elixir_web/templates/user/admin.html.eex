@@ -1,0 +1,39 @@
+<div class="main-content">
+<div class="tab">
+  <nav role="navigation">
+    <button id="userManagementButton">User Management</button>
+    <button id="speakingRequestButton">Speaking Requests</button>
+  </nav>
+</div>
+<div id="userManagementTab">
+  <h3>Total Users on Columbus Elixir: <%= @page.total_entries %></h3>
+    <table id="adminTable">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Member Since</th>
+        <th>Admin</th>
+      </tr>
+        <%= for user <- @users do %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td><%= "#{user.inserted_at.month}/#{user.inserted_at.day}/#{user.inserted_at.year}" %></td>
+          <%= if user.is_admin do %>
+            <td>Yes</td>
+            <td><%= link "Remove Admin?", to: "#", class: "btn btn-primary" %></td>
+          <% else %>
+            <td>No</td>
+            <td><%= link "Make Admin?", to: "#", class: "btn btn-primary" %></td>
+          <% end %>
+        </tr>
+        <% end %>
+    </table>
+    <%= pagination_links @page, next: "Next", previous: "Prev" %>
+  </div>
+  <div id="speakingRequestTab" hidden>
+    <p>Coming Soon!</p>
+  </div>
+</div>

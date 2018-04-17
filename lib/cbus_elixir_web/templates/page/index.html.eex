@@ -1,17 +1,17 @@
 <div class="row main-content">
     <div class="column column-67">
-        <h2 class="title myriad">What is Columbus Elixir</h2>
+        <h2 class="title myriad">What is Columbus Elixir?</h2>
         <p>We are teachers and students, enthusiasts and professionals, working to bring Elixir and its ecosystem to Columbus, Ohio</p>
-        
-        <h2 class="title myriad">What we're about</h2>
+
+        <h2 class="title myriad">What We're About</h2>
         <ul>
             <li>Hosting lectures on functional programming concepts</li>
             <li>Creating new <a href="https://github.com/columbus-elixir">open-source software</a> built on Elixir</li>
             <li>Providing an excellent place for anyone (novice or expert) to start learning about Elixir</li>
         </ul>
 
-        
-        <h2 class="title myriad">This Month's Speakers</h2>
+
+        <h2 class="title myriad">This Month's Speakers:</h2>
         <%= if Enum.empty?(@next_meeting.speakers) do %>
             <p>Our next speakers TBA</p>
         <%= else %>
@@ -28,6 +28,12 @@
                     </li>
                 <% end) %>
             </ul>
+        <% end %>
+        <p>Want to be a speaker?</p>
+        <%= if @current_user |> is_nil() do %>
+          <p><%= link "Sign Up", to: user_path(@conn, :new) %> and schedule a talk!</p>
+        <% else %>
+          <%= link "Schedule a talk", to: "#" %>
         <% end %>
     </div>
 

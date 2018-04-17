@@ -1,0 +1,15 @@
+<div class="main-content">
+<h2>Your Profile</h2>
+
+    <strong>First Name:</strong>
+    <%= @user.first_name %><br>
+
+    <strong>Last Name:</strong>
+    <%= @user.last_name %><br>
+
+    <strong>Email</strong>
+    <%= @user.email %><br>
+
+<span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span><br>
+<span><%= link "Back", to: user_path(@conn, :index) %></span>
+</div>
