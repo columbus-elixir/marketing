@@ -25,3 +25,11 @@ h1.title {
     line-height: 1em;
     text-align: center;
 }
+
+.pagination{
+    list-style: none;
+}
+.pagination li{
+    display: inline-block;
+    margin: 1em;
+}
