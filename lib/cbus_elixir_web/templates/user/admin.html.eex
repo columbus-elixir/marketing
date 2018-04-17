@@ -31,7 +31,7 @@
         </tr>
         <% end %>
     </table>
-    <%= pagination_links @page, next: "Next", previous: "Prev" %>
+    <%= pagination_links @page, previous: Phoenix.HTML.raw("&leftarrow;"), next: Phoenix.HTML.raw("&rightarrow;") %>
   </div>
   <div id="speakingRequestTab" hidden>
     <p>Coming Soon!</p>
