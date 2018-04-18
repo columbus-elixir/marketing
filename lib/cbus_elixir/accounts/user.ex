@@ -2,7 +2,8 @@ defmodule CbusElixir.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias CbusElixir.Accounts.User
-
+  alias CbusElixir.App.Speaker
+  
   schema "users" do
 
     field :first_name, :string
@@ -12,6 +13,7 @@ defmodule CbusElixir.Accounts.User do
     field :password_hash, :string
     field :sessions, {:map, :integer}, default: %{}
     field :is_admin, :boolean
+    has_many :speakers, Speaker
 
 
     timestamps()

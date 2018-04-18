@@ -1,9 +1,10 @@
 defmodule CbusElixirWeb.SpeakerController do
-  
-  use CbusElixirWeb, :controller
 
+  use CbusElixirWeb, :controller
   alias CbusElixir.App
   alias CbusElixir.App.Speaker
+  alias CbusElixir.Accounts
+
 
   def index(conn, _params) do
     speakers = App.list_speakers()
@@ -15,7 +16,8 @@ defmodule CbusElixirWeb.SpeakerController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"speaker" => speaker_params}) do
+  def create(conn, %{"speaker" => speaker_params}, user) do
+
     case App.create_speaker(speaker_params) do
       {:ok, speaker} ->
         conn
@@ -58,5 +60,5 @@ defmodule CbusElixirWeb.SpeakerController do
     |> put_flash(:info, "Speaker deleted successfully.")
     |> redirect(to: speaker_path(conn, :index))
   end
-  
+
 end

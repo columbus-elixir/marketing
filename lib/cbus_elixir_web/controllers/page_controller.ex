@@ -5,7 +5,7 @@ defmodule CbusElixirWeb.PageController do
   alias CbusElixirWeb.DateParser
 
   def index(conn, params) do
-    
+
     next_meeting = params["date"]
     |> DateParser.parse_meeting_date(Timex.today())
     |> Meetings.next_meeting()

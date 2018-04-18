@@ -5,11 +5,10 @@ defmodule CbusElixir.App.Speaker do
 
 
   schema "speakers" do
-    field :email, :string
-    field :name, :string
     field :title, :string
     field :url, :string
     belongs_to :meeting, CbusElixir.App.Meeting
+    belongs_to :user, CbusElixir.Accounts.User
 
     timestamps()
   end
@@ -17,7 +16,7 @@ defmodule CbusElixir.App.Speaker do
   @doc false
   def changeset(%Speaker{} = speaker, attrs) do
     speaker
-    |> cast(attrs, [:name, :url, :title, :email, :meeting_id])
-    |> validate_required([:name, :url, :title, :email, :meeting_id])
+    |> cast(attrs, [:url, :title, :meeting_id, :user_id])
+    |> validate_required([:url, :title, :meeting_id, :user_id])
   end
 end
