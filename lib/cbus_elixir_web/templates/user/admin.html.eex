@@ -30,9 +30,10 @@
           <% end %>
           <td>
           <span><%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
-          <span><%= link "Edit", to: user_path(@conn, :edit, user.id), class: "btn btn-default btn-xs" %></span>
-          <span><%= link "Delete", to: user_path(@conn, :delete, user.id), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+          <span><%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
+          <span><%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
           </td>
+          <td><%= user.id %></td>
         </tr>
         <% end %>
     </table>

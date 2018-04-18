@@ -40,14 +40,8 @@ defmodule CbusElixirWeb.UserController do
     render(conn, "show.html", user: user)
   end
 
-  def edit(%Plug.Conn{assigns: %{current_user: user}} = conn, _) do
-    changeset = Accounts.change_user(user)
-    render(conn, "edit.html", user: user, changeset: changeset)
-  end
-
-  def edit_by_id(%Plug.Conn{assigns: %{id: id}} = conn, _) do
-    user = Accounts.get(id)
-
+  def edit(%Plug.Conn{assigns: %{current_user: user}} = conn, %{"id" => id}) do
+    user = (id == to_string(user.id) and user) || Accounts.get(id)
     changeset = Accounts.change_user(user)
     render(conn, "edit.html", user: user, changeset: changeset)
   end
@@ -62,15 +56,9 @@ defmodule CbusElixirWeb.UserController do
     end
   end
 
-  def delete(%Plug.Conn{assigns: %{current_user: user}} = conn, _) do
-    {:ok, _user} = Accounts.delete_user(user)
+  def delete(%Plug.Conn{assigns: %{current_user: user}} = conn, %{"id" => id}) do
+    user = (id == to_string(user.id) and user) || Accounts.get(id)
 
-    delete_session(conn, :phauxth_session_id)
-    |> success("User deleted successfully", session_path(conn, :new))
-  end
-
-  def delete_by_id(%Plug.Conn{assigns: %{id: id}} = conn, _) do
-    user = Accounts.get(id)
     {:ok, _user} = Accounts.delete_user(user)
 
     delete_session(conn, :phauxth_session_id)
