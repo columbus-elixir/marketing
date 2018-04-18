@@ -30,7 +30,6 @@ defmodule CbusElixirWeb.UserController do
         Login.add_session(conn, session_id, user.id)
         |> login_success(page_path(conn, :index))
 
-
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -46,6 +45,13 @@ defmodule CbusElixirWeb.UserController do
     render(conn, "edit.html", user: user, changeset: changeset)
   end
 
+  def edit_by_id(%Plug.Conn{assigns: %{id: id}} = conn, _) do
+    user = Accounts.get(id)
+
+    changeset = Accounts.change_user(user)
+    render(conn, "edit.html", user: user, changeset: changeset)
+  end
+
   def update(%Plug.Conn{assigns: %{current_user: user}} = conn, %{"user" => user_params}) do
     case Accounts.update_user(user, user_params) do
       {:ok, user} ->
@@ -57,6 +63,14 @@ defmodule CbusElixirWeb.UserController do
   end
 
   def delete(%Plug.Conn{assigns: %{current_user: user}} = conn, _) do
+    {:ok, _user} = Accounts.delete_user(user)
+
+    delete_session(conn, :phauxth_session_id)
+    |> success("User deleted successfully", session_path(conn, :new))
+  end
+
+  def delete_by_id(%Plug.Conn{assigns: %{id: id}} = conn, _) do
+    user = Accounts.get(id)
     {:ok, _user} = Accounts.delete_user(user)
 
     delete_session(conn, :phauxth_session_id)
