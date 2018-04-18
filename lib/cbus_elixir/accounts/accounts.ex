@@ -33,6 +33,12 @@ defmodule CbusElixir.Accounts do
     |> Repo.update()
   end
 
+  def update_user_by_id(id, attrs) do
+    get(id)
+    |> User.changeset(attrs)
+    |> Repo.update()
+  end
+
   def delete_user(%User{} = user) do
     Repo.delete(user)
   end

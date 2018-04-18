@@ -8,7 +8,7 @@ defmodule CbusElixirWeb.UserController do
 
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show]
-  plug :id_check when action in [:edit, :update, :delete]
+  plug :id_check_or_is_admin?  when action in [:edit, :update, :delete]
   plug :is_admin? when action in [:index, :admin]
 
   def index(conn, _) do
