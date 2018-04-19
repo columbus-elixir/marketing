@@ -19,9 +19,9 @@
                 <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
                     <li>
                         <a href="<%= s.url %>">
-                            <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
+
                             <div class="details">
-                                <div class="name"><%= s.name %></div>
+                        
                                 <div class="talk-name"><%= s.title %></div>
                             </div>
                         </a>
@@ -33,7 +33,7 @@
         <%= if @current_user |> is_nil() do %>
           <p><%= link "Sign Up", to: user_path(@conn, :new) %> and schedule a talk!</p>
         <% else %>
-          <%= link "Schedule a talk", to: speaker_path(@conn, :new) %>
+          <%= link "Schedule a talk", to: user_speaker_path(@conn, :new, @current_user) %>
         <% end %>
     </div>
 
