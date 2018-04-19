@@ -17,11 +17,7 @@ defmodule CbusElixirWeb.SpeakerController do
   end
 
   def create(conn, %{"user_id" => user_id, "speaker" => speaker_params}) do
-    IO.inspect "User ID is #{user_id}"
-    IO.inspect speaker_params
-    Map.put(speaker_params, "user_id", user_id)
-    IO.inspect speaker_params
-    case App.create_speaker(speaker_params) do
+    case App.create_speaker(Map.put(speaker_params, "user_id", user_id)) do
       {:ok, speaker} ->
         conn
         |> put_flash(:info, "Thank you! Your speaking request has been processed!")
