@@ -38,11 +38,15 @@
       <tr>
         <th>Speaker Name</th>
         <th>Speaking Request Title</th>
+        <th>Requested for Meeting Date</th>
       </tr>
       <%= for speaker <- @speakers do %>
         <% user = CbusElixir.Accounts.get(speaker.user_id)%>
+        <% request_meeting_date = speaker.meeting_id %>
+        <% future_meetings = CbusElixir.App.Meetings.upcoming_meetings(Date.utc_today, 4) %>
         <td><%= "#{user.first_name}  #{user.last_name}" %></td>
         <td><%= speaker.title %></td>
+        <td><%= %></td>
       <% end %>
       </tr>
     </table>

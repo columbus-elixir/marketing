@@ -9,7 +9,7 @@ defmodule CbusElixirWeb.UserController do
   require Logger
 
   # the following plugs are defined in the controllers/authorize.ex file
-  plug :user_check when action in [:index, :show]
+  plug :user_check when action in [:index, :show, :admin]
   plug :id_check when action in [:edit, :update, :delete]
   plug :is_admin? when action in [:index, :admin]
 

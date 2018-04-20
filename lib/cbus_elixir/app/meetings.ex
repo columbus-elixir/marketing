@@ -11,7 +11,7 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Returns the next `count` upcoming meetings
   """
-  def upcoming_meetings(date, count: count) do
+  def upcoming_meetings(date, count) do
     Meeting
     |> Meeting.happening_after(date)
     |> limit(^count)
@@ -27,5 +27,10 @@ defmodule CbusElixir.App.Meetings do
     |> first
     |> Repo.one!
     |> Repo.preload(:speakers)
+  end
+
+  def find_speaker_meeting_date(speaker_meeting_id) do
+    Meetings
+    |> where([m], m.meeting_id == speaker_meeting_id)
   end
 end
