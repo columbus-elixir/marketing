@@ -7,7 +7,7 @@
 </div>
 <div id="userManagementTab">
   <h3>Total Users on Columbus Elixir: <%= @page.total_entries %></h3>
-    <table id="adminTable">
+    <table id="userManagementTable">
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
@@ -34,6 +34,17 @@
     <%= pagination_links @page, previous: Phoenix.HTML.raw("&leftarrow;"), next: Phoenix.HTML.raw("&rightarrow;") %>
   </div>
   <div id="speakingRequestTab" hidden>
-    <p>Coming Soon!</p>
+    <table id="speakingRequestTable">
+      <tr>
+        <th>Speaker Name</th>
+        <th>Speaking Request Title</th>
+      </tr>
+      <%= for speaker <- @speakers do %>
+        <% user = CbusElixir.Accounts.get(speaker.user_id)%>
+        <td><%= "#{user.first_name}  #{user.last_name}" %></td>
+        <td><%= speaker.title %></td>
+      <% end %>
+      </tr>
+    </table>
   </div>
 </div>

@@ -5,6 +5,8 @@ defmodule CbusElixirWeb.UserController do
   alias Phauxth.Log
   alias CbusElixir.Accounts
   alias Phauxth.Login
+  alias CbusElixir.App
+  require Logger
 
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show]
@@ -65,6 +67,8 @@ defmodule CbusElixirWeb.UserController do
 
   def admin(conn, params) do
     page = Accounts.list_users_paged(params)
-    render(conn, "admin.html", users: page.entries, page: page)
+    speakers = App.list_speakers
+    render(conn, "admin.html", speakers: speakers, users: page.entries, page: page)
+    IO.inspect speakers, label: "The speaker is: "
   end
 end
