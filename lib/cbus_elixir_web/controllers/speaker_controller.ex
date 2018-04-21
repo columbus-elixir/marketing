@@ -60,4 +60,11 @@ defmodule CbusElixirWeb.SpeakerController do
     #|> redirect(to: speaker_path(conn, :index))
   end
 
+  def approve_speaker(conn, %{"id" => id}) do
+    speaker = App.get_speaker!(id)
+    Map.merge(speaker, %{ status: "Approved" })
+    conn.put_flash(:info, "Speaking Request approved!")
+    redirect(to: user_path(conn, :admin))
+  end
+
 end

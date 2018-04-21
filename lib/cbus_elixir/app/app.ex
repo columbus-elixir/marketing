@@ -104,4 +104,5 @@ defmodule CbusElixir.App do
   def change_speaker(%Speaker{} = speaker) do
     Speaker.changeset(speaker, %{})
   end
+
 end

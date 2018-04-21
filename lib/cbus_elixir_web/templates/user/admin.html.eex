@@ -34,22 +34,27 @@
     <%= pagination_links @page, previous: Phoenix.HTML.raw("&leftarrow;"), next: Phoenix.HTML.raw("&rightarrow;") %>
   </div>
   <div id="speakingRequestTab" hidden>
+    <%= if @speakers |> Enum.empty? do %>
+      <p>We don't have any open speaking requests right now!</p>
+    <% else %>
     <table id="speakingRequestTable">
       <tr>
         <th>Speaker Name</th>
         <th>Speaking Request Title</th>
         <th>Requested for Meeting Date</th>
       </tr>
-      <%= for speaker <- @speakers do %>
+        <%= for speaker <- @speakers do %>
         <tr>
-        <% user = CbusElixir.Accounts.get(speaker.user_id)%>
-        <% future_meetings = CbusElixir.App.Meetings.upcoming_meetings(Date.utc_today, count: 4) %>
-        <td><%= "#{user.first_name}  #{user.last_name}" %></td>
-        <td><%= speaker.title %></td>
-        <% date = CbusElixir.App.Meetings.get_speaker_meeting(speaker.meeting_id).date %>
-        <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
-      <% end %>
+          <% user = CbusElixir.Accounts.get(speaker.user_id)%>
+          <% future_meetings = CbusElixir.App.Meetings.upcoming_meetings(Date.utc_today, count: 4) %>
+            <td><%= "#{user.first_name}  #{user.last_name}" %></td>
+            <td><%= speaker.title %></td>
+          <% date = CbusElixir.App.Meetings.get_speaker_meeting(speaker.meeting_id).date %>
+            <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
+            <td><%= link "Approve Talk", to: "#" %></td>
+        <% end %>
       </tr>
     </table>
+    <% end %>
   </div>
 </div>
