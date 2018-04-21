@@ -7,6 +7,7 @@ defmodule CbusElixir.App do
   alias CbusElixir.Repo
 
   alias CbusElixir.App.Speaker
+  alias CbusElixir.App.Meetings
 
   @doc """
   Returns the list of speakers.

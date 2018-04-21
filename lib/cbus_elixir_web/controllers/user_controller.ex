@@ -69,6 +69,5 @@ defmodule CbusElixirWeb.UserController do
     page = Accounts.list_users_paged(params)
     speakers = App.list_speakers
     render(conn, "admin.html", speakers: speakers, users: page.entries, page: page)
-    IO.inspect speakers, label: "The speaker is: "
   end
 end
