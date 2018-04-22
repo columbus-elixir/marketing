@@ -123,4 +123,10 @@ defmodule CbusElixir.App do
     Repo.all(query)
   end
 
+  def this_users_speaking_requests(user) do
+    query = from s in Speaker,
+    where: s.user_id == ^user.id
+    Repo.all(query)
+  end
+
 end

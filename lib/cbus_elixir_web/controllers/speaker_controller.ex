@@ -61,7 +61,7 @@ defmodule CbusElixirWeb.SpeakerController do
 
     conn
     |> put_flash(:info, "Speaker deleted successfully.")
-    #|> redirect(to: speaker_path(conn, :index))
+    |> redirect(to: page_path(conn, :index))
   end
 
   def approve_speaker(conn, %{"speaker_id" => speaker_id, "user_id" => user_id }) do
@@ -70,6 +70,14 @@ defmodule CbusElixirWeb.SpeakerController do
     App.update_speaker(speaker, %{status: "Approved"})
     conn
     |> put_flash(:info, "Speaking Request for #{user.first_name} #{user.last_name}!")
+    |> redirect(to: page_path(conn, :index))
+  end
+
+  def cancel_speaker(conn, %{"speaker_id" => speaker_id, "user_id" => user_id }) do
+    speaker = App.get_speaker!(speaker_id)
+    App.update_speaker(speaker, %{status: "Cancelled"})
+    conn
+    |> put_flash(:info, "Your talk, #{speaker.title}, has been cancelled!")
     |> redirect(to: page_path(conn, :index))
   end
 

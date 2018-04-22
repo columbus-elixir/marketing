@@ -2,7 +2,8 @@
 <div class="tab">
   <nav role="navigation">
     <button id="userManagementButton">User Management</button>
-    <button id="speakingRequestButton">Speaking Requests</button>
+    <button id="speakingRequestButton">Open Speaking Requests</button>
+    <button id="approvedRequestsButton">Approved Requests</button>
   </nav>
 </div>
 <div id="userManagementTab">
@@ -51,6 +52,28 @@
             <% date = CbusElixir.App.Meetings.get_speaker_meeting(speaker.meeting_id).date %>
             <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
             <td><%= link "Approve Talk", to: user_speaker_approve_path(@conn, :approve_speaker, user, speaker)  %></td>
+        <% end %>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+  <div id="approvedRequestsTab" hidden>
+    <%= if @approvals |> Enum.empty? do %>
+      <p>There are no approved talks!</p>
+    <% else %>
+    <table id="approvedRequestsTable">
+      <tr>
+        <th>Speaker Name</th>
+        <th>Speaking Request Title</th>
+        <th>Requested for Meeting Date</th>
+      </tr>
+        <%= for approval <- @approvals do %>
+        <tr>
+          <% user = CbusElixir.Accounts.get(approval.user_id) %>
+            <td><%= "#{user.first_name}  #{user.last_name}" %></td>
+            <td><%= approval.title %></td>
+            <% date = CbusElixir.App.Meetings.get_speaker_meeting(approval.meeting_id).date %>
+            <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
         <% end %>
       </tr>
     </table>

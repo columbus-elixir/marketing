@@ -19,6 +19,7 @@ defmodule CbusElixirWeb.Router do
       get "/admin", UserController, :admin, as: :admin
       resources "/speakers", SpeakerController do
         get "/approve_speaker", SpeakerController, :approve_speaker, as: :approve
+        get "/cancel_speaker", SpeakerController, :cancel_speaker, as: :cancel
       end
     end
     resources "/sessions", SessionController, only: [:new, :create, :delete]
