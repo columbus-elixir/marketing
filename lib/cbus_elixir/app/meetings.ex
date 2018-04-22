@@ -7,6 +7,7 @@ defmodule CbusElixir.App.Meetings do
 
   alias CbusElixir.Repo
   alias CbusElixir.App.Meeting
+  alias CbusElixir.App
 
 
   @doc """

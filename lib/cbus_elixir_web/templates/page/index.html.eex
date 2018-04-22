@@ -12,20 +12,16 @@
 
 
         <h2 class="title myriad">This Month's Speakers:</h2>
-        <%= if Enum.empty?(@next_meeting.speakers) do %>
+        <%= if Enum.empty?(@speakers) do %>
             <p>Our next speakers TBA</p>
         <%= else %>
             <ul class="list">
-                <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
-                    <li>
-                        <a href="<%= s.url %>">
-
-                            <div class="details">
-                        
-                                <div class="talk-name"><%= s.title %></div>
-                            </div>
-                        </a>
-                    </li>
+                <%= Enum.map(@speakers, fn(s) -> %>
+                      <% user = CbusElixir.Accounts.get(s.user_id) %>
+                      <li>
+                        <h5><i><%= s.title %></i></h5>
+                        <p><%= "By: #{user.first_name} #{user.last_name}" %></p>
+                      </li>
                 <% end) %>
             </ul>
         <% end %>

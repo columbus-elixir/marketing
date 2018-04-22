@@ -5,6 +5,10 @@ defmodule CbusElixirWeb.SpeakerController do
   alias CbusElixir.App.Speaker
   alias CbusElixir.Accounts
   alias CbusElixir.Meeting
+  import CbusElixirWeb.Authorize
+
+  plug :is_admin? when action in [:approve_speaker]
+  plug :user_check when action in [:new]
 
   def index(conn, _params) do
     speakers = App.list_speakers()
@@ -60,11 +64,13 @@ defmodule CbusElixirWeb.SpeakerController do
     #|> redirect(to: speaker_path(conn, :index))
   end
 
-  def approve_speaker(conn, %{"id" => id}) do
-    speaker = App.get_speaker!(id)
-    Map.merge(speaker, %{ status: "Approved" })
-    conn.put_flash(:info, "Speaking Request approved!")
-    redirect(to: user_path(conn, :admin))
+  def approve_speaker(conn, %{"speaker_id" => speaker_id, "user_id" => user_id }) do
+    speaker = App.get_speaker!(speaker_id)
+    user = Accounts.get(user_id)
+    App.update_speaker(speaker, %{status: "Approved"})
+    conn
+    |> put_flash(:info, "Speaking Request for #{user.first_name} #{user.last_name}!")
+    |> redirect(to: page_path(conn, :index))
   end
 
 end

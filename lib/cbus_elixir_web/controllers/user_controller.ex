@@ -6,7 +6,6 @@ defmodule CbusElixirWeb.UserController do
   alias CbusElixir.Accounts
   alias Phauxth.Login
   alias CbusElixir.App
-  require Logger
 
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show, :admin]

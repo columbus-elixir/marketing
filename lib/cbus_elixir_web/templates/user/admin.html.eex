@@ -23,10 +23,10 @@
           <td><%= "#{user.inserted_at.month}/#{user.inserted_at.day}/#{user.inserted_at.year}" %></td>
           <%= if user.is_admin do %>
             <td>Yes</td>
-            <td><%= link "Remove Admin?", to: "#", class: "btn btn-primary" %></td>
+            <td><%= link "Remove Admin?", to: "#" %></td>
           <% else %>
             <td>No</td>
-            <td><%= link "Make Admin?", to: "#", class: "btn btn-primary" %></td>
+            <td><%= link "Make Admin?", to: "#" %></td>
           <% end %>
         </tr>
         <% end %>
@@ -45,13 +45,12 @@
       </tr>
         <%= for speaker <- @speakers do %>
         <tr>
-          <% user = CbusElixir.Accounts.get(speaker.user_id)%>
-          <% future_meetings = CbusElixir.App.Meetings.upcoming_meetings(Date.utc_today, count: 4) %>
+          <% user = CbusElixir.Accounts.get(speaker.user_id) %>
             <td><%= "#{user.first_name}  #{user.last_name}" %></td>
             <td><%= speaker.title %></td>
-          <% date = CbusElixir.App.Meetings.get_speaker_meeting(speaker.meeting_id).date %>
+            <% date = CbusElixir.App.Meetings.get_speaker_meeting(speaker.meeting_id).date %>
             <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
-            <td><%= link "Approve Talk", to: "#" %></td>
+            <td><%= link "Approve Talk", to: user_speaker_approve_path(@conn, :approve_speaker, user, speaker)  %></td>
         <% end %>
       </tr>
     </table>
