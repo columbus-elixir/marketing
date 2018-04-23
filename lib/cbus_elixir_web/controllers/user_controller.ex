@@ -5,10 +5,11 @@ defmodule CbusElixirWeb.UserController do
   alias Phauxth.Log
   alias CbusElixir.Accounts
   alias Phauxth.Login
+  alias CbusElixir.App
 
   # the following plugs are defined in the controllers/authorize.ex file
-  plug :user_check when action in [:index, :show]
-  plug :id_check_or_is_admin?  when action in [:edit, :update, :delete]
+  plug :user_check when action in [:index, :show, :admin]
+  plug :id_check when action in [:edit, :update, :delete]
   plug :is_admin? when action in [:index, :admin]
 
   def index(conn, _) do
@@ -37,7 +38,8 @@ defmodule CbusElixirWeb.UserController do
 
   def show(%Plug.Conn{assigns: %{current_user: user}} = conn, %{"id" => id}) do
     user = (id == to_string(user.id) and user) || Accounts.get(id)
-    render(conn, "show.html", user: user)
+    your_speaking_requests = App.this_users_speaking_requests(user)
+    render(conn, "show.html", user: user, your_speaking_requests: your_speaking_requests)
   end
 
   def edit(%Plug.Conn{assigns: %{current_user: user}} = conn, %{"id" => id}) do
@@ -49,7 +51,7 @@ defmodule CbusElixirWeb.UserController do
   def update(%Plug.Conn{assigns: %{current_user: user}} = conn, %{"user" => user_params}) do
     case Accounts.update_user(user, user_params) do
       {:ok, user} ->
-        success(conn, "User updated successfully", user_path(conn, :show, user))
+        success(conn, "Your profile has been updated successfully", user_path(conn, :show, user))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
@@ -62,11 +64,13 @@ defmodule CbusElixirWeb.UserController do
     {:ok, _user} = Accounts.delete_user(user)
 
     delete_session(conn, :phauxth_session_id)
-    |> success("User deleted successfully", session_path(conn, :new))
+    |> success("Your profile has been deleted successfully. Sorry to see you go!", session_path(conn, :new))
   end
 
   def admin(conn, params) do
     page = Accounts.list_users_paged(params)
-    render(conn, "admin.html", users: page.entries, page: page)
+    speakers = App.list_speakers_by_status("Open")
+    approvals = App.list_speakers_by_status("Approved")
+    render(conn, "admin.html", speakers: speakers, approvals: approvals, users: page.entries, page: page)
   end
 end

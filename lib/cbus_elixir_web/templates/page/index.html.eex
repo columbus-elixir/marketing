@@ -12,20 +12,16 @@
 
 
         <h2 class="title myriad">This Month's Speakers:</h2>
-        <%= if Enum.empty?(@next_meeting.speakers) do %>
+        <%= if Enum.empty?(@speakers) do %>
             <p>Our next speakers TBA</p>
         <% else %>
             <ul class="list">
-                <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
-                    <li>
-                        <a href="<%= s.url %>">
-                            <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
-                            <div class="details">
-                                <div class="name"><%= s.name %></div>
-                                <div class="talk-name"><%= s.title %></div>
-                            </div>
-                        </a>
-                    </li>
+                <%= Enum.map(@speakers, fn(s) -> %>
+                      <% user = CbusElixir.Accounts.get(s.user_id) %>
+                      <li>
+                        <h5><i><%= s.title %></i></h5>
+                        <p><%= "By: #{user.first_name} #{user.last_name}" %></p>
+                      </li>
                 <% end) %>
             </ul>
         <% end %>
@@ -33,7 +29,7 @@
         <%= if @current_user |> is_nil() do %>
           <p><%= link "Sign Up", to: user_path(@conn, :new) %> and schedule a talk!</p>
         <% else %>
-          <%= link "Schedule a talk", to: "#" %>
+          <%= link "Schedule a talk", to: user_speaker_path(@conn, :new, @current_user) %>
         <% end %>
     </div>
 

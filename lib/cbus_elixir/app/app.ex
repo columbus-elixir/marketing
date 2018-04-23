@@ -7,6 +7,7 @@ defmodule CbusElixir.App do
   alias CbusElixir.Repo
 
   alias CbusElixir.App.Speaker
+  alias CbusElixir.App.Meetings
 
   @doc """
   Returns the list of speakers.
@@ -103,4 +104,29 @@ defmodule CbusElixir.App do
   def change_speaker(%Speaker{} = speaker) do
     Speaker.changeset(speaker, %{})
   end
+
+  @doc """
+  Returns a list of approved speakers
+  ## Examples
+    iex> list_approved_speakers()
+    [%Speaker{status: "Approved"}, ...]
+  """
+  def list_speakers_by_status(status) do
+    query = from s in Speaker,
+    where: s.status == ^status
+    Repo.all(query)
+  end
+
+  def list_approved_speakers_by_meeting(meeting) do
+    query = from s in Speaker,
+    where: s.meeting_id == ^meeting.id and s.status == "Approved"
+    Repo.all(query)
+  end
+
+  def this_users_speaking_requests(user) do
+    query = from s in Speaker,
+    where: s.user_id == ^user.id
+    Repo.all(query)
+  end
+
 end
