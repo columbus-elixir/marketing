@@ -14,7 +14,7 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Member Since</th>
-        <th>Admin</th>
+        <th>Admin?</th>
       </tr>
         <%= for user <- @users do %>
         <tr>
@@ -22,13 +22,13 @@
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
           <td><%= "#{user.inserted_at.month}/#{user.inserted_at.day}/#{user.inserted_at.year}" %></td>
+          <td>
           <%= if user.is_admin do %>
-            <td>Yes</td>
-            <td><%= link "Remove Admin?", to: "#" %></td>
+            <%= link "\u2611", to: user_admin_toggle_path(@conn, :admin_toggle, user.id), class: "admin_toggle" %>
           <% else %>
-            <td>No</td>
-            <td><%= link "Make Admin?", to: "#" %></td>
+            <%= link "\u2610", to: user_admin_toggle_path(@conn, :admin_toggle, user.id), class: "admin_toggle" %>
           <% end %>
+          </td>
         </tr>
         <% end %>
     </table>

@@ -75,12 +75,11 @@ defmodule CbusElixirWeb.Authorize do
     |> error("You need to log in to view this page", session_path(conn, :new))
   end
 
-  def is_admin?(%Plug.Conn{assigns: %{current_user: current_user}} = conn, opts) do
+  def is_admin?(%Plug.Conn{assigns: %{current_user: current_user}} = conn, _opts) do
     unless current_user.is_admin do
       error(conn, "You are not authorized to view this content", page_path(conn, :index))
     end
     conn
   end
-
 
 end
