@@ -82,12 +82,4 @@ defmodule CbusElixirWeb.Authorize do
     conn
   end
 
-  def id_check_or_is_admin?(
-        %Plug.Conn{params: %{"id" => id}, assigns: %{current_user: current_user}} = conn,
-        _opts
-      ) do
-      ((id == to_string(current_user.id) or current_user.is_admin) and conn) ||
-        error(conn, "You are not authorized to view this page", user_path(conn, :index))
-  end
-
 end
