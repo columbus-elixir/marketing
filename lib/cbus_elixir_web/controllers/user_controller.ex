@@ -10,7 +10,7 @@ defmodule CbusElixirWeb.UserController do
   # the following plugs are defined in the controllers/authorize.ex file
   plug :user_check when action in [:index, :show, :admin]
   plug :id_check when action in [:edit, :update, :delete]
-  plug :is_admin? when action in [:index, :admin]
+  plug :is_admin? when action in [:index, :admin, :admin_toggle]
 
   def index(conn, _) do
     users = Accounts.list_users
@@ -72,5 +72,15 @@ defmodule CbusElixirWeb.UserController do
     speakers = App.list_speakers_by_status("Open")
     approvals = App.list_speakers_by_status("Approved")
     render(conn, "admin.html", speakers: speakers, approvals: approvals, users: page.entries, page: page)
+  end
+
+  def admin_toggle(%Plug.Conn{assigns: %{current_user: current_user}} = conn, %{"user_id" => id}) do
+    user = Accounts.get(id)
+    case Accounts.update_user(user, %{is_admin: !user.is_admin}) do
+      {:ok, user} ->
+        success(conn, "Admin Flag has been updated successfully", user_admin_path(conn, :admin, current_user.id))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        success(conn, "Admin Flag has not been updated successfully", user_admin_path(conn, :admin, current_user.id))
+    end
   end
 end

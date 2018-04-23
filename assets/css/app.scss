@@ -27,9 +27,14 @@ h1.title {
 }
 
 .pagination{
-    list-style: none;
+  list-style: none;
 }
+
 .pagination li{
-    display: inline-block;
-    margin: 1em;
+  display: inline-block;
+  margin: 1em;
+}
+
+.admin_toggle {
+  text-align: center;
 }
