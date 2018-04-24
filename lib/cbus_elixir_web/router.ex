@@ -11,8 +11,13 @@ defmodule CbusElixirWeb.Router do
     plug Phauxth.Remember
   end
 
+  if Mix.env == :dev do
+    forward "/sent_emails", Bamboo.EmailPreviewPlug
+  end
+
   scope "/", CbusElixirWeb do
     pipe_through :browser
+
 
     get "/", PageController, :index
     resources "/speakers", SpeakerController

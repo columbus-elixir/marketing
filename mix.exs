@@ -49,6 +49,7 @@ defmodule CbusElixir.Mixfile do
       {:canary, "~> 1.1.1"},
       {:scrivener_ecto, "~> 1.0"},
       {:scrivener_html, "~> 1.1"},
+      {:bamboo, "~> 0.8"},
       {:mailgun, "~> 0.1.2"},
 
       #conflicts with mailgun so forcing override infavor of recent

@@ -4,6 +4,8 @@ defmodule CbusElixirWeb.UserController do
   import CbusElixirWeb.Authorize
   alias Phauxth.Log
   alias CbusElixir.Accounts
+  alias CbusElixirWeb.Email
+  alias CbusElixirWeb.Mailer
   alias Phauxth.Login
 
   # the following plugs are defined in the controllers/authorize.ex file
@@ -27,6 +29,8 @@ defmodule CbusElixirWeb.UserController do
         Log.info(%Log{user: user.id, message: "user created"})
         session_id = Login.gen_session_id("F")
         Accounts.add_session(user, session_id, System.system_time(:second))
+        Email.welcome_email(user.email)
+        |> Mailer.deliver_later()
         Login.add_session(conn, session_id, user.id)
         |> login_success(page_path(conn, :index))
 

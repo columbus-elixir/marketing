@@ -14,6 +14,9 @@ config :cbus_elixir, CbusElixirWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
+config :cbus_elixir, CbusElixirWeb.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

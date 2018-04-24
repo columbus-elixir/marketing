@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="<%= static_url(CbusElixirWeb.Endpoint, "/css/style.css") %>">
+  </head>
+  <body>
+    <div class="container">
+      <%= render @view_module, @view_template, assigns %>
+    </div>
+  </body>
+</html>

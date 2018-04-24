@@ -14,7 +14,7 @@
         <h2 class="title myriad">This Month's Speakers:</h2>
         <%= if Enum.empty?(@next_meeting.speakers) do %>
             <p>Our next speakers TBA</p>
-        <%= else %>
+        <% else %>
             <ul class="list">
                 <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
                     <li>
