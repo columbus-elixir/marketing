@@ -25,9 +25,27 @@ $(document).ready(function(){
   $("#userManagementButton").click(function(){
     $("#userManagementTab").show();
     $("#speakingRequestTab").hide();
+    $("#approvedRequestsTab").hide();
   })
   $("#speakingRequestButton").click(function(){
     $("#speakingRequestTab").show();
     $("#userManagementTab").hide();
+    $("#approvedRequestsTab").hide();
+  })
+  $("#approvedRequestsButton").click(function(){
+    $("#speakingRequestTab").hide();
+    $("#userManagementTab").hide();
+    $("#approvedRequestsTab").show();
+  })
+})
+$(document).ready(function(){
+  $("#yourSpeakingRequestsTab").hide();
+  $("#yourProfileButton").click(function(){
+    $("#yourProfileTab").show();
+    $("#yourSpeakingRequestsTab").hide();
+  })
+  $("#yourSpeakingRequestsButton").click(function(){
+    $("#yourProfileTab").hide();
+    $("#yourSpeakingRequestsTab").show();
   })
 })

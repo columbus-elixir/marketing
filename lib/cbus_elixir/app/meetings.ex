@@ -3,10 +3,12 @@ defmodule CbusElixir.App.Meetings do
   Domain operations for meetings.
   """
 
-  import Ecto.Query
+  import Ecto.Query, warn: false
 
   alias CbusElixir.Repo
   alias CbusElixir.App.Meeting
+  alias CbusElixir.App
+
 
   @doc """
   Returns the next `count` upcoming meetings
@@ -28,4 +30,6 @@ defmodule CbusElixir.App.Meetings do
     |> Repo.one!
     |> Repo.preload(:speakers)
   end
+
+  def get_speaker_meeting(speaker_id), do: Repo.get!(Meeting, speaker_id)
 end

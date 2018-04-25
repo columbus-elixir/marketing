@@ -2,18 +2,19 @@
 <div class="tab">
   <nav role="navigation">
     <button id="userManagementButton">User Management</button>
-    <button id="speakingRequestButton">Speaking Requests</button>
+    <button id="speakingRequestButton">Open Speaking Requests</button>
+    <button id="approvedRequestsButton">Approved Requests</button>
   </nav>
 </div>
 <div id="userManagementTab">
   <h3>Total Users on Columbus Elixir: <%= @page.total_entries %></h3>
-    <table id="adminTable">
+    <table id="userManagementTable">
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
         <th>Member Since</th>
-        <th>Admin</th>
+        <th>Admin?</th>
       </tr>
         <%= for user <- @users do %>
         <tr>
@@ -21,19 +22,61 @@
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
           <td><%= "#{user.inserted_at.month}/#{user.inserted_at.day}/#{user.inserted_at.year}" %></td>
+          <td>
           <%= if user.is_admin do %>
-            <td>Yes</td>
-            <td><%= link "Remove Admin?", to: "#", class: "btn btn-primary" %></td>
+            <%= link "\u2611", to: user_admin_toggle_path(@conn, :admin_toggle, user.id), class: "admin_toggle" %>
           <% else %>
-            <td>No</td>
-            <td><%= link "Make Admin?", to: "#", class: "btn btn-primary" %></td>
+            <%= link "\u2610", to: user_admin_toggle_path(@conn, :admin_toggle, user.id), class: "admin_toggle" %>
           <% end %>
+          </td>
         </tr>
         <% end %>
     </table>
     <%= pagination_links @page, previous: Phoenix.HTML.raw("&leftarrow;"), next: Phoenix.HTML.raw("&rightarrow;") %>
   </div>
   <div id="speakingRequestTab" hidden>
-    <p>Coming Soon!</p>
+    <%= if @speakers |> Enum.empty? do %>
+      <p>We don't have any open speaking requests right now!</p>
+    <% else %>
+    <table id="speakingRequestTable">
+      <tr>
+        <th>Speaker Name</th>
+        <th>Speaking Request Title</th>
+        <th>Requested for Meeting Date</th>
+      </tr>
+        <%= for speaker <- @speakers do %>
+        <tr>
+          <% user = CbusElixir.Accounts.get(speaker.user_id) %>
+            <td><%= "#{user.first_name}  #{user.last_name}" %></td>
+            <td><%= speaker.title %></td>
+            <% date = CbusElixir.App.Meetings.get_speaker_meeting(speaker.meeting_id).date %>
+            <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
+            <td><%= link "Approve Talk", to: user_speaker_approve_path(@conn, :approve_speaker, user, speaker)  %></td>
+        <% end %>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+  <div id="approvedRequestsTab" hidden>
+    <%= if @approvals |> Enum.empty? do %>
+      <p>There are no approved talks!</p>
+    <% else %>
+    <table id="approvedRequestsTable">
+      <tr>
+        <th>Speaker Name</th>
+        <th>Speaking Request Title</th>
+        <th>Requested for Meeting Date</th>
+      </tr>
+        <%= for approval <- @approvals do %>
+        <tr>
+          <% user = CbusElixir.Accounts.get(approval.user_id) %>
+            <td><%= "#{user.first_name}  #{user.last_name}" %></td>
+            <td><%= approval.title %></td>
+            <% date = CbusElixir.App.Meetings.get_speaker_meeting(approval.meeting_id).date %>
+            <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
+        <% end %>
+      </tr>
+    </table>
+    <% end %>
   </div>
 </div>

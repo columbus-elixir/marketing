@@ -1,6 +1,11 @@
 <div class="main-content">
-<h2>Your Profile</h2>
-
+  <div class="tab">
+    <nav role="navigation">
+      <button id="yourProfileButton">Your Profile</button>
+      <button id="yourSpeakingRequestsButton">Your Speaking Requests</button>
+    </nav>
+  </div>
+<div id="yourProfileTab">
     <strong>First Name:</strong>
     <%= @user.first_name %><br>
 
@@ -10,6 +15,34 @@
     <strong>Email</strong>
     <%= @user.email %><br>
 
-<span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span><br>
-<span><%= link "Back", to: user_path(@conn, :index) %></span>
+    <%= if @user.id == @current_user.id do %>
+      <%= link "Edit Profile", to: user_path(@conn, :edit, @user), class: "button" %><br>
+    <% end %>
+</div>
+
+<div id="yourSpeakingRequestsTab">
+  <%= if @your_speaking_requests |> Enum.empty? do %>
+    <h2>You don't have any speaking requests</h2>
+  <% else %>
+    <table>
+      <tr>
+        <th>Speaking Request Title</th>
+        <th>Requested for Meeting Date</th>
+        <th>Approval Status</th>
+      </tr>
+      <%= for request <- @your_speaking_requests do %>
+      <tr>
+          <td><%= request.title %></td>
+          <% date = CbusElixir.App.Meetings.get_speaker_meeting(request.meeting_id).date %>
+          <td><%= "#{date.month}/#{date.day}/#{date.year}"%></td>
+          <td><%= request.status %></td>
+          <%= unless request.status == "Cancelled" do %>
+          <td><%= link "Cancel this talk?", to: user_speaker_cancel_path(@conn, :cancel_speaker, @user, request) %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+</div>
+
 </div>
