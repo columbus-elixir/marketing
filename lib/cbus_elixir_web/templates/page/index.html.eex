@@ -2,7 +2,7 @@
     <div class="column column-67">
         <h2 class="title myriad">What is Columbus Elixir</h2>
         <p>We are teachers and students, enthusiasts and professionals, working to bring Elixir and its ecosystem to Columbus, Ohio</p>
-        
+
         <h2 class="title myriad">What we're about</h2>
         <ul>
             <li>Hosting lectures on functional programming concepts</li>
@@ -10,7 +10,7 @@
             <li>Providing an excellent place for anyone (novice or expert) to start learning about Elixir</li>
         </ul>
 
-        
+
         <h2 class="title myriad">This Month's Speakers</h2>
         <%= if Enum.empty?(@next_meeting.speakers) do %>
             <p>Our next speakers TBA</p>
@@ -48,7 +48,7 @@
         <div class="sponsors">
             <h2 class="title myriad">Sponsors</h2>
             <div class="sponsors">
-                <a href="https://matchedpattern.com/" target="_blank">
+                <a href="http://www.matchedpattern.com/" target="_blank">
                     <img src="/images/MPLogo.png" alt="MP Logo">
                 </a>
                 <a href="http://www.scriptdrop.co/" target="_blank">
