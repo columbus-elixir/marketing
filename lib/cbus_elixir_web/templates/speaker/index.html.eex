@@ -1,5 +1,7 @@
 <h2>Listing Speakers</h2>
 
+<span><%= link "New Speaker", to: speaker_path(@conn, :new) %></span>
+
 <table class="table">
   <thead>
     <tr>
@@ -30,5 +32,3 @@
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Speaker", to: speaker_path(@conn, :new) %></span>
