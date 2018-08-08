@@ -13,11 +13,11 @@
 alias CbusElixir.Repo
 alias CbusElixir.App.Meeting
 
-start = Timex.beginning_of_month(Timex.now)
+start_date = Timex.beginning_of_month(~N[2018-03-06T00:00:00])
 
 
 Enum.each(0..100, fn(x) ->
-  date = Timex.shift(start, months: x)
+  date = Timex.shift(start_date, months: x)
   days = Enum.find(0..6, fn d -> Timex.shift(date, days: d) |> Date.day_of_week() == 2 end)
   meeting_date = Timex.shift(date, days: days)
 
