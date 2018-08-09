@@ -13,7 +13,7 @@
 alias CbusElixir.Repo
 alias CbusElixir.App.Meeting
 
-start_date = Timex.beginning_of_month(~N[2018-03-06T00:00:00])
+start_date = ~N[2018-03-01T00:00:00]
 
 
 Enum.each(0..100, fn(x) ->
