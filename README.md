@@ -4,7 +4,7 @@
 ## Getting Server Started:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
+  * Create and migrate your database with `mix ecto.create && mix ecto.migrate` or `mix ecto.setup` to create, migrate and seed.
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server` or `iex -S mix phx.server` if you want to run within a REPL.
 
@@ -12,7 +12,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ### Extra Tools
 
-  * Run `mix credo` to see a list of code analysis suggestions via [Credo](https://github.com/rrrene/credo). NOTE: We are using the defaults Credo provides. 
+  * Run `mix credo` to see a list of code analysis suggestions via [Credo](https://github.com/rrrene/credo). NOTE: We are using the defaults Credo provides.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
