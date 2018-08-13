@@ -26,6 +26,6 @@ defmodule CbusElixir.App.Meetings do
     |> Meeting.happening_after(date)
     |> first
     |> Repo.one!
-    |> Repo.preload(:speakers)
+    |> Repo.preload([:speakers, :attendees])
   end
 end

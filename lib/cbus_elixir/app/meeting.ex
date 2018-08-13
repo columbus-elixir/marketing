@@ -2,11 +2,12 @@ defmodule CbusElixir.App.Meeting do
   use Ecto.Schema
   import Ecto.Changeset
   import Ecto.Query
-  alias CbusElixir.App.{Meeting, Speaker}
+  alias CbusElixir.App.{ Attendee, Meeting, Speaker}
 
   schema "meetings" do
     field :date, :utc_datetime
     has_many :speakers, Speaker
+    has_many :attendees, Attendee
 
     timestamps()
   end
