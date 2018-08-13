@@ -72,4 +72,72 @@ defmodule CbusElixir.AppTest do
 
     end
   end
+
+  describe "attendees" do
+    alias CbusElixir.App.Attendee
+
+    @valid_attrs %{email: "some email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "some twitter"}
+    @update_attrs %{email: "some updated email", name: "some updated name", new_to_cbus_elixir: false, new_to_elixir: false, twitter: "some updated twitter"}
+    @invalid_attrs %{email: nil, name: nil, new_to_cbus_elixir: nil, new_to_elixir: nil, twitter: nil}
+
+    def attendee_fixture(attrs \\ %{}) do
+      {:ok, attendee} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> App.create_attendee()
+
+      attendee
+    end
+
+    test "list_attendees/0 returns all attendees" do
+      attendee = attendee_fixture()
+      assert App.list_attendees() == [attendee]
+    end
+
+    test "get_attendee!/1 returns the attendee with given id" do
+      attendee = attendee_fixture()
+      assert App.get_attendee!(attendee.id) == attendee
+    end
+
+    test "create_attendee/1 with valid data creates a attendee" do
+      assert {:ok, %Attendee{} = attendee} = App.create_attendee(@valid_attrs)
+      assert attendee.email == "some email"
+      assert attendee.name == "some name"
+      assert attendee.new_to_cbus_elixir == true
+      assert attendee.new_to_elixir == true
+      assert attendee.twitter == "some twitter"
+    end
+
+    test "create_attendee/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = App.create_attendee(@invalid_attrs)
+    end
+
+    test "update_attendee/2 with valid data updates the attendee" do
+      attendee = attendee_fixture()
+      assert {:ok, attendee} = App.update_attendee(attendee, @update_attrs)
+      assert %Attendee{} = attendee
+      assert attendee.email == "some updated email"
+      assert attendee.name == "some updated name"
+      assert attendee.new_to_cbus_elixir == false
+      assert attendee.new_to_elixir == false
+      assert attendee.twitter == "some updated twitter"
+    end
+
+    test "update_attendee/2 with invalid data returns error changeset" do
+      attendee = attendee_fixture()
+      assert {:error, %Ecto.Changeset{}} = App.update_attendee(attendee, @invalid_attrs)
+      assert attendee == App.get_attendee!(attendee.id)
+    end
+
+    test "delete_attendee/1 deletes the attendee" do
+      attendee = attendee_fixture()
+      assert {:ok, %Attendee{}} = App.delete_attendee(attendee)
+      assert_raise Ecto.NoResultsError, fn -> App.get_attendee!(attendee.id) end
+    end
+
+    test "change_attendee/1 returns a attendee changeset" do
+      attendee = attendee_fixture()
+      assert %Ecto.Changeset{} = App.change_attendee(attendee)
+    end
+  end
 end
