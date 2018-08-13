@@ -6,7 +6,7 @@ defmodule CbusElixirWeb.PageControllerTest do
     conn = get conn, "/"
     assert html_response(conn, 200) =~ "What is Columbus Elixir"
   end
-@tag :skip
+
   test "Date Query String", %{conn: conn} do
     date = "2018-03-25"
     conn = get conn, "/?date=#{date}"
