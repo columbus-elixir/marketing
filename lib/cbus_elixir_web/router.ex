@@ -18,6 +18,7 @@ defmodule CbusElixirWeb.Router do
 
     get "/", PageController, :index
     resources "/speakers", SpeakerController
+    resources "/attendee", AttendeeController
   end
 
   # Other scopes may use custom stacks.
