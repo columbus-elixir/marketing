@@ -19,6 +19,6 @@ defmodule CbusElixir.App.Attendee do
   def changeset(%Attendee{} = attendee, attrs) do
     attendee
     |> cast(attrs, [:name, :email, :twitter, :new_to_elixir, :new_to_cbus_elixir])
-    |> validate_required([:name, :email, :twitter, :new_to_elixir, :new_to_cbus_elixir])
+    |> validate_required([:name, :email, :new_to_elixir, :new_to_cbus_elixir])
   end
 end
