@@ -17,6 +17,8 @@ defmodule CbusElixirWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/registration", MeetingRegistrationController, :index
+
     resources "/speakers", SpeakerController
     resources "/attendee", AttendeeController
   end
