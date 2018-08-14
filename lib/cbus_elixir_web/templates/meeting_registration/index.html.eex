@@ -1,10 +1,10 @@
 <div class="row main-content">
     <div class="column column-67">
-        <h3>Registration for <%= formatted_date(@next_meeting.date) %></h3>
+        <h3 class="title myriad">Registration for <%= formatted_date(@next_meeting.date) %></h3>
 
         <%= if Enum.empty?(@next_meeting.attendees) do %>
             <p>No one has registerd for this meeting yet</p>
-            <span><h3><%= link "Be the first!", to: attendee_path(@conn, :new) %></h3></span>
+            <span><h3 class="title myriad"><%= link "Be the first!", to: attendee_path(@conn, :new) %></h3></span>
 
         <% else %>
         <table class="table">
@@ -33,7 +33,7 @@
         </tbody>
         </table>
 
-<span><%= link "Register for this Meetting", to: attendee_path(@conn, :new) %></span>
+<span ><h4 class="title myriad"><%= link "Register for this Meeting", to: attendee_path(@conn, :new) %></h4></span>
         <% end %>
     </div>
 
