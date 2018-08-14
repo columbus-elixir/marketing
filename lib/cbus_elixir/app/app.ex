@@ -154,40 +154,6 @@ defmodule CbusElixir.App do
   end
 
   @doc """
-  Updates a attendee.
-
-  ## Examples
-
-      iex> update_attendee(attendee, %{field: new_value})
-      {:ok, %Attendee{}}
-
-      iex> update_attendee(attendee, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_attendee(%Attendee{} = attendee, attrs) do
-    attendee
-    |> Attendee.changeset(attrs)
-    |> Repo.update()
-  end
-
-  @doc """
-  Deletes a Attendee.
-
-  ## Examples
-
-      iex> delete_attendee(attendee)
-      {:ok, %Attendee{}}
-
-      iex> delete_attendee(attendee)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_attendee(%Attendee{} = attendee) do
-    Repo.delete(attendee)
-  end
-
-  @doc """
   Returns an `%Ecto.Changeset{}` for tracking attendee changes.
 
   ## Examples

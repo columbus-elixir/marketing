@@ -1,6 +1,5 @@
 defmodule CbusElixirWeb.PageControllerTest do
   use CbusElixirWeb.ConnCase
-  alias CbusElixir.App.Meetings
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"
