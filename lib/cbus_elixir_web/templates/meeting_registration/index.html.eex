@@ -1,1 +1,49 @@
-<h2>Listing Attendees</h2>
+<div class="row main-content">
+    <div class="column column-67">
+        <h3>Registration for <%= formatted_date(@next_meeting.date) %></h3>
+
+        <%= if Enum.empty?(@next_meeting.attendees) do %>
+            <p>No one has registerd for this meeting yet</p>
+            <span><h3><%= link "Be the first!", to: attendee_path(@conn, :new) %></h3></span>
+
+        <% else %>
+        <table class="table">
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Twitter</th>
+            <th>New to elixir</th>
+            <th>New to cbus elixir</th>
+
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <%= for attendee <- @next_meeting.attendees do %>
+            <tr>
+            <td><%= attendee.name %></td>
+            <td><%= attendee.email %></td>
+            <td><%= attendee.twitter %></td>
+            <td><%= attendee.new_to_elixir %></td>
+            <td><%= attendee.new_to_cbus_elixir %></td>
+
+            </tr>
+        <% end %>
+        </tbody>
+        </table>
+
+<span><%= link "Register for this Meetting", to: attendee_path(@conn, :new) %></span>
+        <% end %>
+    </div>
+
+    <div class="column column-33 sidebar">
+        <div class="next-meeting">
+            <h2 class="title myriad">Next Meeting</h2>
+            <p>
+                <%= formatted_date(@next_meeting.date) %> at 6pm<br />
+                First Tuesday of Every Month
+            </p>
+        </div>
+    </div>
+</div>
