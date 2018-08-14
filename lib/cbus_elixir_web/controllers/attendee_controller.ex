@@ -2,7 +2,7 @@ defmodule CbusElixirWeb.AttendeeController do
   use CbusElixirWeb, :controller
 
   alias CbusElixir.App
-  alias CbusElixir.App.Attendee
+  alias CbusElixir.App.{ Attendee, Meetings }
 
   def index(conn, _params) do
     attendees = App.list_attendees()
@@ -15,11 +15,14 @@ defmodule CbusElixirWeb.AttendeeController do
   end
 
   def create(conn, %{"attendee" => attendee_params}) do
+    meeting_id = Meetings.next_meeting(Timex.now).id
+    attendee_params = attendee_params 
+      |> Map.put("meeting_id", meeting_id)
     case App.create_attendee(attendee_params) do
       {:ok, attendee} ->
         conn
         |> put_flash(:info, "Attendee created successfully.")
-        |> redirect(to: attendee_path(conn, :show, attendee))
+        |> redirect(to: meeting_registration_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
