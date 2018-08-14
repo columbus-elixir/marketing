@@ -2,4 +2,4 @@
 
 <%= render "form.html", Map.put(assigns, :action, attendee_path(@conn, :create)) %>
 
-<span><%= link "Back", to: attendee_path(@conn, :index) %></span>
+<span><%= link "Back", to: meeting_registration_path(@conn, :index) %></span>
