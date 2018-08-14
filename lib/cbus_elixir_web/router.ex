@@ -20,7 +20,7 @@ defmodule CbusElixirWeb.Router do
     get "/registration", MeetingRegistrationController, :index
 
     resources "/speakers", SpeakerController
-    resources "/attendee", AttendeeController
+    resources "/attendee", AttendeeController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
