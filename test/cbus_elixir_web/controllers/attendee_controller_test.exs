@@ -4,13 +4,6 @@ defmodule CbusElixirWeb.AttendeeControllerTest do
   @create_attrs %{email: "some email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, meeting_id: 1}
   @invalid_attrs %{email: nil, name: nil, new_to_cbus_elixir: nil, new_to_elixir: nil, meeting_id: nil}
 
-  describe "index" do
-    test "lists all attendees", %{conn: conn} do
-      conn = get conn, attendee_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Attendees"
-    end
-  end
-
   describe "new attendee" do
     test "renders form", %{conn: conn} do
       conn = get conn, attendee_path(conn, :new)
