@@ -1,8 +1,7 @@
 defmodule CbusElixirWeb.MeetingRegistrationController do
   use CbusElixirWeb, :controller
 
-  alias CbusElixir.App
-  alias CbusElixir.App.{ Meetings, Attendee }
+  alias CbusElixir.App.{ Meetings }
 
   def index(conn, _params) do
     next_meeting = Meetings.next_meeting(Timex.now)

@@ -14,7 +14,7 @@ defmodule CbusElixirWeb.AttendeeController do
     attendee_params = attendee_params 
       |> Map.put("meeting_id", meeting_id)
     case App.create_attendee(attendee_params) do
-      {:ok, attendee} ->
+      {:ok, _attendee} ->
         conn
         |> put_flash(:info, "Attendee created successfully.")
         |> redirect(to: meeting_registration_path(conn, :index))
