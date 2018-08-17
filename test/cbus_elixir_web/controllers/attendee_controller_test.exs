@@ -13,18 +13,23 @@ defmodule CbusElixirWeb.AttendeeControllerTest do
   end
 
   describe "create attendee" do
-    test "redirects to show when data is valid", %{conn: conn} do
+    test "redirects to meeting registration when data is valid", %{conn: conn} do
       conn = post conn, attendee_path(conn, :create), attendee: @create_attrs
 
       assert redirected_to(conn) == meeting_registration_path(conn, :index)
 
       conn = get conn, meeting_registration_path(conn, :index)
-      assert html_response(conn, 200) =~ "Next Meeting"
+      assert html_response(conn, 200) =~ "Register for this meetup"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, attendee_path(conn, :create), attendee: @invalid_attrs
       assert html_response(conn, 200) =~ "New Attendee"
+    end
+
+    test "renders errors when twitter handle is invalid", %{conn: conn} do
+      conn = post conn, attendee_path(conn, :create), attendee: @invalid_twitter_attrs
+      assert html_response(conn, 200) =~ "Characters $% not allowed in Twitter handle"
     end
   end
 
