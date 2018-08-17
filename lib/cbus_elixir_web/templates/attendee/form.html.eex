@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= label f, :twitter, class: "control-label" %>
-    <%= text_input f, :twitter, class: "form-control" %>
+    @<%= text_input f, :twitter, class: "form-control" %>
     <%= error_tag f, :twitter %>
   </div>
 
