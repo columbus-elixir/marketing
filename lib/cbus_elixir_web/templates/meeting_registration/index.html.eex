@@ -25,7 +25,7 @@
             <tr>
             <td><%= attendee.name %></td>
             <td><%= attendee.email %></td>
-            <td><%= attendee.twitter %></td>
+            <td>@<%= attendee.twitter %></td>
             <td><%= attendee.new_to_elixir %></td>
             <td><%= attendee.new_to_cbus_elixir %></td>
 
