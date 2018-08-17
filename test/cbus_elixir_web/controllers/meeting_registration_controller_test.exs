@@ -16,6 +16,6 @@ defmodule CbusElixirWeb.MeetingRegistrationControllerTest do
         date = "2018-04-03"
         conn = get conn, "/?date=#{date}"
         assert html_response(conn, 200) =~ "2018-04-03"
-      end
+    end
   
   end
