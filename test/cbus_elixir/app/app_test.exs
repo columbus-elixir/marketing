@@ -76,8 +76,8 @@ defmodule CbusElixir.AppTest do
   describe "attendees" do
     alias CbusElixir.App.Attendee
 
-    @valid_attrs %{email: "some email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, meeting_id: 1}
-    @invalid_attrs %{email: nil, name: nil, new_to_cbus_elixir: nil, new_to_elixir: nil, twitter: nil}
+    @valid_attrs %{email: "some@email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "@handle", meeting_id: 1}
+    @invalid_attrs %{email: nil, name: nil, new_to_cbus_elixir: nil, new_to_elixir: nil}
 
     def attendee_fixture(attrs \\ %{}) do
       {:ok, attendee} =
@@ -100,20 +100,17 @@ defmodule CbusElixir.AppTest do
 
     test "create_attendee/1 with valid data creates a attendee" do
       assert {:ok, %Attendee{} = attendee} = App.create_attendee(@valid_attrs)
-      assert attendee.email == "some email"
+      assert attendee.email == "some@email"
       assert attendee.name == "some name"
       assert attendee.new_to_cbus_elixir == true
       assert attendee.new_to_elixir == true
       assert attendee.meeting_id == 1
+      assert attendee.twitter == "handle"
     end
 
     test "create_attendee/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = App.create_attendee(@invalid_attrs)
     end
 
-    test "change_attendee/1 returns a attendee changeset" do
-      attendee = attendee_fixture()
-      assert %Ecto.Changeset{} = App.change_attendee(attendee)
-    end
   end
 end
