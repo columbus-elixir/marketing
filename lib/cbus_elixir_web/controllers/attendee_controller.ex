@@ -2,7 +2,9 @@ defmodule CbusElixirWeb.AttendeeController do
   use CbusElixirWeb, :controller
 
   alias CbusElixir.App
-  alias CbusElixir.App.{ Attendee, Meetings }
+  alias CbusElixir.App.Attendee
+  plug CbusElixir.Plugs.SetNextMeeting
+
 
   def new(conn, _params) do
     changeset = App.change_attendee(%Attendee{})
@@ -10,7 +12,8 @@ defmodule CbusElixirWeb.AttendeeController do
   end
 
   def create(conn, %{"attendee" => attendee_params}) do
-    meeting_id = Meetings.next_meeting(Timex.now).id
+    meeting_id = conn.assigns.next_meeting.id
+
     attendee_params = attendee_params 
       |> Map.put("meeting_id", meeting_id)
     case App.create_attendee(attendee_params) do
