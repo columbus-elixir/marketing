@@ -28,9 +28,14 @@ defmodule CbusElixirWeb.AttendeeControllerTest do
       assert html_response(conn, 200) =~ "New Attendee"
     end
 
-    test "renders errors when twitter handle is invalid", %{conn: conn} do
-      conn = post conn, attendee_path(conn, :create), attendee: @invalid_twitter_attrs
+    test "renders errors when twitter handle has invalid characters", %{conn: conn} do
+      conn = post conn, attendee_path(conn, :create), attendee: @invalid_twitter_attrs1
       assert html_response(conn, 200) =~ "Characters $% not allowed in Twitter handle"
+    end
+
+    test "renders errors when twitter handle has too many characters", %{conn: conn} do
+      conn = post conn, attendee_path(conn, :create), attendee: @invalid_twitter_attrs2
+      assert html_response(conn, 200) =~ "should be at most 15 character(s)"
     end
   end
 
