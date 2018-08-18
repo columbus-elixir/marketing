@@ -1,5 +1,5 @@
 <div class="row main-content">
-     <div style="overflow-x:auto;">
+    <div style="overflow-x:auto;">
         <h3 class="title myriad">Registration for (<%= formatted_date(@next_meeting.date) %>)</h3>
 
         <%= if Enum.empty?(@next_meeting.attendees) do %>
@@ -25,7 +25,13 @@
             <tr>
             <td><%= attendee.name %></td>
             <td><%= attendee.email %></td>
-            <td>@<%= attendee.twitter %></td>
+
+            <%= if attendee.twitter do %>
+                <td>@<%= attendee.twitter %></td>
+            <% else %>   
+                <td><%= attendee.twitter %></td>
+            <% end %>
+
             <td><%= attendee.new_to_elixir %></td>
             <td><%= attendee.new_to_cbus_elixir %></td>
 
