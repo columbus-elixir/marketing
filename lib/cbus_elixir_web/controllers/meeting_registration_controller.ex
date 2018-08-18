@@ -1,7 +1,6 @@
 defmodule CbusElixirWeb.MeetingRegistrationController do
   use CbusElixirWeb, :controller
 
-  alias CbusElixir.App
   plug CbusElixir.Plugs.SetNextMeeting
 
 
