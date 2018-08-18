@@ -1,10 +1,10 @@
 <div class="row main-content">
-    <div>
-        <h3 class="title myriad">Registration for <%= formatted_date(@next_meeting.date) %></h3>
+     <div style="overflow-x:auto;">
+        <h3 class="title myriad">Registration for (<%= formatted_date(@next_meeting.date) %>)</h3>
 
         <%= if Enum.empty?(@next_meeting.attendees) do %>
             <p>No one has registerd for this meetup yet</p>
-            <span><h3 class="title myriad"><%= link "Be the first!", to: attendee_path(@conn, :new) %></h3></span>
+            <span><h3 class="title myriad"><%= link "Be the first to register!", to: attendee_path(@conn, :new) %></h3></span>
 
         <% else %>
         <span ><h4 class="title myriad"><%= link "Register for this meetup", to: attendee_path(@conn, :new) %></h4></span>

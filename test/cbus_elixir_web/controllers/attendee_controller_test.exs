@@ -3,7 +3,8 @@ defmodule CbusElixirWeb.AttendeeControllerTest do
 
   @create_attrs %{email: "some@email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "@handle", meeting_id: 1}
   @invalid_attrs %{email: nil, name: nil, new_to_cbus_elixir: nil, new_to_elixir: nil, twitter: "@handle", meeting_id: nil}
-  @invalid_twitter_attrs %{email: "some@email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "@@h$a%ndle", meeting_id: 1}
+  @invalid_twitter_attrs1 %{email: "some@email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "@@h$a%ndle", meeting_id: 1}
+  @invalid_twitter_attrs2 %{email: "some@email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "thishastoomanycharacters", meeting_id: 1}
 
   describe "new attendee" do
     test "renders form", %{conn: conn} do
