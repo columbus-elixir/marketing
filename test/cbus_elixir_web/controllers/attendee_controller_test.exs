@@ -59,7 +59,7 @@ defmodule CbusElixirWeb.AttendeeControllerTest do
       assert html_response(conn, 200) =~ "Attendee created successfully."
     end
 
-    test "Shows new attendee data on meeting /registation when data is valid", %{conn: conn} do
+    test "shows new attendee content on meeting /registation when data is valid", %{conn: conn} do
       conn = post(conn, attendee_path(conn, :create), attendee: @create_attrs)
 
       assert redirected_to(conn) == meeting_registration_path(conn, :index)
