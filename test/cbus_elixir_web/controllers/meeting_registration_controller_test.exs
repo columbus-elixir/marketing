@@ -6,7 +6,7 @@ defmodule CbusElixirWeb.MeetingRegistrationControllerTest do
     assert html_response(conn, 200) =~ "Registration for"
   end
 
-  test "Shows correct meeting day of", %{conn: conn} do
+  test "Shows correct next_meeting given a specific date", %{conn: conn} do
     date = "2018-03-25"
     conn = get(conn, "/?date=#{date}")
     assert html_response(conn, 200) =~ "2018-04-03"
