@@ -7,6 +7,7 @@ defmodule CbusElixir.App do
   alias CbusElixir.Repo
 
   alias CbusElixir.App.Speaker
+  alias CbusElixir.App.Attendee
 
   @doc """
   Returns the list of speakers.
@@ -102,5 +103,65 @@ defmodule CbusElixir.App do
   """
   def change_speaker(%Speaker{} = speaker) do
     Speaker.changeset(speaker, %{})
+  end
+
+  @doc """
+  Returns the list of attendees.
+
+  ## Examples
+
+      iex> list_attendees()
+      [%Attendee{}, ...]
+
+  """
+  def list_attendees do
+    Repo.all(Attendee)
+  end
+
+  @doc """
+  Gets a single attendee.
+
+  Raises `Ecto.NoResultsError` if the Attendee does not exist.
+
+  ## Examples
+
+      iex> get_attendee!(123)
+      %Attendee{}
+
+      iex> get_attendee!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_attendee!(id), do: Repo.get!(Attendee, id)
+
+  @doc """
+  Creates a attendee.
+
+  ## Examples
+
+      iex> create_attendee(%{field: value})
+      {:ok, %Attendee{}}
+
+      iex> create_attendee(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_attendee(attrs \\ %{}) do
+    %Attendee{}
+    |> Attendee.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking attendee changes.
+
+  ## Examples
+
+      iex> change_attendee(attendee)
+      %Ecto.Changeset{source: %Attendee{}}
+
+  """
+  def change_attendee(%Attendee{} = attendee) do
+    Attendee.changeset(attendee, %{})
   end
 end

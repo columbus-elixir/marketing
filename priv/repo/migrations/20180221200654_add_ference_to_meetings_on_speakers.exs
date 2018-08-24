@@ -3,7 +3,7 @@ defmodule CbusElixir.Repo.Migrations.AddFerenceToMeetingsOnSpeakers do
 
   def change do
     alter table(:speakers) do
-      modify :meeting_id, references :meetings
+      modify(:meeting_id, references(:meetings))
     end
   end
 end

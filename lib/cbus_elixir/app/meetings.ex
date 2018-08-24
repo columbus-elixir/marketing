@@ -15,7 +15,7 @@ defmodule CbusElixir.App.Meetings do
     Meeting
     |> Meeting.happening_after(date)
     |> limit(^count)
-    |> Repo.all
+    |> Repo.all()
   end
 
   @doc """
@@ -25,7 +25,7 @@ defmodule CbusElixir.App.Meetings do
     Meeting
     |> Meeting.happening_after(date)
     |> first
-    |> Repo.one!
-    |> Repo.preload(:speakers)
+    |> Repo.one!()
+    |> Repo.preload([:speakers, :attendees])
   end
 end

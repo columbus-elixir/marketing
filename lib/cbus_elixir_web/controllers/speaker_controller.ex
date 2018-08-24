@@ -1,5 +1,4 @@
 defmodule CbusElixirWeb.SpeakerController do
-
   use CbusElixirWeb, :controller
 
   alias CbusElixir.App
@@ -21,6 +20,7 @@ defmodule CbusElixirWeb.SpeakerController do
         conn
         |> put_flash(:info, "Speaker created successfully.")
         |> redirect(to: speaker_path(conn, :show, speaker))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -45,6 +45,7 @@ defmodule CbusElixirWeb.SpeakerController do
         conn
         |> put_flash(:info, "Speaker updated successfully.")
         |> redirect(to: speaker_path(conn, :show, speaker))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", speaker: speaker, changeset: changeset)
     end
@@ -58,5 +59,4 @@ defmodule CbusElixirWeb.SpeakerController do
     |> put_flash(:info, "Speaker deleted successfully.")
     |> redirect(to: speaker_path(conn, :index))
   end
-
 end
