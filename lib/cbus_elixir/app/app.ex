@@ -7,6 +7,7 @@ defmodule CbusElixir.App do
   alias CbusElixir.Repo
 
   alias CbusElixir.App.Speaker
+  alias CbusElixir.App.Attendee
 
   @doc """
   Returns the list of speakers.
@@ -103,8 +104,6 @@ defmodule CbusElixir.App do
   def change_speaker(%Speaker{} = speaker) do
     Speaker.changeset(speaker, %{})
   end
-
-  alias CbusElixir.App.Attendee
 
   @doc """
   Returns the list of attendees.
