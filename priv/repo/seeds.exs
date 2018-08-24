@@ -15,13 +15,12 @@ alias CbusElixir.App.Meeting
 
 start_date = ~N[2018-03-01T00:00:00]
 
-
-Enum.each(0..100, fn(x) ->
+Enum.each(0..100, fn x ->
   date = Timex.shift(start_date, months: x)
   days = Enum.find(0..6, fn d -> Timex.shift(date, days: d) |> Date.day_of_week() == 2 end)
   meeting_date = Timex.shift(date, days: days)
 
   %Meeting{}
   |> Meeting.changeset(%{date: meeting_date})
-  |> Repo.insert!
+  |> Repo.insert!()
 end)

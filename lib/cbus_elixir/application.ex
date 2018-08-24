@@ -11,7 +11,7 @@ defmodule CbusElixir.Application do
       # Start the Ecto repository
       supervisor(CbusElixir.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(CbusElixirWeb.Endpoint, []),
+      supervisor(CbusElixirWeb.Endpoint, [])
       # Start your own worker by calling: CbusElixir.Worker.start_link(arg1, arg2, arg3)
       # worker(CbusElixir.Worker, [arg1, arg2, arg3]),
     ]

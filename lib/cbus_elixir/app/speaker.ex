@@ -3,13 +3,12 @@ defmodule CbusElixir.App.Speaker do
   import Ecto.Changeset
   alias CbusElixir.App.Speaker
 
-
   schema "speakers" do
-    field :email, :string
-    field :name, :string
-    field :title, :string
-    field :url, :string
-    belongs_to :meeting, CbusElixir.App.Meeting
+    field(:email, :string)
+    field(:name, :string)
+    field(:title, :string)
+    field(:url, :string)
+    belongs_to(:meeting, CbusElixir.App.Meeting)
 
     timestamps()
   end

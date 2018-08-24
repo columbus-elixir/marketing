@@ -3,8 +3,20 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
 
   alias CbusElixir.App
 
-  @create_attrs %{email: "some email", meeting_id: 42, name: "some name", title: "some title", url: "some url"}
-  @update_attrs %{email: "some updated email", meeting_id: 43, name: "some updated name", title: "some updated title", url: "some updated url"}
+  @create_attrs %{
+    email: "some email",
+    meeting_id: 42,
+    name: "some name",
+    title: "some title",
+    url: "some url"
+  }
+  @update_attrs %{
+    email: "some updated email",
+    meeting_id: 43,
+    name: "some updated name",
+    title: "some updated title",
+    url: "some updated url"
+  }
   @invalid_attrs %{email: nil, meeting_id: nil, name: nil, title: nil, url: nil}
 
   @username Application.get_env(:cbus_elixir, :cbus_auth_config)[:username]
@@ -23,21 +35,21 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
 
   describe "index" do
     test "lists all speakers", %{conn: conn} do
-      conn = get conn, speaker_path(conn, :index)
+      conn = get(conn, speaker_path(conn, :index))
       assert html_response(conn, 200) =~ "Listing Speakers"
     end
   end
 
   describe "new speaker" do
     test "renders form", %{conn: conn} do
-      conn = get conn, speaker_path(conn, :new)
+      conn = get(conn, speaker_path(conn, :new))
       assert html_response(conn, 200) =~ "New Speaker"
     end
   end
 
   describe "create speaker" do
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post conn, speaker_path(conn, :create), speaker: @create_attrs
+      conn = post(conn, speaker_path(conn, :create), speaker: @create_attrs)
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == speaker_path(conn, :show, id)
@@ -49,7 +61,7 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post conn, speaker_path(conn, :create), speaker: @invalid_attrs
+      conn = post(conn, speaker_path(conn, :create), speaker: @invalid_attrs)
       assert html_response(conn, 200) =~ "New Speaker"
     end
   end
@@ -58,7 +70,7 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
     setup [:create_speaker]
 
     test "renders form for editing chosen speaker", %{conn: conn, speaker: speaker} do
-      conn = get conn, speaker_path(conn, :edit, speaker)
+      conn = get(conn, speaker_path(conn, :edit, speaker))
       assert html_response(conn, 200) =~ "Edit Speaker"
     end
   end
@@ -67,7 +79,7 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
     setup [:create_speaker]
 
     test "redirects when data is valid", %{conn: conn, speaker: speaker} do
-      conn = put conn, speaker_path(conn, :update, speaker), speaker: @update_attrs
+      conn = put(conn, speaker_path(conn, :update, speaker), speaker: @update_attrs)
       assert redirected_to(conn) == speaker_path(conn, :show, speaker)
 
       conn = conn
@@ -77,7 +89,7 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, speaker: speaker} do
-      conn = put conn, speaker_path(conn, :update, speaker), speaker: @invalid_attrs
+      conn = put(conn, speaker_path(conn, :update, speaker), speaker: @invalid_attrs)
       assert html_response(conn, 200) =~ "Edit Speaker"
     end
   end
@@ -86,7 +98,7 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
     setup [:create_speaker]
 
     test "deletes chosen speaker", %{conn: conn, speaker: speaker} do
-      conn = delete conn, speaker_path(conn, :delete, speaker)
+      conn = delete(conn, speaker_path(conn, :delete, speaker))
       assert redirected_to(conn) == speaker_path(conn, :index)
 
       conn = conn

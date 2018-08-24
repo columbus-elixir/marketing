@@ -3,12 +3,23 @@ defmodule CbusElixir.AppTest do
 
   alias CbusElixir.App
 
-
   describe "speakers" do
     alias CbusElixir.App.Speaker
 
-    @valid_attrs %{email: "some email", meeting_id: 42, name: "some name", title: "some title", url: "some url"}
-    @update_attrs %{email: "some updated email", meeting_id: 43, name: "some updated name", title: "some updated title", url: "some updated url"}
+    @valid_attrs %{
+      email: "some email",
+      meeting_id: 42,
+      name: "some name",
+      title: "some title",
+      url: "some url"
+    }
+    @update_attrs %{
+      email: "some updated email",
+      meeting_id: 43,
+      name: "some updated name",
+      title: "some updated title",
+      url: "some updated url"
+    }
     @invalid_attrs %{email: nil, meeting_id: nil, name: nil, title: nil, url: nil}
 
     def speaker_fixture(attrs \\ %{}) do
@@ -69,14 +80,20 @@ defmodule CbusElixir.AppTest do
     test "change_speaker/1 returns a speaker changeset" do
       speaker = speaker_fixture()
       assert %Ecto.Changeset{} = App.change_speaker(speaker)
-
     end
   end
 
   describe "attendees" do
     alias CbusElixir.App.Attendee
 
-    @valid_attrs %{email: "some@email", name: "some name", new_to_cbus_elixir: true, new_to_elixir: true, twitter: "@handle", meeting_id: 1}
+    @valid_attrs %{
+      email: "some@email",
+      name: "some name",
+      new_to_cbus_elixir: true,
+      new_to_elixir: true,
+      twitter: "@handle",
+      meeting_id: 1
+    }
     @invalid_attrs %{email: nil, name: nil, new_to_cbus_elixir: nil, new_to_elixir: nil}
 
     def attendee_fixture(attrs \\ %{}) do
@@ -111,6 +128,5 @@ defmodule CbusElixir.AppTest do
     test "create_attendee/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = App.create_attendee(@invalid_attrs)
     end
-
   end
 end

@@ -3,7 +3,7 @@ defmodule CbusElixir.Repo.Migrations.CreateMeetings do
 
   def change do
     create table(:meetings) do
-      add :date, :utc_datetime
+      add(:date, :utc_datetime)
       timestamps()
     end
   end
