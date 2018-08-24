@@ -23,8 +23,10 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
   @password Application.get_env(:cbus_elixir, :cbus_auth_config)[:password]
 
   setup do
-    conn = build_conn()
-    |> using_basic_auth(@username, @password)
+    conn =
+      build_conn()
+      |> using_basic_auth(@username, @password)
+
     %{conn: conn}
   end
 
@@ -53,10 +55,12 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == speaker_path(conn, :show, id)
-      
-      conn = conn
-       |> recycle_conn_auth() 
-       |> get(speaker_path(conn, :show, id))
+
+      conn =
+        conn
+        |> recycle_conn_auth()
+        |> get(speaker_path(conn, :show, id))
+
       assert html_response(conn, 200) =~ "Show Speaker"
     end
 
@@ -82,9 +86,11 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
       conn = put(conn, speaker_path(conn, :update, speaker), speaker: @update_attrs)
       assert redirected_to(conn) == speaker_path(conn, :show, speaker)
 
-      conn = conn
-      |> recycle_conn_auth() 
-      |> get(speaker_path(conn, :show, speaker))
+      conn =
+        conn
+        |> recycle_conn_auth()
+        |> get(speaker_path(conn, :show, speaker))
+
       assert html_response(conn, 200) =~ "some updated email"
     end
 
@@ -101,11 +107,13 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
       conn = delete(conn, speaker_path(conn, :delete, speaker))
       assert redirected_to(conn) == speaker_path(conn, :index)
 
-      conn = conn
-      |> recycle_conn_auth()
-      assert_error_sent 404, fn ->
-        get conn, speaker_path(conn, :show, speaker)
-      end
+      conn =
+        conn
+        |> recycle_conn_auth()
+
+      assert_error_sent(404, fn ->
+        get(conn, speaker_path(conn, :show, speaker))
+      end)
     end
   end
 
@@ -115,9 +123,11 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
   end
 
   defp recycle_conn_auth(conn) do
-    conn = conn
-    |> recycle()
-    |> using_basic_auth(@username, @password)
+    conn =
+      conn
+      |> recycle()
+      |> using_basic_auth(@username, @password)
+
     conn
   end
 

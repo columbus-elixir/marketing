@@ -24,10 +24,10 @@ config :logger, :console,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
 
-config :phoenix, :template_engines,
-  haml: PhoenixHaml.Engine
+config :phoenix, :template_engines, haml: PhoenixHaml.Engine
 
-config :cbus_elixir, cbus_auth_config: [
-  username: System.get_env("BASIC_AUTH_USERNAME"),
-  password: System.get_env("BASIC_AUTH_PASSWORD")
-]
+config :cbus_elixir,
+  cbus_auth_config: [
+    username: System.get_env("BASIC_AUTH_USERNAME"),
+    password: System.get_env("BASIC_AUTH_PASSWORD")
+  ]
