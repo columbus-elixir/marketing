@@ -123,12 +123,9 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
   end
 
   defp recycle_conn_auth(conn) do
-    conn =
-      conn
-      |> recycle()
-      |> using_basic_auth(@username, @password)
-
     conn
+    |> recycle()
+    |> using_basic_auth(@username, @password)
   end
 
   defp using_basic_auth(conn, username, password) do
