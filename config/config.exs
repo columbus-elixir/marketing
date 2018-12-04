@@ -25,3 +25,9 @@ config :logger, :console,
 import_config "#{Mix.env()}.exs"
 
 config :phoenix, :template_engines, haml: PhoenixHaml.Engine
+
+config :cbus_elixir,
+  cbus_auth_config: [
+    username: System.get_env("BASIC_AUTH_USERNAME"),
+    password: System.get_env("BASIC_AUTH_PASSWORD")
+  ]

@@ -19,6 +19,17 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
   }
   @invalid_attrs %{email: nil, meeting_id: nil, name: nil, title: nil, url: nil}
 
+  @username Application.get_env(:cbus_elixir, :cbus_auth_config)[:username]
+  @password Application.get_env(:cbus_elixir, :cbus_auth_config)[:password]
+
+  setup do
+    conn =
+      build_conn()
+      |> using_basic_auth(@username, @password)
+
+    %{conn: conn}
+  end
+
   def fixture(:speaker) do
     {:ok, speaker} = App.create_speaker(@create_attrs)
     speaker
@@ -45,7 +56,11 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == speaker_path(conn, :show, id)
 
-      conn = get(conn, speaker_path(conn, :show, id))
+      conn =
+        conn
+        |> recycle_conn_auth()
+        |> get(speaker_path(conn, :show, id))
+
       assert html_response(conn, 200) =~ "Show Speaker"
     end
 
@@ -71,7 +86,11 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
       conn = put(conn, speaker_path(conn, :update, speaker), speaker: @update_attrs)
       assert redirected_to(conn) == speaker_path(conn, :show, speaker)
 
-      conn = get(conn, speaker_path(conn, :show, speaker))
+      conn =
+        conn
+        |> recycle_conn_auth()
+        |> get(speaker_path(conn, :show, speaker))
+
       assert html_response(conn, 200) =~ "some updated email"
     end
 
@@ -88,6 +107,10 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
       conn = delete(conn, speaker_path(conn, :delete, speaker))
       assert redirected_to(conn) == speaker_path(conn, :index)
 
+      conn =
+        conn
+        |> recycle_conn_auth()
+
       assert_error_sent(404, fn ->
         get(conn, speaker_path(conn, :show, speaker))
       end)
@@ -97,5 +120,16 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
   defp create_speaker(_) do
     speaker = fixture(:speaker)
     {:ok, speaker: speaker}
+  end
+
+  defp recycle_conn_auth(conn) do
+    conn
+    |> recycle()
+    |> using_basic_auth(@username, @password)
+  end
+
+  defp using_basic_auth(conn, username, password) do
+    header_content = "Basic " <> Base.encode64("#{username}:#{password}")
+    conn |> put_req_header("authorization", header_content)
   end
 end

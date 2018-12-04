@@ -7,6 +7,13 @@
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate` or `mix ecto.setup` to create, migrate and seed.
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server` or `iex -S mix phx.server` if you want to run within a REPL.
+  * Create .env file to run locally with ENV_VARS for [basic_auth](https://github.com/cultivatehq/basic_auth).
+  .env should look something like this.
+  ```
+  #.env
+  export BASIC_AUTH_USERNAME=(replace with your login)
+  export BASIC_AUTH_PASSWORD=(replace with your password)
+  ```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
