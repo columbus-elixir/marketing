@@ -19,7 +19,7 @@ defmodule CbusElixir.App do
 
   """
   def list_speakers do
-    Repo.all(Speaker)
+    Speaker |> order_by(desc: :meeting_id) |> Repo.all
   end
 
   @doc """
