@@ -7,6 +7,7 @@ defmodule CbusElixir.App do
   alias CbusElixir.Repo
 
   alias CbusElixir.App.Speaker
+  alias CbusElixir.App.Meeting
   alias CbusElixir.App.Attendee
 
   @doc """
@@ -19,7 +20,12 @@ defmodule CbusElixir.App do
 
   """
   def list_speakers do
-    Repo.all(Speaker)
+    query = from s in Speaker,
+            join: m in assoc(s, :meeting),
+            order_by: [desc: m.date]
+    speakers = query
+    |> Repo.all
+    |> Repo.preload([:meeting])   
   end
 
   @doc """

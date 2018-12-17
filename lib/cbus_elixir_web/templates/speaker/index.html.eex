@@ -21,7 +21,7 @@
       <td><%= speaker.url %></td>
       <td><%= speaker.title %></td>
       <td><%= speaker.email %></td>
-      <td><%= speaker.meeting_id %></td>
+      <td><%= formatted_date(speaker.meeting.date) %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: speaker_path(@conn, :show, speaker), class: "btn btn-default btn-xs" %></span>
