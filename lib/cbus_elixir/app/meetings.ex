@@ -9,6 +9,11 @@ defmodule CbusElixir.App.Meetings do
   alias CbusElixir.App.Meeting
 
   @doc """
+  Returns all meetings
+  """
+  def list_meetings, do: Repo.all(Meeting)
+
+  @doc """
   Returns the next `count` upcoming meetings
   """
   def upcoming_meetings(date, count: count) do

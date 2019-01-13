@@ -1,0 +1,23 @@
+<div class="row main-content">
+  <table>
+
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Speakers</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= for meeting <- @meetings do %>
+        <tr>
+          <td><%= meeting.date %></td>
+          <td><%= meeting.speakers %></td>
+          <td><a href="">Attendees</a></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+</div>
