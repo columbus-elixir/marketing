@@ -26,13 +26,13 @@ defmodule CbusElixir.Pagination do
     %{
       has_next: has_next,
       has_prev: has_prev,
-      prev_page: page - 1,
+      prev_page: (if page < 2, do: nil, else: page - 1),
       page: page,
       next_page: page + 1,
       first: (page - 1) * per_page + 1,
       last: Enum.min([page * per_page, count]),
       count: count,
-      list: Enum.slice(results, 0, per_page)
+      results: results
     }
   end
 end

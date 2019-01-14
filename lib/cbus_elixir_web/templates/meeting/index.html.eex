@@ -10,7 +10,7 @@
     </thead>
 
     <tbody>
-      <%= for meeting <- @meetings.list do %>
+      <%= for meeting <- @meetings.results do %>
         <tr>
           <td><%= meeting.date %></td>
           <td></td>
@@ -19,5 +19,13 @@
       <% end %>
     </tbody>
 
+    <tfoot>
+      <tr>
+      <td><button>Previous Page</button></td>
+      <td colspan="2" style="text-align: right;"><button>Next Page</button></td>
+      </tr>
+    </tfoot>
   </table>
+  
+  
 </div> 
