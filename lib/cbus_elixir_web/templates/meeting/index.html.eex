@@ -10,14 +10,14 @@
     </thead>
 
     <tbody>
-      <%= for meeting <- @meetings do %>
+      <%= for meeting <- @meetings.list do %>
         <tr>
           <td><%= meeting.date %></td>
-          <td><%= meeting.speakers %></td>
+          <td></td>
           <td><a href="">Attendees</a></td>
         </tr>
       <% end %>
     </tbody>
 
   </table>
-</div>
+</div> 
