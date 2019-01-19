@@ -20,7 +20,7 @@ defmodule CbusElixir.App.Meetings do
     query =
       from(m in Meeting,
         join: s in assoc(m, :speakers),
-        where: m.date > ^DateTime.utc_now(),
+        where: m.date < ^DateTime.utc_now(),
         order_by: [desc: m.date],
         preload: [speakers: s]
       )
