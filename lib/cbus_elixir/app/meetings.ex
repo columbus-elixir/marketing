@@ -11,28 +11,21 @@ defmodule CbusElixir.App.Meetings do
   alias CbusElixir.App.Speaker
 
   @doc """
-  Returns all meetings paginated
+  Fetch a paged result for meetings
   """
-  def get_meetings!(:paged, page \\ 1, per_page \\ 5) do
-    meeting = list_meetings(:paged, page, per_page)
-    speakers = page_of_speakers(meeting, page, per_page)
-    Map.put(meeting, :paginated_speakers, speakers)
-  end
+  def meetings_for_page(page \\ 1, per_page \\ 5)
 
-  def page_of_speakers(meeting, page \\ 1, per_page \\ 5)
-  #def page_of_speakers(%Meeting{} = x, y, z), do: page_of_speakers(x.id, y, z)
-  def page_of_speakers(meeting_id, page, per_page) do
-    Speaker
-    #|> where(meeting_id: ^meeting_id)
-    |> Pagination.page(page, per_page: per_page)
-  end
+  @spec meetings_for_page(integer(), integer()) :: map()
+  def meetings_for_page(page, per_page) do
+    query =
+      from(m in Meeting,
+        join: s in assoc(m, :speakers),
+        where: m.date < ^DateTime.utc_now(),
+        order_by: [desc: m.date],
+        preload: [speakers: s]
+      )
 
-  def list_meetings(a, page \\ 1, per_page \\ 5)
-
-  def list_meetings(:paged, page, per_page) do
-    Meeting
-    |> order_by(desc: :date)
-    |> Pagination.page(page, per_page: per_page)
+      Pagination.paginate(query, page, per_page)
   end
 
   @doc """

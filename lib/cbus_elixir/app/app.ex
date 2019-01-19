@@ -19,9 +19,11 @@ defmodule CbusElixir.App do
 
   """
   def list_speakers do
-    query = from s in Speaker,
+    query = from(s in Speaker,
             join: m in assoc(s, :meeting),
             order_by: [desc: m.date]
+            )
+            
     speakers = query
     |> Repo.all
     |> Repo.preload([:meeting])   

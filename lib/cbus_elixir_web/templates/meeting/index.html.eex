@@ -13,17 +13,21 @@
       <%= for meeting <- @meetings.results do %>
         <tr>
           <td><%= meeting.date %></td>
-          <td></td>
+        
+          <td><%= meeting.speakers.name %></td>
+          
           <td><a href="">Attendees</a></td>
         </tr>
       <% end %>
     </tbody>
 
     <tfoot>
+    
       <tr>
-      <td><button>Previous Page</button></td>
-      <td colspan="2" style="text-align: right;"><button>Next Page</button></td>
+      <td><%= button("Previous Page", to: "/meetings?page=#{@meetings.prev_page}") %></td>
+      <td colspan="2" style="text-align: right;"><%= button("Next Page", to: "/meetings?page=#{@meetings.next_page}") %></td>
       </tr>
+    
     </tfoot>
   </table>
   
