@@ -13,9 +13,9 @@
       <%= for meeting <- @meetings.results do %>
         <tr>
           <td><%= meeting.date %></td>
-        
-          <td><%= meeting.speakers.name %></td>
-          
+          <%= for speaker <- meeting.speakers do %>
+          <td><%= speaker.name %></td>
+          <% end %>
           <td><a href="">Attendees</a></td>
         </tr>
       <% end %>
