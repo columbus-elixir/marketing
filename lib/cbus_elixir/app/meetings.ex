@@ -9,6 +9,7 @@ defmodule CbusElixir.App.Meetings do
   alias CbusElixir.App.Meeting
   alias CbusElixir.Pagination
   alias CbusElixir.App.Speaker
+  alias CbusElixir.App.Attendee
 
   @doc """
   Fetch a paged result for meetings
@@ -20,7 +21,7 @@ defmodule CbusElixir.App.Meetings do
     query =
       from(m in Meeting,
         join: s in assoc(m, :speakers),
-        where: m.date < ^DateTime.utc_now(),
+        where: m.date > ^DateTime.utc_now(),
         order_by: [desc: m.date],
         preload: [speakers: s]
       )
@@ -28,7 +29,19 @@ defmodule CbusElixir.App.Meetings do
       Pagination.paginate(query, page, per_page)
   end
 
+
   def attendees_for_meeting(id) do
+    query = 
+      from(a in Attendee,
+        where: a.meeting_id == ^id,
+        select: a.name
+      )
+
+    query
+    |> Repo.all()
+  end
+
+  def attendees_for_meetings(id) do
     query = 
       from(m in Meeting,
         join: a in assoc(m, :attendees),

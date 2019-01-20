@@ -1,3 +1,15 @@
 <%= for attendee <- @attendees do %>
-  <%= attendee.name %>
+ </br>
+  <table>
+    <th>
+      <tr><h1>Attendees</h1></tr>
+    </th>
+    <tr>
+      <td><%= attendee %></td>
+    </tr>
+  </table>
+
 <% end %>
+
+
+

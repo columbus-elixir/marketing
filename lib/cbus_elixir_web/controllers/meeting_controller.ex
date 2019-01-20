@@ -10,12 +10,14 @@ defmodule CbusElixirWeb.MeetingController do
     
     meetings = Meetings.meetings_for_page(page, per_page)
 
+    IO.inspect(meetings)
+
     render(conn, "index.html", meetings: meetings)
   end
 
   def show(conn, %{"id" => id}) do
     attendees = Meetings.attendees_for_meeting(id)
-
+    IO.inspect(attendees)
     render(conn, "show.html", attendees: attendees)
 
   end
