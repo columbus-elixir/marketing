@@ -1,4 +1,4 @@
-<div class="row main-content">
+<div class="row main-content" style="">
   <table>
 
     <thead>
@@ -14,22 +14,59 @@
         <tr>
           <td><%= meeting.date %></td>
           <%= for speaker <- meeting.speakers do %>
-          <td><%= speaker.name %></td>
+          <td>
+            <div>
+              <h4><%= speaker.name %></h4>
+            </div>
+            <div>
+              <p><%= speaker.title %></p>
+            </div>
+          </td>
           <% end %>
-          <td><a href="">Attendees</a></td>
+          <td><%= link "Attendees", to: meeting_path(@conn, :show, meeting) %></td>
         </tr>
       <% end %>
     </tbody>
 
-    <tfoot>
-    
-      <tr>
-      <td><%= button("Previous Page", to: "/meetings?page=#{@meetings.prev_page}") %></td>
-      <td colspan="2" style="text-align: right;"><%= button("Next Page", to: "/meetings?page=#{@meetings.next_page}") %></td>
-      </tr>
-    
+    <tfoot></tfoot>
     </tfoot>
   </table>
+</div>
+
+<div class="paginate">  
+    <ul class="" style="list-style: none;">
+    <div>
+    <%= if @meetings.prev_page do %>
+      <li class="">
+        <a class="button" href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.prev_page}") |> to_string() %>>
+          Last
+        </a>
+      </li>
+    <% end %>
+
+     <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.prev_page}") |> to_string() %>>
+          <h3><%= @meetings.prev_page %></h3>
+        </a>
+      </li>
+
+      <li>
+        <h3><%= @meetings.page %></h3>
+      </li>
+      <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.next_page}") |> to_string() %>>
+          <h3><%= @meetings.next_page %></h3>
+        </a>
+      </li>
+    
+    <%= if @meetings.next_page do %>
+      <li class="">
+        <a class="button" href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.next_page}") |> to_string() %>>
+          Next
+        </a>
+      </li>
+    <% end %>
+    </div>
+    </ul>
+</div>
   
-  
-</div> 

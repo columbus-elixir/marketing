@@ -28,6 +28,18 @@ defmodule CbusElixir.App.Meetings do
       Pagination.paginate(query, page, per_page)
   end
 
+  def attendees_for_meeting(id) do
+    query = 
+      from(m in Meeting,
+        join: a in assoc(m, :attendees),
+        where: m.id == ^id,
+        preload: [attendees: a]
+      )
+
+    query
+    |> Repo.all()
+  end
+
   @doc """
   Returns the next `count` upcoming meetings
   """
