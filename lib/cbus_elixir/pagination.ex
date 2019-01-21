@@ -9,11 +9,9 @@ defmodule CbusElixir.Pagination do
   def paginate(query, page, per_page) do
     count = total_entries(query) |> Repo.one()
     
-
     paged_results = paged_query(query, page, per_page) |> Repo.all()
     {results, has_next} = split_results(per_page, paged_results)
 
-    has_next = has_next
     has_prev = page > 1
 
     %{
@@ -27,8 +25,6 @@ defmodule CbusElixir.Pagination do
       results: results
     }
   end
-
-  
 
   defp paged_query(query, page, per_page) do
 
@@ -55,7 +51,7 @@ defmodule CbusElixir.Pagination do
       query
       |> exclude(:preload)
       |> exclude(:select)
-      |> subquery
+      |> subquery()
       |> select(count("*"))
   end
 end
