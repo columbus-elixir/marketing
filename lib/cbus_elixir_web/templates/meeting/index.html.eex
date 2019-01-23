@@ -4,31 +4,41 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Speakers</th>
+        <th>Speaker</th>
+        <th>Talk</th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
       <%= for meeting <- @meetings.results do %>
-        <tr>
-          <td><%= meeting.date %></td>
-          <%= for speaker <- meeting.speakers do %>
-          <td>
-            <div>
-              <h4><%= speaker.name %></h4>
-            </div>
-            <div>
-              <p><%= speaker.title %></p>
-            </div>
-          </td>
-          <% end %>
-          <td><%= link "Attendees", to: meeting_path(@conn, :show, meeting) %></td>
-        </tr>
+        <tbody>
+          <tr>
+
+            <td><%= meeting.date %></td>
+
+            <td>
+              <table>
+                <tbody>
+                  <%= for speaker <- meeting.speakers do %>
+                    <tr>
+                      <td><h4><%= speaker.name %></h4></td>
+                    </tr>
+                    <tr>
+                      <td><p><%= speaker.title %></p></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </td>
+
+            <td><%= link "Attendees", to: meeting_path(@conn, :show, meeting) %></td>
+
+          </tr>
       <% end %>
     </tbody>
 
-    <tfoot></tfoot>
+    <tfoot>
     </tfoot>
   </table>
 </div>
