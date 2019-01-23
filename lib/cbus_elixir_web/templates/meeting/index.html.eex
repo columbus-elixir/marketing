@@ -1,4 +1,4 @@
-<div class="row main-content" style="">
+<div class="row main-content" style="margin-bottom: 0;">
   <table>
 
     <thead>
@@ -22,10 +22,8 @@
                 <tbody>
                   <%= for speaker <- meeting.speakers do %>
                     <tr>
-                      <td><h4><%= speaker.name %></h4></td>
-                    </tr>
-                    <tr>
-                      <td><p><%= speaker.title %></p></td>
+                      <td style="border: none;"><h4><%= speaker.name %></h4></td>
+                      <td style="border: none;"><p><%= speaker.title %></p></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -37,9 +35,6 @@
           </tr>
       <% end %>
     </tbody>
-
-    <tfoot>
-    </tfoot>
   </table>
 </div>
 
