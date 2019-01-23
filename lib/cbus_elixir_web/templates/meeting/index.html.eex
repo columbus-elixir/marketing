@@ -5,7 +5,7 @@
       <tr>
         <th>Date</th>
         <th>Speaker</th>
-        <th>Talk</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
