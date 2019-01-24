@@ -1,36 +1,33 @@
-<div class="row main-content" style="margin-bottom: 0;">
-  <table>
+<div class="row main-content">
+  <table style="margin-bottom: 0;">
 
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Speaker</th>
-        <th></th>
-        <th></th>
+        <th>Meeting</th>
+        <th>Speakers and Talks</th>
       </tr>
     </thead>
 
-    <tbody>
-      <%= for meeting <- @meetings.results do %>
+      <%= for meeting <- @meetings do %>
         <tbody>
           <tr>
 
-            <td><%= meeting.date %></td>
+            <td><%= formatted_date(meeting.date) %></td>
 
             <td>
-              <table>
+              <table style="margin-bottom: 0;">
                 <tbody>
                   <%= for speaker <- meeting.speakers do %>
                     <tr>
-                      <td style="border: none;"><h4><%= speaker.name %></h4></td>
-                      <td style="border: none;"><p><%= speaker.title %></p></td>
+                      <td style="border: none; width: 100px;"><h4 style="margin: auto"><%= speaker.name %></h4></td>
+                      <td style="border: none;"><p style="margin: auto;"><%= speaker.title %></p></td>
                     </tr>
                   <% end %>
                 </tbody>
               </table>
             </td>
 
-            <td><%= link "Attendees", to: meeting_path(@conn, :show, meeting) %></td>
+            <td><%= link "", to: meeting_path(@conn, :show, meeting) %></td>
 
           </tr>
       <% end %>
@@ -38,40 +35,5 @@
   </table>
 </div>
 
-<div class="paginate">  
-    <ul class="" style="list-style: none;">
-    <div>
-    <%= if @meetings.prev_page do %>
-      <li class="">
-        <a class="button" href=<%= URI.merge(URI.parse("https://www.columbuselixir.com"), "meetings?page=#{@meetings.prev_page}") |> to_string() %>>
-          Last
-        </a>
-      </li>
-    <% end %>
 
-     <li>
-        <a href=<%= URI.merge(URI.parse("https://www.columbuselixir.com"), "meetings?page=#{@meetings.prev_page}") |> to_string() %>>
-          <h3><%= @meetings.prev_page %></h3>
-        </a>
-      </li>
-
-      <li>
-        <h3><%= @meetings.page %></h3>
-      </li>
-      <li>
-        <a href=<%= URI.merge(URI.parse("https://www.columbuselixir.com"), "meetings?page=#{@meetings.next_page}") |> to_string() %>>
-          <h3><%= @meetings.next_page %></h3>
-        </a>
-      </li>
-    
-    <%= if @meetings.next_page do %>
-      <li class="">
-        <a class="button" href=<%= URI.merge(URI.parse("https://www.columbuselixir.com"), "meetings?page=#{@meetings.next_page}") |> to_string() %>>
-          Next
-        </a>
-      </li>
-    <% end %>
-    </div>
-    </ul>
-</div>
   

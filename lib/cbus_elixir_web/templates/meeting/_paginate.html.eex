@@ -1,0 +1,36 @@
+<div class="paginate">  
+    <ul style="list-style: none;">
+    <div>
+    <%= if @meetings.prev_page do %>
+      <li>
+        <a class="button" href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.prev_page}") |> to_string() %>>
+          Last
+        </a>
+      </li>
+    <% end %>
+
+     <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.prev_page}") |> to_string() %>>
+          <h3><%= @meetings.prev_page %></h3>
+        </a>
+      </li>
+
+      <li>
+        <h3><%= @meetings.page %></h3>
+      </li>
+      <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.next_page}") |> to_string() %>>
+          <h3><%= @meetings.next_page %></h3>
+        </a>
+      </li>
+    
+    <%= if @meetings.next_page do %>
+      <li class="">
+        <a class="button" href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@meetings.next_page}") |> to_string() %>>
+          Next
+        </a>
+      </li>
+    <% end %>
+    </div>
+    </ul>
+</div>

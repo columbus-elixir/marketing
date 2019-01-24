@@ -1,14 +1,17 @@
 defmodule CbusElixirWeb.MeetingController do
   use CbusElixirWeb, :controller
 
+  alias CbusElixir.App.Meeting
   alias CbusElixir.App.Meetings
   alias CbusElixir.Repo
+  alias CbusElixir.Pagination
 
   def index(conn, params) do
     page = params["page"] || 1
     per_page = params["per_page"] || 5
     
-    meetings = Meetings.meetings_for_page(page, per_page)
+    #meetings = Pagination.paginate(Meetings.meetings_for_page_query(), page, per_page)
+    meetings = Meetings.meetings_for_page_query |> Repo.all()
 
     render(conn, "index.html", meetings: meetings)
   end

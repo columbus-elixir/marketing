@@ -15,11 +15,10 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Fetch a paged result for meetings
   """
-  def meetings_for_page(page \\ 1, per_page \\ 5)
-
-  @spec meetings_for_page(integer(), integer()) :: map()
-  def meetings_for_page(page, per_page) do
-    query =
+  
+  @spec meetings_for_page_query() :: Ecto.Query
+  def meetings_for_page_query() do
+    
       from(m in Meeting,
         join: s in assoc(m, :speakers),
         where: m.date < ^DateTime.utc_now(),
@@ -27,7 +26,6 @@ defmodule CbusElixir.App.Meetings do
         preload: [speakers: s]
       )
 
-      Pagination.paginate(query, page, per_page)
   end
 
   @doc """
