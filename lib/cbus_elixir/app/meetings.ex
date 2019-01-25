@@ -16,7 +16,7 @@ defmodule CbusElixir.App.Meetings do
   Fetch a paged result for meetings
   """
   
-  @spec meetings_for_page_query() :: Ecto.Query
+  @spec meetings_for_page_query() :: Ecto.Query.t()
   def meetings_for_page_query() do
     
       from(m in Meeting,
@@ -32,7 +32,7 @@ defmodule CbusElixir.App.Meetings do
   Returns the attendees for the given meeting
   """
 
-  @spec attendees_for_meeting(integer()) :: map()
+  @spec attendees_for_meeting(integer()) :: list(Attendee.t())
   def attendees_for_meeting(id) do
     query = 
       from(a in Attendee,
@@ -70,7 +70,3 @@ defmodule CbusElixir.App.Meetings do
     |> Repo.preload([:speakers, :attendees])
   end
 end
-
-
-
-
