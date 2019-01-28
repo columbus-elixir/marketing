@@ -3,8 +3,13 @@
     <div>
     <%= if @paged_result.prev_page do %>
       <li>
-        <a class="button" href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.prev_page}") |> to_string() %>>
-          Last
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{1}") |> to_string() %>>
+          <i class="fas fa-angle-double-left"></i>
+        </a>
+      </li>
+      <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.prev_page}") |> to_string() %>>
+          <i class="fas fa-angle-left"></i>
         </a>
       </li>
     <% end %>
@@ -25,9 +30,14 @@
       </li>
     
     <%= if @paged_result.next_page do %>
-      <li class="">
-        <a class="button" href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.next_page}") |> to_string() %>>
-          Next
+      <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.next_page}") |> to_string() %>>
+          <i class="fas fa-angle-right"></i>
+        </a>
+      </li>
+      <li>
+        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.last}") |> to_string() %>>
+          <i class="fas fa-angle-double-right"></i>
         </a>
       </li>
     <% end %>
