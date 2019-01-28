@@ -21,7 +21,8 @@ defmodule CbusElixir.App.Meetings do
     from(m in Meeting,
       left_join: s in assoc(m, :speakers),
       where: m.date < ^DateTime.utc_now(),
-      order_by: [desc: m.date]
+      order_by: [desc: m.date],
+      distinct: m.date
     )
   end
 
