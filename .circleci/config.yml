@@ -49,8 +49,6 @@ jobs:
 
       - run: mix format --check-formatted # fail on formatting
 
-      - run: MIX_ENV=test mix coveralls.json  # run all tests in project
-
       - restore_cache:
           keys:
             - v1-plt-cache-{{ checksum "mix.lock" }}
