@@ -6,6 +6,7 @@ defmodule CbusElixirWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     meeting_date = Timex.shift(NaiveDateTime.utc_now(), days: 1)
+
     %Meeting{}
     |> Meeting.changeset(%{date: meeting_date})
     |> Repo.insert!()
