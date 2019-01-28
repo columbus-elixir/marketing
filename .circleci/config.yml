@@ -30,7 +30,7 @@ jobs:
           keys:
             - v1-build-cache-{{ .Branch }}
             - v1-build-cache
-      - run: MIX_ENV=test mix do deps.get, compile --warnings-as-errors
+      - run: MIX_ENV=test mix do deps.get, compile
       - save_cache:  # generate and store mix cache
           key: v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
           paths: "deps"
