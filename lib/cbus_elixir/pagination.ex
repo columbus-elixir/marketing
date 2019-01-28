@@ -11,7 +11,6 @@ defmodule CbusElixir.Pagination do
     
     paged_results = paged_query(query, page, per_page) |> Repo.all()
     {results, has_next} = split_results(per_page, paged_results)
-
     has_prev = page > 1
 
     %{
@@ -27,7 +26,6 @@ defmodule CbusElixir.Pagination do
   end
 
   defp paged_query(query, page, per_page) do
-
     offset = per_page * (page - 1)
 
     query

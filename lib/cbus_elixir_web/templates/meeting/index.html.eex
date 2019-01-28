@@ -8,7 +8,7 @@
       </tr>
     </thead>
 
-      <%= for meeting <- @meetings do %>
+      <%= for meeting <- @paged_result.results do %>
         <tbody>
           <tr>
 
@@ -35,5 +35,4 @@
   </table>
 </div>
 
-
-  
+<%= render("_paginate.html", paged_result: @paged_result) %>  

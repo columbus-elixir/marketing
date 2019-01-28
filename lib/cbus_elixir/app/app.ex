@@ -19,11 +19,12 @@ defmodule CbusElixir.App do
 
   """
   def list_speakers do
-    query = from(s in Speaker,
-            join: m in assoc(s, :meeting),
-            order_by: [desc: m.date],
-            preload: [:meeting]
-            )
+    query =
+      from(s in Speaker,
+        join: m in assoc(s, :meeting),
+        order_by: [desc: m.date],
+        preload: [:meeting]
+      )
             
     query
     |> Repo.all()  
@@ -43,8 +44,15 @@ defmodule CbusElixir.App do
       ** (Ecto.NoResultsError)
 
   """
-  def get_speaker!(id), do: Repo.get!(Speaker, id)
-
+  def get_speaker!(id) do
+    from(s in Speaker,
+      left_join: m in assoc(s, :meeting),
+      where: s.id == ^id,
+      preload: [:meeting]
+    )
+    |> Repo.one!()
+  end
+  
   @doc """
   Creates a speaker.
 
