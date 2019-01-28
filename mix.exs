@@ -33,6 +33,7 @@ defmodule CbusElixir.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false},
       {:phoenix, "~> 1.3.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.3"},
