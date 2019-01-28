@@ -13,8 +13,8 @@ defmodule CbusElixir.MeetingsTest do
     |> Repo.insert!()
   end
 
-  describe "Paginated Meetings" do
-    test "meetings_for_page_query/0 returns past meetings in the correct order" do
+  describe "meetings_for_page_query/0" do
+    test "it returns past meetings in the correct order" do
       oldest = create_meeting_for_week(1)
       middle = create_meeting_for_week(2)
       newest = create_meeting_for_week(3)

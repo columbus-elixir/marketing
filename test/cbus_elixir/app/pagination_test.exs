@@ -1,4 +1,4 @@
-defmodule CbusElixir.MeetingsTest do
+defmodule CbusElixir.PaginationTest do
   use CbusElixir.DataCase
 
   alias CbusElixir.Repo
