@@ -3,7 +3,11 @@ defmodule CbusElixirWeb.SpeakerController do
 
   alias CbusElixir.App
   alias CbusElixir.App.Speaker
-  plug(BasicAuth, [use_config: {:cbus_elixir, :cbus_auth_config}] when action in [:new, :edit, :delete])
+
+  plug(
+    BasicAuth,
+    [use_config: {:cbus_elixir, :cbus_auth_config}] when action in [:new, :edit, :delete]
+  )
 
   def index(conn, _params) do
     speakers = App.list_speakers()
