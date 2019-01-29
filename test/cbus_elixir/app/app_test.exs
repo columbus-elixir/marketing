@@ -2,20 +2,19 @@ defmodule CbusElixir.AppTest do
   use CbusElixir.DataCase
 
   alias CbusElixir.App
+  alias CbusElixir.App.Meeting
 
   describe "speakers" do
     alias CbusElixir.App.Speaker
 
     @valid_attrs %{
       email: "some email",
-      meeting_id: 42,
       name: "some name",
       title: "some title",
       url: "some url"
     }
     @update_attrs %{
       email: "some updated email",
-      meeting_id: 43,
       name: "some updated name",
       title: "some updated title",
       url: "some updated url"
@@ -31,20 +30,36 @@ defmodule CbusElixir.AppTest do
       speaker
     end
 
+    def meeting_id() do
+      %Meeting{}
+      |> Meeting.changeset(%{date: NaiveDateTime.utc_now()})
+      |> Repo.insert!()
+      |> Map.get(:id)
+    end
+
     test "list_speakers/0 returns all speakers" do
-      speaker = speaker_fixture()
+      speaker =
+        speaker_fixture(%{meeting_id: meeting_id()})
+        |> Repo.preload([:meeting])
+
       assert App.list_speakers() == [speaker]
     end
 
     test "get_speaker!/1 returns the speaker with given id" do
-      speaker = speaker_fixture()
+      speaker = speaker_fixture(%{meeting_id: meeting_id()})
       assert App.get_speaker!(speaker.id) == speaker
     end
 
     test "create_speaker/1 with valid data creates a speaker" do
-      assert {:ok, %Speaker{} = speaker} = App.create_speaker(@valid_attrs)
+      meeting_id = meeting_id()
+
+      {:ok, %Speaker{} = speaker} =
+        %{meeting_id: meeting_id}
+        |> Enum.into(@valid_attrs)
+        |> App.create_speaker()
+
       assert speaker.email == "some email"
-      assert speaker.meeting_id == 42
+      assert speaker.meeting_id == meeting_id
       assert speaker.name == "some name"
       assert speaker.title == "some title"
       assert speaker.url == "some url"
@@ -55,30 +70,31 @@ defmodule CbusElixir.AppTest do
     end
 
     test "update_speaker/2 with valid data updates the speaker" do
-      speaker = speaker_fixture()
+      meeting_id = meeting_id()
+      speaker = speaker_fixture(%{meeting_id: meeting_id})
       assert {:ok, speaker} = App.update_speaker(speaker, @update_attrs)
       assert %Speaker{} = speaker
       assert speaker.email == "some updated email"
-      assert speaker.meeting_id == 43
+      assert speaker.meeting_id == meeting_id
       assert speaker.name == "some updated name"
       assert speaker.title == "some updated title"
       assert speaker.url == "some updated url"
     end
 
     test "update_speaker/2 with invalid data returns error changeset" do
-      speaker = speaker_fixture()
+      speaker = speaker_fixture(%{meeting_id: meeting_id()})
       assert {:error, %Ecto.Changeset{}} = App.update_speaker(speaker, @invalid_attrs)
       assert speaker == App.get_speaker!(speaker.id)
     end
 
     test "delete_speaker/1 deletes the speaker" do
-      speaker = speaker_fixture()
+      speaker = speaker_fixture(%{meeting_id: meeting_id()})
       assert {:ok, %Speaker{}} = App.delete_speaker(speaker)
       assert_raise Ecto.NoResultsError, fn -> App.get_speaker!(speaker.id) end
     end
 
     test "change_speaker/1 returns a speaker changeset" do
-      speaker = speaker_fixture()
+      speaker = speaker_fixture(%{meeting_id: meeting_id()})
       assert %Ecto.Changeset{} = App.change_speaker(speaker)
     end
   end
@@ -106,22 +122,28 @@ defmodule CbusElixir.AppTest do
     end
 
     test "list_attendees/0 returns all attendees" do
-      attendee = attendee_fixture()
+      attendee = attendee_fixture(%{meeting_id: meeting_id()})
       assert App.list_attendees() == [attendee]
     end
 
     test "get_attendee!/1 returns the attendee with given id" do
-      attendee = attendee_fixture()
+      attendee = attendee_fixture(%{meeting_id: meeting_id()})
       assert App.get_attendee!(attendee.id) == attendee
     end
 
     test "create_attendee/1 with valid data creates a attendee" do
-      assert {:ok, %Attendee{} = attendee} = App.create_attendee(@valid_attrs)
+      meeting_id = meeting_id()
+
+      {:ok, %Attendee{} = attendee} =
+        %{meeting_id: meeting_id}
+        |> Enum.into(@valid_attrs)
+        |> App.create_attendee()
+
       assert attendee.email == "some@email"
       assert attendee.name == "some name"
       assert attendee.new_to_cbus_elixir == true
       assert attendee.new_to_elixir == true
-      assert attendee.meeting_id == 1
+      assert attendee.meeting_id == meeting_id
       assert attendee.twitter == "handle"
     end
 
