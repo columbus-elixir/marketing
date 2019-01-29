@@ -49,6 +49,8 @@ jobs:
 
       - run: mix format --check-formatted # fail on formatting
 
+      - run: mix test
+
       - restore_cache:
           keys:
             - v1-plt-cache-{{ checksum "mix.lock" }}
