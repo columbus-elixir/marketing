@@ -25,9 +25,9 @@ defmodule CbusElixir.App do
         order_by: [desc: m.date],
         preload: [:meeting]
       )
-            
+
     query
-    |> Repo.all()  
+    |> Repo.all()
   end
 
   @doc """
@@ -52,7 +52,7 @@ defmodule CbusElixir.App do
     )
     |> Repo.one!()
   end
-  
+
   @doc """
   Creates a speaker.
 
