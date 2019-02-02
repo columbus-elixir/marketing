@@ -17,3 +17,9 @@ config :cbus_elixir, CbusElixir.Repo,
   database: "cbus_elixir_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :cbus_elixir,
+  cbus_auth_config: [
+    username: "SecretUser",
+    password: "SecretPassword"
+  ]

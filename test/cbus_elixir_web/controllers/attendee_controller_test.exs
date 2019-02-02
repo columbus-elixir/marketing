@@ -1,6 +1,9 @@
 defmodule CbusElixirWeb.AttendeeControllerTest do
   use CbusElixirWeb.ConnCase
 
+  alias CbusElixir.App.Meeting
+  alias CbusElixir.Repo
+
   @create_attrs %{
     email: "some@email",
     name: "some name",
@@ -41,6 +44,16 @@ defmodule CbusElixirWeb.AttendeeControllerTest do
     twitter: "thishastoomanycharacters",
     meeting_id: 1
   }
+
+  setup do
+    meeting_date = Timex.shift(NaiveDateTime.utc_now(), days: 1)
+
+    %Meeting{}
+    |> Meeting.changeset(%{date: meeting_date})
+    |> Repo.insert!()
+
+    :ok
+  end
 
   describe "new attendee" do
     test "renders form", %{conn: conn} do

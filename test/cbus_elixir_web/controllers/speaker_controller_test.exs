@@ -2,17 +2,17 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
   use CbusElixirWeb.ConnCase
 
   alias CbusElixir.App
+  alias CbusElixir.App.Meeting
+  alias CbusElixir.Repo
 
   @create_attrs %{
     email: "some email",
-    meeting_id: 42,
     name: "some name",
     title: "some title",
     url: "some url"
   }
   @update_attrs %{
     email: "some updated email",
-    meeting_id: 43,
     name: "some updated name",
     title: "some updated title",
     url: "some updated url"
@@ -30,8 +30,19 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
     %{conn: conn}
   end
 
+  def meeting_id() do
+    %Meeting{}
+    |> Meeting.changeset(%{date: NaiveDateTime.utc_now()})
+    |> Repo.insert!()
+    |> Map.get(:id)
+  end
+
   def fixture(:speaker) do
-    {:ok, speaker} = App.create_speaker(@create_attrs)
+    {:ok, speaker} =
+      %{meeting_id: meeting_id()}
+      |> Enum.into(@create_attrs)
+      |> App.create_speaker()
+
     speaker
   end
 
@@ -51,7 +62,11 @@ defmodule CbusElixirWeb.SpeakerControllerTest do
 
   describe "create speaker" do
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post(conn, speaker_path(conn, :create), speaker: @create_attrs)
+      attrs =
+        %{meeting_id: meeting_id()}
+        |> Enum.into(@create_attrs)
+
+      conn = post(conn, speaker_path(conn, :create), speaker: attrs)
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == speaker_path(conn, :show, id)
