@@ -22,7 +22,7 @@ defmodule CbusElixir.App.Meetings do
       left_join: s in assoc(m, :speakers),
       where: m.date < ^DateTime.utc_now(),
       order_by: [desc: m.date],
-      distinct: m.date
+      distinct: true
     )
   end
 
