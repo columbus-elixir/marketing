@@ -29,8 +29,8 @@ defmodule CbusElixir.Pagination do
     offset = per_page * (page - 1)
 
     query
-  |> limit(^(per_page + 1))
-  |> offset(^offset)
+    |> limit(^(per_page + 1))
+    |> offset(^offset)
   end
 
   defp split_results(per_page, paged_results) when length(paged_results) <= per_page do

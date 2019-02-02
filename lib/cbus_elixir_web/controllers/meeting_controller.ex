@@ -27,7 +27,7 @@ defmodule CbusElixirWeb.MeetingController do
     paged_result_w_preload =
       paged_result
       |> Map.put(:results, preloaded_results)
-
+    
     render(conn, "index.html", paged_result: paged_result_w_preload)
   end
 

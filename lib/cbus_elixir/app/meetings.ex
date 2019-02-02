@@ -13,7 +13,7 @@ defmodule CbusElixir.App.Meetings do
   alias CbusElixir.App.Attendee
 
   @doc """
-  Fetch a paged result for meetings
+  Fetch past meetings
   """
   
   @spec meetings_for_page_query() :: Ecto.Query.t()
