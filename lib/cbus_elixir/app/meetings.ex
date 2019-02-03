@@ -15,7 +15,6 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Fetch past meetings
   """
-
   @spec meetings_for_page_query() :: Ecto.Query.t()
   def meetings_for_page_query() do
     from(m in Meeting,
@@ -29,7 +28,6 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Returns the attendees for the given meeting
   """
-
   @spec attendees_for_meeting(integer()) :: list(Attendee.t())
   def attendees_for_meeting(id) do
     query =
@@ -45,7 +43,6 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Returns the next `count` upcoming meetings
   """
-
   @spec upcoming_meetings(integer(), integer()) :: map()
   def upcoming_meetings(date, count: count) do
     Meeting
@@ -57,7 +54,6 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Returns the next upcoming meeting including speakers
   """
-
   @spec next_meeting(integer()) :: map()
   def next_meeting(date) do
     Meeting
