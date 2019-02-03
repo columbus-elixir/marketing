@@ -54,6 +54,7 @@ defmodule CbusElixir.App.Meetings do
   @doc """
   Returns the next upcoming meeting including speakers
   """
+
   @spec next_meeting(integer()) :: map()
   def next_meeting(date) do
     Meeting

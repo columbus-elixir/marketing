@@ -46,7 +46,7 @@ defmodule CbusElixir.AppTest do
     end
 
     test "get_speaker!/1 returns the speaker with given id" do
-      speaker = 
+      speaker =
         speaker_fixture(%{meeting_id: meeting_id()})
         |> Repo.preload([:meeting])
 
@@ -85,10 +85,10 @@ defmodule CbusElixir.AppTest do
     end
 
     test "update_speaker/2 with invalid data returns error changeset" do
-      speaker = 
+      speaker =
         speaker_fixture(%{meeting_id: meeting_id()})
         |> Repo.preload([:meeting])
-        
+
       assert {:error, %Ecto.Changeset{}} = App.update_speaker(speaker, @invalid_attrs)
       assert App.get_speaker!(speaker.id) == speaker
     end
