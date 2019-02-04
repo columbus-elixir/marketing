@@ -19,38 +19,37 @@ defmodule CbusElixir.PaginationTest do
   end
 
   describe "paginate/3" do
+    test "it returns past meetings correctly paginated" do
+      create_eleven_past_meetings()
+      page = 1
+      per_page = 5
+      result = Pagination.paginate(Meetings.meetings_for_page_query(), page, per_page)
+      page_two = Pagination.paginate(Meetings.meetings_for_page_query(), 2, per_page)
+      page_three = Pagination.paginate(Meetings.meetings_for_page_query(), 3, per_page)
 
-  test "it returns past meetings correctly paginated" do
-    create_eleven_past_meetings()
-    page = 1
-    per_page = 5
-    result = Pagination.paginate(Meetings.meetings_for_page_query(), page, per_page)
-    page_two = Pagination.paginate(Meetings.meetings_for_page_query(), 2, per_page)
-    page_three = Pagination.paginate(Meetings.meetings_for_page_query(), 3, per_page)
+      assert result.count == 11
+      assert result.has_next == true
+      assert result.has_prev == false
+      assert result.last == 3
+      assert result.page == 1
+      assert result.prev_page == nil
+      assert length(result.results) == 5
 
-    assert result.count == 11
-    assert result.has_next == true
-    assert result.has_prev == false
-    assert result.last == 3
-    assert result.page == 1
-    assert result.prev_page == nil
-    assert length(result.results) == 5
+      assert page_two.count == 11
+      assert page_two.has_next == true
+      assert page_two.has_prev == true
+      assert page_two.last == 3
+      assert page_two.page == 2
+      assert page_two.prev_page == 1
+      assert length(page_two.results) == 5
 
-    assert page_two.count == 11
-    assert page_two.has_next == true
-    assert page_two.has_prev == true
-    assert page_two.last == 3
-    assert page_two.page == 2
-    assert page_two.prev_page == 1
-    assert length(page_two.results) == 5
-
-    assert page_three.count == 11
-    assert page_three.has_next == false
-    assert page_three.has_prev == true
-    assert page_three.last == 3
-    assert page_three.page == 3
-    assert page_three.prev_page == 2
-    assert length(page_three.results) == 1
+      assert page_three.count == 11
+      assert page_three.has_next == false
+      assert page_three.has_prev == true
+      assert page_three.last == 3
+      assert page_three.page == 3
+      assert page_three.prev_page == 2
+      assert length(page_three.results) == 1
     end
   end
 end

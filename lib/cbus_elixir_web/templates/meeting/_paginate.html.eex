@@ -1,21 +1,21 @@
-<div class="paginate">  
+<div class="paginate">
     <ul style="list-style: none;">
     <div>
     <%= if @paged_result.prev_page do %>
       <li>
-        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{1}") |> to_string() %>>
+        <a href="/meetings?page=1" %>
           <i class="fas fa-angle-double-left"></i>
         </a>
       </li>
       <li>
-        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.prev_page}") |> to_string() %>>
+        <a href="/meetings?page=<%= @paged_result.prev_page %>">
           <i class="fas fa-angle-left"></i>
         </a>
       </li>
     <% end %>
 
      <li>
-        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.prev_page}") |> to_string() %>>
+        <a href="/meetings?page=<%= @paged_result.prev_page %>">
           <h3><%= @paged_result.prev_page %></h3>
         </a>
       </li>
@@ -24,19 +24,19 @@
         <h3><%= @paged_result.page %></h3>
       </li>
       <li>
-        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.next_page}") |> to_string() %>>
+        <a href="/meetings?page=<%= @paged_result.next_page %>">
           <h3><%= @paged_result.next_page %></h3>
         </a>
       </li>
-    
+
     <%= if @paged_result.next_page do %>
       <li>
-        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.next_page}") |> to_string() %>>
+        <a href="/meetings?page=<%= @paged_result.next_page %>">
           <i class="fas fa-angle-right"></i>
         </a>
       </li>
       <li>
-        <a href=<%= URI.merge(URI.parse("http://localhost:4000"), "meetings?page=#{@paged_result.last}") |> to_string() %>>
+        <a href="/meetings?page=<%= @paged_result.last %>">
           <i class="fas fa-angle-double-right"></i>
         </a>
       </li>

@@ -62,3 +62,9 @@ config :cbus_elixir, CbusElixir.Repo,
   database: "cbus_elixir_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :cbus_elixir,
+  cbus_auth_config: [
+    username: "SecretUser",
+    password: "SecretPassword"
+  ]

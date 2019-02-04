@@ -22,9 +22,9 @@ defmodule CbusElixir.MeetingsTest do
       result = Meetings.meetings_for_page_query() |> Repo.all()
 
       assert length(result) == 3
-      assert :lists.nth(1, result).id == oldest.id
+      assert :lists.nth(1, result).id == newest.id
       assert :lists.nth(2, result).id == middle.id
-      assert :lists.nth(3, result).id == newest.id
+      assert :lists.nth(3, result).id == oldest.id
     end
   end
 end

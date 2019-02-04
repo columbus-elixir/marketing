@@ -13,26 +13,24 @@ defmodule CbusElixir.App.Meetings do
   alias CbusElixir.App.Attendee
 
   @doc """
-  Fetch a paged result for meetings
+  Fetch past meetings
   """
-  
   @spec meetings_for_page_query() :: Ecto.Query.t()
   def meetings_for_page_query() do
     from(m in Meeting,
       left_join: s in assoc(m, :speakers),
       where: m.date < ^DateTime.utc_now(),
       order_by: [desc: m.date],
-      distinct: m.date
+      distinct: true
     )
   end
 
   @doc """
   Returns the attendees for the given meeting
   """
-
   @spec attendees_for_meeting(integer()) :: list(Attendee.t())
   def attendees_for_meeting(id) do
-    query = 
+    query =
       from(a in Attendee,
         where: a.meeting_id == ^id,
         select: a.name
@@ -42,11 +40,9 @@ defmodule CbusElixir.App.Meetings do
     |> Repo.all()
   end
 
-
   @doc """
   Returns the next `count` upcoming meetings
   """
-
   @spec upcoming_meetings(integer(), integer()) :: map()
   def upcoming_meetings(date, count: count) do
     Meeting

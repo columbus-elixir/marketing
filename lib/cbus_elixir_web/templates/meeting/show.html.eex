@@ -8,8 +8,4 @@
       <td><%= attendee %></td>
     </tr>
   </table>
-
 <% end %>
-
-
-
