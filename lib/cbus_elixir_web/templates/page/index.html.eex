@@ -29,6 +29,7 @@
                 <% end) %>
             </ul>
         <% end %>
+        <h2><a href="/meetings">Past Meetings</a></h2>
     </div>
 
     <div class="column column-33 sidebar">
