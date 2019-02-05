@@ -1,0 +1,23 @@
+.paginate {
+  text-align: center;
+  margin: auto;
+  ul {
+    padding: 10px;
+    li {
+      margin: 0;
+      display: inline-block;
+      padding: 5px;
+      a {
+        width: 150px;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    ul {
+      li a {
+        width: 100%;
+        font-size: 8px;
+      }
+    }
+  }
+}

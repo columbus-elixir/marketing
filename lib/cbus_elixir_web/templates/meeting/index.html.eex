@@ -1,0 +1,38 @@
+<div class="row main-content">
+  <table style="margin-bottom: 0;">
+
+    <thead>
+      <tr>
+        <th>Meeting</th>
+        <th>Speakers and Talks</th>
+      </tr>
+    </thead>
+
+      <%= for meeting <- @paged_result.results do %>
+        <tbody>
+          <tr>
+
+            <td><%= formatted_date(meeting.date) %></td>
+
+            <td>
+              <table style="margin-bottom: 0;">
+                <tbody>
+                  <%= for speaker <- meeting.speakers do %>
+                    <tr>
+                      <td style="border: none; width: 100px;"><h4 style="margin: auto"><%= speaker.name %></h4></td>
+                      <td style="border: none;"><p style="margin: auto;"><%= speaker.title %></p></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </td>
+
+            <td><%= link "", to: meeting_path(@conn, :show, meeting) %></td>
+
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render("_paginate.html", paged_result: @paged_result) %>  

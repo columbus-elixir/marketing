@@ -12,6 +12,7 @@
 
 alias CbusElixir.Repo
 alias CbusElixir.App.Meeting
+alias CbusElixir.App.Speaker
 
 start_date = ~N[2018-03-01T00:00:00]
 

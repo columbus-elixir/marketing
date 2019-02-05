@@ -1,0 +1,11 @@
+<%= for attendee <- @attendees do %>
+ </br>
+  <table>
+    <th>
+      <tr><h1>Attendees</h1></tr>
+    </th>
+    <tr>
+      <td><%= attendee %></td>
+    </tr>
+  </table>
+<% end %>
