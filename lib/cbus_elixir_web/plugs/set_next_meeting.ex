@@ -10,7 +10,7 @@ defmodule CbusElixir.Plugs.SetNextMeeting do
     if conn.assigns[:next_meeting] do
       conn
     else
-      next_meeting = Meetings.next_meeting(Timex.now())
+      next_meeting = Meetings.next_meeting(Timex.today())
       assign(conn, :next_meeting, next_meeting)
     end
   end

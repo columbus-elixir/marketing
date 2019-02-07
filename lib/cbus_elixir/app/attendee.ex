@@ -20,6 +20,7 @@ defmodule CbusElixir.App.Attendee do
     |> cast(attrs, [:name, :email, :twitter, :new_to_elixir, :new_to_cbus_elixir, :meeting_id])
     |> validate_required([:name, :email, :new_to_elixir, :new_to_cbus_elixir, :meeting_id])
     |> validate_format(:email, ~r/@/, message: "Email must contain '@'")
+    |> unique_constraint(:email)
     |> validate_length(:twitter, min: 1, max: 15)
     |> format_twitter
   end
