@@ -32,8 +32,8 @@
                     <td><%= attendee.twitter %></td>
                 <% end %>
 
-                <td><%= attendee.new_to_elixir %></td>
-                <td><%= attendee.new_to_cbus_elixir %></td>
+                <td><%= if attendee.new_to_elixir, do: "Cool", else: "" %></td>
+                <td><%= if attendee.new_to_cbus_elixir, do: "Welcome!", else: "" %></td>
 
                 </tr>
             <% end %>
