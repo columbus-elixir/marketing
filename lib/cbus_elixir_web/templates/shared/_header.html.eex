@@ -13,10 +13,10 @@
         <i class="fab fa-slack" alt="Slack logo"></i>
         <a href="https://columbus-elixir-slackin.herokuapp.com" target="_blank">Slack</a>
     </div>
-    <div class="column">
+    <!-- <div class="column">
         <i class="fab fa-patreon" alt="Patreon logo"></i>
         <a href="https://www.patreon.com/user?u=9874095" target="_blank">Patreon</a>
-    </div>
+    </div> -->
     <div class="column">
         <i class="fab fa-twitter" alt="Twitter logo"></i>
         <a href="https://twitter.com/columbuselixir" target="_blank">Twitter</a>
