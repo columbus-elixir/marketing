@@ -6,7 +6,7 @@
         <h2 class="title myriad">What we're about</h2>
         <ul>
             <li>Hosting lectures on functional programming concepts</li>
-            <li>Creating new <a href="https://github.com/columbus-elixir">open-source software</a> built on Elixir</li>
+            <li>Creating new <a href="https://github.com/columbus-elixir" target="_blank">open-source software</a> built on Elixir</li>
             <li>Providing an excellent place for anyone (novice or expert) to start learning about Elixir</li>
         </ul>
 
@@ -18,7 +18,7 @@
             <ul class="list">
                 <%= Enum.map(@next_meeting.speakers, fn(s) -> %>
                     <li>
-                        <a href="<%= s.url %>">
+                        <a href="<%= s.url %>" target="_blank">
                             <img class="avatar" src='<%= gravatar_url(s.email) %>', alt="Speaker Image" />
                             <div class="details">
                                 <div class="name"><%= s.name %></div>
