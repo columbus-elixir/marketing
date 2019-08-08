@@ -19,6 +19,7 @@ defmodule CbusElixirWeb.Router do
 
     get("/", PageController, :index)
     get("/registration", MeetingRegistrationController, :index)
+    get("/videos", VideoController, :index)
 
     resources("/meetings", MeetingController)
     resources("/speakers", SpeakerController)
