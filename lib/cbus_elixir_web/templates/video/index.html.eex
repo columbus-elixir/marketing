@@ -1,0 +1,15 @@
+<div class="row main-content">
+    <div class="column column-67">
+      <div class="button-container">
+			    <button id="top-prev-button" class="paging-button" onclick="previousPage();">Previous Page</button>
+			    <button id="top-next-button" class="paging-button" onclick="nextPage();">Next Page</button>
+			</div>
+			<hr />
+			<div id="video-container"></div>
+			<hr />
+			<div class="button-container">
+			    <button id="bottom-prev-button" class="paging-button" onclick="previousPage();">Previous Page</button>
+			    <button id="bottom-next-button" class="paging-button" onclick="nextPage();">Next Page</button>
+			</div>
+    </div>
+</div>
