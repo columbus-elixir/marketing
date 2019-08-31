@@ -29,4 +29,8 @@
       <i class="fab fa-meetup"></i>
         <a href="https://www.meetup.com/meetup-group-dXjIQyMO" target="_blank">Meetup</a>
     </div>
+    <div class="column" alt="code logo">
+      <i class="fa fa-code"></i>
+        <a href="https://github.com/columbus-elixir/katas" target="_blank">Katas</a>
+    </div>
 </div>
