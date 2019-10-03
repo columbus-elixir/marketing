@@ -1,0 +1,9 @@
+.video-link img {
+  border: 3px solid $purple;
+  border-radius: 10px;
+  transition: all 1s
+}
+
+.video-link img:hover {
+  transform: scale(1.1);
+}

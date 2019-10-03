@@ -5,7 +5,9 @@
 			    <button id="top-next-button" class="paging-button" onclick="nextPage();">Next Page</button>
 			</div>
 			<hr />
-			<div id="video-container"></div>
+			<div id="video-container">
+        <a href="https://www.youtube.com/watch?v=3TVKrXSnWjs" class="video-link"><img src="https://i.ytimg.com/vi/3TVKrXSnWjs/mqdefault.jpg"></a>
+      </div>
 			<hr />
 			<div class="button-container">
 			    <button id="bottom-prev-button" class="paging-button" onclick="previousPage();">Previous Page</button>
