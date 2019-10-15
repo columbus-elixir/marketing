@@ -25,12 +25,12 @@
         <i class="fab fa-github" alt="Github logo"></i>
         <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
     </div>
-    <div class="column" alt="Meetup logo">
-      <i class="fab fa-meetup"></i>
-        <a href="https://www.meetup.com/meetup-group-dXjIQyMO" target="_blank">Meetup</a>
+    <div class="column">
+      <i class="fab fa-youtube" alt="YouTube logo"></i>
+        <a href="https://www.youtube.com/channel/UC9Sp7gOwPSK2jWuwtVMW4qw" target="_blank">YouTube</a>
     </div>
-    <div class="column" alt="code logo">
-      <i class="fa fa-code"></i>
+    <div class="column">
+      <i class="fa fa-code" alt="code logo"></i>
         <a href="https://github.com/columbus-elixir/katas" target="_blank">Katas</a>
     </div>
 </div>
