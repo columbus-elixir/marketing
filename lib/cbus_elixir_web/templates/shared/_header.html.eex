@@ -26,11 +26,15 @@
         <a href="https://github.com/columbus-elixir" target="_blank">Github</a>
     </div>
     <div class="column">
+      <i class="fa fa-code" alt="code logo"></i>
+        <a href="https://github.com/columbus-elixir/katas" target="_blank">Katas</a>
+    </div>
+    <div class="column">
       <i class="fab fa-youtube" alt="YouTube logo"></i>
         <a href="https://www.youtube.com/channel/UC9Sp7gOwPSK2jWuwtVMW4qw" target="_blank">YouTube</a>
     </div>
     <div class="column">
-      <i class="fa fa-code" alt="code logo"></i>
-        <a href="https://github.com/columbus-elixir/katas" target="_blank">Katas</a>
+        <i class="fab fa-linkedin" alt="Linkedin logo"></i>
+        <a href="https://www.linkedin.com/groups/12304876/" target="_blank">Linkedin</a>
     </div>
 </div>
