@@ -11,7 +11,7 @@
 <div class="row nav myriad">
     <div class="column">
         <i class="fab fa-slack" alt="Slack logo"></i>
-        <a href="https://columbus-elixir-slackin.herokuapp.com" target="_blank">Slack</a>
+        <a href="http://cbus-elixir-slackin.herokuapp.com/" target="_blank">Slack</a>
     </div>
     <!-- <div class="column">
         <i class="fab fa-patreon" alt="Patreon logo"></i>
