@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/columbus-elixir/marketing/tree/master.svg?style=svg)](https://circleci.com/gh/columbus-elixir/marketing/tree/master)
+
 ![Columbus Elixir Logo](/assets/static/images/cbus_elixir_logo_new.png)
 
 
