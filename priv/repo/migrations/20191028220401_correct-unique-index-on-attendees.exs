@@ -2,7 +2,7 @@ defmodule :"Elixir.CbusElixir.Repo.Migrations.Correct-unique-index-on-attendees"
   use Ecto.Migration
 
   def change do
-    remove(unique_index(:attendees, [:email]))
+    drop(index(:attendees, [:email]))
     create(unique_index(:attendees, [:email, :meeting_id]))
   end
 end
