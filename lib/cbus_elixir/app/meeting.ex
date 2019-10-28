@@ -9,6 +9,7 @@ defmodule CbusElixir.App.Meeting do
 
   schema "meetings" do
     field(:date, :utc_datetime)
+    field(:rsvp_link, :string)
     has_many(:speakers, Speaker)
     has_many(:attendees, Attendee)
 
