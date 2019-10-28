@@ -36,6 +36,7 @@
         <div class="next-meeting">
             <h2 class="title myriad">Next Meeting</h2>
             <p>
+                <a href="<%= @next_meeting.rsvp_link %>" target="_blank">RSVP</a><br />
                 <%= formatted_date(@next_meeting.date) %> at 6pm<br />
                 First Tuesday of Every Month
             </p>
