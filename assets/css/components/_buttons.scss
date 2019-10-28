@@ -3,11 +3,12 @@
   text-transform: uppercase;
   text-decoration: none;
   background: $purple;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 15px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  margin-bottom: 15px;
 }
 
 .button_1:hover {
