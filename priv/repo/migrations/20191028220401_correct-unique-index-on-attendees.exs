@@ -1,4 +1,4 @@
-defmodule :"Elixir.CbusElixir.Repo.Migrations.Correct-unique-index-on-attendees" do
+defmodule CbusElixir.Repo.Migrations.CorrectUniqueIndexOnAttendees do
   use Ecto.Migration
 
   def change do
