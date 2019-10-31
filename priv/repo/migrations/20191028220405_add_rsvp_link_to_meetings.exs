@@ -3,7 +3,7 @@ defmodule CbusElixir.Repo.Migrations.AddRsvpLinkToMeetings do
 
   def change do
     alter table(:meetings) do
-      add :rsvp_link, :string
+      add(:rsvp_link, :string)
     end
   end
 end
