@@ -31,7 +31,7 @@
             </ul>
         <% end %>
         <h2 class="title myriad">Questions? Hop in to the IRC chat!</h2>
-        <p>NB: Internet Relay Chat (IRC) is asynchronous and there will be times during which the organizers are not present in the chat. That said, we do check this channel almost daily so that communications don't become stale.</p>
+        <p>NB: Internet Relay Chat (IRC) is asynchronous and there will be times during which the organizers are not present in the chat. That said, we do <a href="https://freenode.logbot.info/columbus-elixir" target="_blank">check this channel</a> almost daily so that communications don't become stale.</p>
         <p>New to IRC? <a href="https://opensource.com/article/16/6/irc-quickstart-guide" target="_blank">Check out this quickstart guide!</a></p>
         <p>The following accounts are registered with freenode's NickServ and are considered `official` representatives of the meetup:</p>
         <ul>
