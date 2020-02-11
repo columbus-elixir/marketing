@@ -1,6 +1,7 @@
 defmodule CbusElixirWeb.MeetingController do
   use CbusElixirWeb, :controller
 
+  alias CbusElixir.App
   alias CbusElixir.App.Meeting
   alias CbusElixir.App.Meetings
   alias CbusElixir.Repo
@@ -26,5 +27,22 @@ defmodule CbusElixirWeb.MeetingController do
     attendees = Meetings.attendees_for_meeting(id)
 
     render(conn, "show.html", attendees: attendees)
+  end
+
+  def new(conn, _params) do
+    changeset = App.change_meeting(%Meeting{})
+    render(conn, "new.html", changeset: changeset)
+  end
+
+  def create(conn, %{"meeting" => meeting_params}) do
+    case App.create_meeting(meeting_params) do
+      {:ok, meeting} ->
+        conn
+        |> put_flash(:info, "Meeting created successfully.")
+        |> redirect(to: meeting_path(conn, :show, meeting))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
   end
 end

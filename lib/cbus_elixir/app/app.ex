@@ -8,6 +8,7 @@ defmodule CbusElixir.App do
 
   alias CbusElixir.App.Speaker
   alias CbusElixir.App.Attendee
+  alias CbusElixir.App.Meeting
 
   @doc """
   Returns the list of speakers.
@@ -178,5 +179,36 @@ defmodule CbusElixir.App do
   """
   def change_attendee(%Attendee{} = attendee) do
     Attendee.changeset(attendee, %{})
+  end
+
+  @doc """
+  Creates a meeting.
+
+  ## Examples
+
+    iex> create_meeting(%{field: value})
+    {:ok, %Meeting{}}
+
+    iex> create_meeting(%{field: bad_value})
+    {:error, %Ecto.Changeset{}}
+
+  """
+  def create_meeting(attrs \\ %{}) do
+    %Meeting{}
+    |> Meeting.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking meeting changes.
+
+  ## Examples
+
+      iex> change_meeting(meeting)
+      %Ecto.Changeset{source: %Meeting{}}
+
+  """
+  def change_meeting(%Meeting{} = meeting) do
+    Meeting.changeset(meeting, %{})
   end
 end
