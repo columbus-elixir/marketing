@@ -157,4 +157,55 @@ defmodule CbusElixir.AppTest do
       assert {:error, %Ecto.Changeset{}} = App.create_attendee(@invalid_attrs)
     end
   end
+
+  describe "meetings" do
+    alias CbusElixir.App.Meeting
+
+    @valid_attrs %{
+      date: %{
+        day: "1",
+        month: "1",
+        year: "2000"
+      },
+      rsvp_link: "https://columbuselixir.com"
+    }
+    @invalid_attrs %{
+      date: %{}
+    }
+
+    def meeting_fixture(attrs \\ %{}) do
+      {:ok, meeting} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> App.create_meeting()
+
+      meeting
+    end
+
+    test "update_meeting/2 with invalid data returns error changeset" do
+      meeting = meeting_fixture()
+  
+      assert {:error, %Ecto.Changeset{}} = App.update_meeting(meeting, @invalid_attrs)
+      assert App.get_meeting!(meeting.id) == meeting
+    end
+
+    test "get_meeting!/1 returns the meeting with given id" do
+      meeting = meeting_fixture()
+
+      assert App.get_meeting!(meeting.id) == meeting
+    end
+
+    test "create_meeting/1 with valid data creates a meeting" do
+      meeting = meeting_fixture()
+
+      assert meeting.date == ~D[2000-01-01]
+      assert meeting.rsvp_link == "https://columbuselixir.com"
+    end
+
+    test "delete_meeting/1 deletes the meeting" do
+      meeting = meeting_fixture()
+      assert {:ok, %Meeting{}} = App.delete_meeting(meeting)
+      assert_raise Ecto.NoResultsError, fn -> App.get_meeting!(meeting.id) end
+    end
+  end
 end

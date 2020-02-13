@@ -211,4 +211,56 @@ defmodule CbusElixir.App do
   def change_meeting(%Meeting{} = meeting) do
     Meeting.changeset(meeting, %{})
   end
+
+  @doc """
+
+  Updates a meeting.
+
+  ## Examples
+
+      iex> update_meeting(meeting, %{field: new_value})
+      {:ok, %Meeting{}}
+
+      iex> update_meeting(meeting, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_meeting(%Meeting{} = meeting, attrs) do
+    meeting
+    |> Meeting.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+
+  Deletes a meeting.
+
+  ## Examples
+
+      iex> delete_meeting(meeting)
+      {:ok, %Meeting{}}
+
+      iex> delete_meeting(meeting)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_meeting(%Meeting{} = meeting) do
+    Repo.delete(meeting)
+  end
+  
+  @doc """
+  Gets a single meeting.
+
+  Raises `Ecto.NoResultsError` if the Meeting does not exist.
+
+  ## Examples
+
+      iex> get_meeting!(123)
+      %Meeting{}
+
+      iex> get_meeting!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_meeting!(id), do: Repo.get!(Meeting, id)
 end
