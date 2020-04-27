@@ -5,9 +5,6 @@
     "deploy": "brunch build --production",
     "watch": "brunch watch --stdin"
   },
-  "engines": {
-    "node": ">=10.16"
-  },
   "dependencies": {
     "acorn": ">=5.7.4",
     "braces": ">=2.3.1",
