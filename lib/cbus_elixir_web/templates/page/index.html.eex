@@ -42,13 +42,17 @@
         </div>
         <div class="location">
             <h2 class="title myriad">Location</h2>
-            <strong>ScriptDrop Office</strong>
+            <strong>Online:</strong>
+            Register on our <a href="https://www.eventbrite.com/o/columbus-elixir-27643421841" target=_blank">Eventbrite page</a>
+            </br>
+            </br>
+            <%# <strong>ScriptDrop Office</strong>
             <address>
                 855 Grandview Ave
                 Grandview OH 43215
             </address>
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.495192098668!2d-83.04864668395416!3d39.97503779030612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88388fad83834925%3A0x9d1dda178a3d851f!2s855+Grandview+Ave%2C+Columbus%2C+OH+43215!5e0!3m2!1sen!2sus!4v1543478408810" width="300" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.495192098668!2d-83.04864668395416!3d39.97503779030612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88388fad83834925%3A0x9d1dda178a3d851f!2s855+Grandview+Ave%2C+Columbus%2C+OH+43215!5e0!3m2!1sen!2sus!4v1543478408810" width="300" height="400" frameborder="0" style="border:0" allowfullscreen></iframe> %>
         </div>
 
         <div class="sponsors">
