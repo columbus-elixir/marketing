@@ -1,12 +1,12 @@
 {
   "repository": {},
   "license": "MIT",
+  "engines": {
+    "node": ">=10.16"
+  },
   "scripts": {
     "deploy": "brunch build --production",
     "watch": "brunch watch --stdin"
-  },
-  "engines": {
-    "node": ">=10.16"
   },
   "dependencies": {
     "braces": ">=2.3.1",
