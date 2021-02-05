@@ -1,0 +1,9 @@
+<div class="main-content">
+  <div style="overflow-x:auto;">
+    <h2>New Meeting</h2>
+
+    <%= render "form.html", Map.put(assigns, :action, meeting_path(@conn, :create)) %>
+
+    <span><%= link "Back", to: meeting_path(@conn, :index) %></span>
+  </div>
+</div>

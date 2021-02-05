@@ -1,11 +1,28 @@
-<%= for attendee <- @attendees do %>
- </br>
-  <table>
-    <th>
-      <tr><h1>Attendees</h1></tr>
-    </th>
-    <tr>
-      <td><%= attendee %></td>
-    </tr>
-  </table>
-<% end %>
+<div class="main-content">
+  <h2>Show Meeting</h2>
+
+  <div class="row">
+    <div class="column">
+      <%= for attendee <- @attendees do %>
+      </br>
+        <table>
+          <th>
+            <tr><h1>Attendees</h1></tr>
+          </th>
+          <tr>
+            <td><%= attendee %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <%= link "Edit", to: meeting_path(@conn, :edit, @meeting), method: :get, class: "btn btn-info btn-xs" %>
+    </div>
+    <div class="column">
+      <%= link "Delete", to: meeting_path(@conn, :delete, @meeting), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ defmodule CbusElixir.App.Meeting do
   alias CbusElixir.App.Speaker
 
   schema "meetings" do
-    field(:date, :utc_datetime)
+    field(:date, :date)
     field(:rsvp_link, :string)
     has_many(:speakers, Speaker)
     has_many(:attendees, Attendee)
@@ -25,7 +25,7 @@ defmodule CbusElixir.App.Meeting do
   @doc false
   def changeset(%Meeting{} = meeting, attrs) do
     meeting
-    |> cast(attrs, [:date])
+    |> cast(attrs, [:date, :rsvp_link])
     |> validate_required([:date])
   end
 end

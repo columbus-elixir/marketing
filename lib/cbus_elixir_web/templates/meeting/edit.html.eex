@@ -1,0 +1,7 @@
+<div class="main-content">
+  <h2>Edit Meeting</h2>
+
+  <%= render "form.html", Map.put(assigns, :action, meeting_path(@conn, :update, @meeting)) %>
+
+  <span><%= link "Back", to: meeting_path(@conn, :index) %></span>
+</div>
